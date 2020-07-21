@@ -1,7 +1,6 @@
 import React from 'react';
 import './MxmNavbar.css';
 import { NavLink } from 'react-router-dom';
-import AppRouter from '../../AppRouter';
 import logo from '../../assets/mxm20_title_icon.png';
 
 const Navbar = () => (
@@ -39,7 +38,6 @@ const Navbar = () => (
       </div>
     </nav>
 
-    <AppRouter />
   </div>
 );
 

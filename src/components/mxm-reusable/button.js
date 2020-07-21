@@ -9,18 +9,20 @@ export const MxmButton = styled.button`
     text-transform: uppercase;
     outline:none;
     border-radius : 50px;
-    padding : 1vh 2vw 1vh 2vw;
+    padding : 1vh 2.5vw 1vh 2.5vw;
     background-color: #FFD008;
     border: none;
     transition-duration: 0.2s;
     box-shadow: 0 1vh #F4224B;
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
 
     &:hover {
         cursor: pointer;
         background-color: #E3BD1B;
         transform: translateY(0.5vh);
         box-shadow: 0 0.5vh #F4224B;
-      }
+    }
+
     &:active {
         transform: translateY(1vh);
         box-shadow: 0 0 #F4224B;
