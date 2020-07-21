@@ -16,20 +16,24 @@ const Beranda = () => {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      paddingTop={2}
     >
       <Container maxWidth="sm">
-        <img src={logo} alt="MAXIMA 2020 Logo" />
-        <p style={{ fontSize: '3em', fontFamily: 'canaro-bold' }}>tunggu sebentar ya.</p>
-        <h1 className="mxm-cyan">agustus 2020</h1>
+        <Box paddingBottom={12}>
+          <img src={logo} alt="MAXIMA 2020 Logo" />
+          <p style={{ fontSize: '3em', fontFamily: 'canaro-bold' }}>tunggu sebentar ya.</p>
+          <h1 className="mxm-cyan">agustus 2020</h1>
+        </Box>
       </Container>
       <Box
         color="white"
         letterSpacing={5}
         lineHeight={4}
       >
-        INSTAGRAM | LINE
+        <a style={{ textDecoration: 'none', color: 'white' }} href="https://www.instagram.com/maximaumn/" target="_blank" rel="noopener noreferrer">INSTAGRAM | </a>
+        <a style={{ textDecoration: 'none', color: 'white' }} href="https://lin.ee/fV5PZKk" target="_blank" rel="noopener noreferrer">LINE</a>
       </Box>
-      <h4 style={{ letterSpacing: 2 }}>Dikelola oleh Public Relations MAXIMA 2020</h4>
+      <h4 style={{ letterSpacing: 2, marginLeft: 8 }}>Dikelola oleh Public Relations MAXIMA 2020</h4>
     </Box>
   );
 };
