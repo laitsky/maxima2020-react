@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect } from 'react';
 import { Container, Box } from '@material-ui/core';
 import logo from '../../assets/mxm_yellow.png';

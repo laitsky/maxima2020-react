@@ -5,6 +5,8 @@ import Home from './pages/home/Home';
 import State from './pages/state/State';
 import Login from './pages/auth/Login';
 import VirtualTour from './pages/testing/VirtualTour';
+import HookForm from './pages/testing/HookForm';
+import DaftarMaba from './pages/auth/DaftarMaba';
 
 const AppRouter = () => (
   <div>
@@ -12,7 +14,9 @@ const AppRouter = () => (
     <Route path="/home" exact strict component={Home} />
     <Route path="/state" exact strict component={State} />
     <Route path="/tour" exact strict component={VirtualTour} />
+    <Route path="/test" exact strict component={HookForm} />
     <Route path="/login" exact strict component={Login} />
+    <Route path="/daftar" exact strict component={DaftarMaba} />
   </div>
 );
 

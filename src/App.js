@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <GlobalStyles />
-      {/* <MxmNavbar /> */}
+      <MxmNavbar />
       <AppRouter />
     </Router>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
-import { MxmButton } from '../../components/mxm-reusable/button';
-import { MxmInput } from '../../components/mxm-reusable/input';
+import { MxmButton } from '../../components/reusable/button';
+import { MxmInput } from '../../components/reusable/input';
 
 const Home = () => (
   <div>
