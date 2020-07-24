@@ -12,6 +12,7 @@ export const MxmInput = styled.input`
     border: solid 2px;
     color: #F4224B;
     box-sizing: border-box;
+    transition-duration: 0.4s;
 
     &::placeholder {
         font-family: "canaro-light";
@@ -21,7 +22,6 @@ export const MxmInput = styled.input`
     }
 
     &:focus {
-        border: inset;
-        border-color: #F4224B; 
+        box-shadow: 0 0 5px rgb(244, 34, 75);
     }
 `;

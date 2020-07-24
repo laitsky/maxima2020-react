@@ -6,7 +6,7 @@ import logo from '../../assets/mxm20_logo.png';
 import { MxmInput } from '../../components/reusable/input';
 import { MxmButton } from '../../components/reusable/button';
 import { Error } from '../../components/reusable/error';
-import { MxmLogoContainer } from '../../components/reusable/container';
+import { MxmLogoContainer, AlignMiddle } from '../../components/reusable/container';
 
 const DaftarMaba = () => {
   const {
@@ -24,12 +24,7 @@ const DaftarMaba = () => {
   return (
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <AlignMiddle>
           <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
           <h1 className="mxm-navy" style={{ textAlign: 'center', fontFamily: 'canaro-bold' }}>PENDAFTARAN AKUN BARU MAXIMA 2020</h1>
           <MxmInput
@@ -85,7 +80,7 @@ const DaftarMaba = () => {
               </h4>
             </Link>
           </Box>
-        </Box>
+        </AlignMiddle>
       </form>
     </Container>
   );

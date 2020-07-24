@@ -6,3 +6,10 @@ export const MxmLogoContainer = styled.img`
     max-height: 200px;
     width: auto;
 `;
+
+export const AlignMiddle = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
