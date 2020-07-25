@@ -7,6 +7,7 @@ import Login from './pages/auth/Login';
 import VirtualTour from './pages/testing/VirtualTour';
 import HookForm from './pages/testing/HookForm';
 import DaftarMaba from './pages/auth/DaftarMaba';
+import Shortener from './pages/shortener/Shortener';
 
 const AppRouter = () => (
   <div>
@@ -17,6 +18,7 @@ const AppRouter = () => (
     <Route path="/test" exact strict component={HookForm} />
     <Route path="/login" exact strict component={Login} />
     <Route path="/daftar" exact strict component={DaftarMaba} />
+    <Route path="/shortener" exact strict component={Shortener} />
   </div>
 );
 
