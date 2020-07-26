@@ -1,0 +1,1 @@
+export { Beranda } from './Beranda';
