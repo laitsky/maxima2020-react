@@ -6,18 +6,20 @@ import {
   HomeMainPage,
   LoginPage,
   MaxiTour,
-  StateMainPage,
 } from './views';
 import HookForm from './views/testing/HookForm';
 import Shortener from './views/shortener/Shortener';
 import ShowName from './views/testing/ShowName';
-import { AdminRouter } from './routers';
+import {
+  AdminRouter,
+  StateRouter,
+  OrganisatorRouter,
+} from './routers';
 
 const AppRouter = () => (
   <div>
     <Route path="/" exact strict component={Beranda} />
     <Route path="/home" exact strict component={HomeMainPage} />
-    <Route path="/state" exact strict component={StateMainPage} />
     <Route path="/tour" exact strict component={MaxiTour} />
     <Route path="/test" exact strict component={HookForm} />
     <Route path="/login" exact strict component={LoginPage} />
@@ -25,6 +27,8 @@ const AppRouter = () => (
     <Route path="/shortener" exact strict component={Shortener} />
     <Route path="/user/:name" exact strict component={ShowName} />
     <AdminRouter />
+    <StateRouter />
+    <OrganisatorRouter />
   </div>
 );
 

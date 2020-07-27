@@ -10,16 +10,27 @@ import {
   MxmLogoContainer,
   AlignMiddle,
 } from '../../../components/reusable/container';
+import authService from '../../../services/auth';
 
 const DaftarMaba = () => {
   const { register, handleSubmit, reset, errors, watch } = useForm();
   const password = useRef({});
   password.current = watch('password', '');
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     reset();
     // eslint-disable-next-line no-param-reassign
     delete data.password_conf;
-    console.log(data);
+    const dataMaba = {
+      ...data,
+      roles: 'maba',
+    };
+    console.log(dataMaba);
+    try {
+      const returnedData = await authService.daftarMaba(dataMaba);
+      console.log(returnedData);
+    } catch (ex) {
+      console.log(ex.response.data);
+    }
   };
 
   return (
@@ -35,11 +46,11 @@ const DaftarMaba = () => {
           </h1>
           <MxmInput
             type="text"
-            name="nama"
+            name="name"
             placeholder="Nama Lengkap"
             ref={register({ required: 'Isi nama lengkap kamu' })}
           />
-          {errors.nama && <Error>{errors.nama.message}</Error>}
+          {errors.name && <Error>{errors.name.message}</Error>}
           <MxmInput
             type="text"
             name="nim"
@@ -49,13 +60,6 @@ const DaftarMaba = () => {
             })}
           />
           {errors.nim && <Error>{errors.nim.message}</Error>}
-          <MxmInput
-            type="text"
-            name="jurusan"
-            placeholder="Jurusan"
-            ref={register({ required: 'Isi jurusan kamu' })}
-          />
-          {errors.jurusan && <Error>{errors.jurusan.message}</Error>}
           <MxmInput
             type="text"
             name="email"
