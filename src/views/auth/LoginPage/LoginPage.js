@@ -3,7 +3,10 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
-import { MxmInput } from '../../../components/reusable/input';
+import {
+  MxmInput,
+  MxmPrependInput,
+} from '../../../components/reusable/input';
 import { MxmButton } from '../../../components/reusable/button';
 import { Error } from '../../../components/reusable/error';
 import {
@@ -13,7 +16,9 @@ import {
 import authService from '../../../services/auth';
 
 const LoginPage = () => {
-  const { register, handleSubmit, reset, errors } = useForm();
+  const { register, handleSubmit, reset, errors } = useForm({
+    mode: 'onChange',
+  });
   const onSubmit = async (data) => {
     reset();
     console.log(data);
@@ -40,18 +45,35 @@ const LoginPage = () => {
           >
             SELAMAT DATANG!
           </h1>
-          <MxmInput
-            type="text"
-            name="nim"
-            placeholder="NIM..."
-            ref={register({ required: 'Isi NIM kamu' })}
-          />
+          <MxmPrependInput>
+            <span>00000</span>
+            <input
+              type="number"
+              name="nim"
+              placeholder="NIM..."
+              ref={register({
+                required: 'Isi NIM kamu',
+                minLength: {
+                  value: 5,
+                  message: 'NIM harus berupa 5 digit',
+                },
+                maxLength: {
+                  value: 5,
+                  message: 'NIM harus berupa 5 digit',
+                },
+              })}
+            />
+          </MxmPrependInput>
+
           {errors.nim && <Error>{errors.nim.message}</Error>}
           <MxmInput
             type="password"
             name="password"
             placeholder="Kata Sandi..."
-            ref={register({ required: 'Isi kata sandi kamu' })}
+            ref={register({
+              required: 'Isi kata sandi kamu',
+              maxLength: { value: 2, message: 'error message' },
+            })}
           />
           {errors.password && (
             <Error>{errors.password.message}</Error>

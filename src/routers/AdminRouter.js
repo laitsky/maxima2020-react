@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AdminDashboard } from '../views';
+import { AdminDashboard, AddHome } from '../views';
 import ShortenerLists from '../views/dashboards/admin/Shortener';
 
 const AdminRouter = () => (
@@ -13,6 +13,12 @@ const AdminRouter = () => (
       exact
       strict
       component={AdminDashboard}
+    />
+    <Route
+      path="/admin/add-home"
+      exact
+      strict
+      component={AddHome}
     />
     <Route
       path="/admin/shorteners"

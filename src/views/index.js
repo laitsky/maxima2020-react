@@ -3,5 +3,8 @@ export { Beranda } from './beranda';
 export { HomeMainPage } from './home';
 export { MaxiTour } from './maxitour';
 export { StateMainPage } from './state';
-export { Dashboard as AdminDashboard } from './dashboards/admin';
+export {
+  Dashboard as AdminDashboard,
+  AddHome,
+} from './dashboards/admin';
 export { Dashboard as OrganisatorDashboard } from './dashboards/organisator';

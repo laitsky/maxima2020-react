@@ -3,7 +3,11 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
-import { MxmInput } from '../../../components/reusable/input';
+import {
+  MxmInput,
+  MxmPrependInput,
+  MxmAppendInput,
+} from '../../../components/reusable/input';
 import { MxmButton } from '../../../components/reusable/button';
 import { Error } from '../../../components/reusable/error';
 import {
@@ -13,7 +17,9 @@ import {
 import authService from '../../../services/auth';
 
 const DaftarMaba = () => {
-  const { register, handleSubmit, reset, errors, watch } = useForm();
+  const { register, handleSubmit, reset, errors, watch } = useForm({
+    mode: 'onChange',
+  });
   const password = useRef({});
   password.current = watch('password', '');
   const onSubmit = async (data) => {
@@ -22,6 +28,7 @@ const DaftarMaba = () => {
     delete data.password_conf;
     const dataMaba = {
       ...data,
+      email: `${data.email}@student.umn.ac.id`,
       roles: 'maba',
     };
     console.log(dataMaba);
@@ -51,21 +58,41 @@ const DaftarMaba = () => {
             ref={register({ required: 'Isi nama lengkap kamu' })}
           />
           {errors.name && <Error>{errors.name.message}</Error>}
-          <MxmInput
-            type="text"
-            name="nim"
-            placeholder="NIM"
-            ref={register({
-              required: 'Isi Nomor Induk Mahasiswa kamu',
-            })}
-          />
+          <MxmPrependInput>
+            <span>00000</span>
+            <input
+              type="number"
+              name="nim"
+              placeholder="NIM"
+              ref={register({
+                required: 'Isi NIM kamu',
+                minLength: {
+                  value: 5,
+                  message: 'NIM harus berupa 5 digit',
+                },
+                maxLength: {
+                  value: 5,
+                  message: 'NIM harus berupa 5 digit',
+                },
+              })}
+            />
+          </MxmPrependInput>
           {errors.nim && <Error>{errors.nim.message}</Error>}
-          <MxmInput
-            type="text"
-            name="email"
-            placeholder="Email"
-            ref={register({ required: 'Isi email kamu' })}
-          />
+          <MxmAppendInput>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              ref={register({
+                required: 'Isi email kamu',
+                pattern: {
+                  value: /(?:\s|^)(?![a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\S+\b(?=\s|$)/gi,
+                  message: 'Tidak perlu memasukkan domain email',
+                },
+              })}
+            />
+            <span>@student.umn.ac.id</span>
+          </MxmAppendInput>
           {errors.email && <Error>{errors.email.message}</Error>}
           <MxmInput
             type="password"

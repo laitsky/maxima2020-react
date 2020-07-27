@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,12 +7,14 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {
   MxmLogoContainer,
   AlignMiddle,
 } from '../../../components/reusable/container';
 import { MxmLongCard } from '../../../components/reusable/card';
 import logo from '../../../assets/mxm20_logo.png';
+import userService from '../../../services/user';
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +29,21 @@ const useStyles = makeStyles({
 
 const StateMainPage = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const returnedData = await userService.getCredential(22222);
+        setData(returnedData);
+        console.log(returnedData);
+      } catch (ex) {
+        console.log(ex.response);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -72,8 +88,10 @@ const StateMainPage = () => {
           icon={<LocationOnIcon />}
         />
         <BottomNavigationAction
-          label="Nearby"
-          icon={<LocationOnIcon />}
+          component={Link}
+          to="/tour"
+          label="Profil"
+          icon={<AccountCircleIcon />}
         />
       </BottomNavigation>
     </>
