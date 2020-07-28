@@ -98,7 +98,14 @@ const DaftarMaba = () => {
             type="password"
             name="password"
             placeholder="Kata Sandi"
-            ref={register({ required: 'Isi kata sandi kamu' })}
+            ref={register({
+              required: 'Isi kata sandi kamu',
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+                message:
+                  'Kata sandi harus mengandung minimal 6 karakter yang terdiri atas huruf dan angka',
+              },
+            })}
           />
           {errors.password && (
             <Error>{errors.password.message}</Error>

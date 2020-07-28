@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './MxmNavbar.css';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/mxm20_title_icon.png';
@@ -7,7 +8,10 @@ const isLoggedIn = !!window.sessionStorage.getItem('token');
 
 const Navbar = () => {
   return (
-    <div>
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ from: 90, duration: 2 }}
+    >
       <nav className="menu-container">
         <input type="checkbox" aria-label="Toggle menu" />
         <span />
@@ -42,7 +46,7 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 
