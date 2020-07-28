@@ -23,6 +23,15 @@ const AppRouter = () => (
     <Route path="/tour" exact strict component={MaxiTour} />
     <Route path="/test" exact strict component={HookForm} />
     <Route path="/login" exact strict component={LoginPage} />
+    <Route
+      path="/logout"
+      exact
+      strict
+      render={() => {
+        window.sessionStorage.clear();
+        window.location = '/';
+      }}
+    />
     <Route path="/daftar" exact strict component={DaftarMaba} />
     <Route path="/shortener" exact strict component={Shortener} />
     <Route path="/user/:name" exact strict component={ShowName} />

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Container, Box } from '@material-ui/core';
+import { Container, Box, CircularProgress } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
 import {
   MxmInput,
@@ -16,10 +16,12 @@ import {
 import authService from '../../../services/auth';
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors } = useForm({
     mode: 'onChange',
   });
   const onSubmit = async (data) => {
+    setLoading(true);
     reset();
     console.log(data);
     try {
@@ -29,9 +31,11 @@ const LoginPage = () => {
         'token',
         returnedData.accessToken,
       );
-    } catch (ex) {
-      console.log(ex.response.data);
+      window.location = '/';
+    } catch (error) {
+      console.log(error.response.data);
     }
+    setLoading(false);
   };
 
   return (
@@ -72,13 +76,18 @@ const LoginPage = () => {
             placeholder="Kata Sandi..."
             ref={register({
               required: 'Isi kata sandi kamu',
-              maxLength: { value: 2, message: 'error message' },
             })}
           />
           {errors.password && (
             <Error>{errors.password.message}</Error>
           )}
-          <MxmButton mt="1.5em">Masuk</MxmButton>
+          {!loading ? (
+            <MxmButton mt="1.5em" mb="1.5em">
+              Masuk
+            </MxmButton>
+          ) : (
+            <CircularProgress />
+          )}
           <Box mt={4}>
             <Link
               to="/daftar"
