@@ -57,13 +57,25 @@ const StateMainPage = () => {
             SELAMAT DATANG!
           </h1>
         </AlignMiddle>
-        <Link to="/tour" exact style={{ textDecoration: 'none' }}>
+        <Link
+          to="/state/daftar"
+          exact
+          style={{ textDecoration: 'none' }}
+        >
           <MxmLongCard>DAY 01</MxmLongCard>
         </Link>
-        <Link to="/tour" exact style={{ textDecoration: 'none' }}>
+        <Link
+          to="/state/daftar"
+          exact
+          style={{ textDecoration: 'none' }}
+        >
           <MxmLongCard>DAY 02</MxmLongCard>
         </Link>
-        <Link to="/tour" exact style={{ textDecoration: 'none' }}>
+        <Link
+          to="/state/daftar"
+          exact
+          style={{ textDecoration: 'none' }}
+        >
           <MxmLongCard>DAY 03</MxmLongCard>
         </Link>
       </Container>

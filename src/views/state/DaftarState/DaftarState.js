@@ -11,7 +11,7 @@ import {
 import './DaftarState.css';
 
 const DaftarState = () => {
-  const { register, handleSubmit, reset, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
     console.log(data);
