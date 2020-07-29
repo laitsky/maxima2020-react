@@ -1,0 +1,22 @@
+.radio {
+  width: 10em;
+  outline: none;
+  color: #f4224b;
+  border-radius: 10px;
+  padding: 0.75em;
+  background-color: white;
+  border: solid 2px #f4224b;
+  transition-duration: 0.2s;
+  box-shadow: 0 0.5vh #b5b5b5;
+  font-family: 'canaro-bold';
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+input[type='radio'] {
+  opacity: 0;
+}
+
+input[type='radio']:checked + .radio {
+  background-color: #f4224b;
+  color: white;
+}
