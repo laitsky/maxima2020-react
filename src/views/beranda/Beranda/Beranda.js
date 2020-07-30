@@ -3,32 +3,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Box } from '@material-ui/core';
 import { YellowLogo } from '../../../assets';
-
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: '-100vw',
-    scale: 0.8,
-    rotate: 180,
-  },
-  in: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    rotate: 0,
-  },
-  out: {
-    opacity: 0,
-    x: '100vw',
-    scale: 1.2,
-    rotate: 360,
-  },
-};
-
-const pageTransition = {
-  type: 'spring',
-  stiffness: 100,
-};
+import './Beranda.css';
 
 const Beranda = () => {
   useEffect(() => {
@@ -37,11 +12,13 @@ const Beranda = () => {
 
   return (
     <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+      initial={{ opacity: 0 }}
+      animate={{ rotate: 360, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 20
+      }}
     >
       <Box
         color="#FFD008"
@@ -64,15 +41,20 @@ const Beranda = () => {
         </Container>
         <Box color="white" letterSpacing={5} lineHeight={4}>
           <a
-            style={{ textDecoration: 'none', color: 'white' }}
+            className = "insta-text"
             href="https://www.instagram.com/maximaumn/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            INSTAGRAM |
+            INSTAGRAM
           </a>
           <a
-            style={{ textDecoration: 'none', color: 'white' }}
+            className= "slash-text"
+          >
+            |
+          </a>
+          <a
+            className = "line-text"
             href="https://lin.ee/fV5PZKk"
             target="_blank"
             rel="noopener noreferrer"

@@ -9,7 +9,7 @@ export const MxmButton = styled.button`
   text-transform: uppercase;
   outline: none;
   border-radius: 50px;
-  padding: 1vh 2.5vw 1vh 2.5vw;
+  padding: 0.5em 2.5em 0.5em 2.5em;
   background-color: #ffd008;
   border: none;
   transition-duration: 0.2s;

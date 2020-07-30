@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 // eslint-disable-next-line import/prefer-default-export
 export const MxmInput = styled.input`
+  width: 60%;
   font-family: 'canaro-bold';
   font-size: 1em;
   border-radius: 50px;
-  padding: 1.2vh 1.2vw 1.2vh 1.2vw;
+  padding: 1.2vh 1em 1.2vh 1em;
   margin: 2vh 0;
   outline: none;
   border-color: #f4224b;
@@ -24,9 +25,14 @@ export const MxmInput = styled.input`
   &:focus {
     box-shadow: 0 0 5px rgb(244, 34, 75);
   }
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
 `;
 
 export const MxmPrependInput = styled.div`
+  width: 60%;
   display: flex;
   flex-direction: row;
   margin: 2vh 0;
@@ -35,8 +41,17 @@ export const MxmPrependInput = styled.div`
   box-sizing: border-box;
   transition-duration: 0.4s;
 
+  @media (max-width: 768px) {
+    width: 85%;
+
+    span{
+      font-size: small;
+    }
+  }
+
   input {
-    padding: 1.2vh 1.2vw 1.2vh 1.2vw;
+    width: 100%;
+    padding: 1.2vh 1em 1.2vh 1em;
     outline: none;
     border: solid 2px;
     color: #f4224b;
@@ -72,6 +87,7 @@ export const MxmPrependInput = styled.div`
 `;
 
 export const MxmAppendInput = styled.div`
+  width: 60%;
   display: flex;
   flex-direction: row;
   margin: 2vh 0;
@@ -80,8 +96,17 @@ export const MxmAppendInput = styled.div`
   box-sizing: border-box;
   transition-duration: 0.4s;
 
+  @media (max-width: 768px) {
+    width: 85%;
+
+    span{
+      font-size: x-small;
+    }
+  }
+
   input {
-    padding: 1.2vh 1.2vw 1.2vh 1.2vw;
+    width: 100%;
+    padding: 1.2vh 1em 1.2vh 1em;
     outline: none;
     border: solid 2px;
     color: #f4224b;

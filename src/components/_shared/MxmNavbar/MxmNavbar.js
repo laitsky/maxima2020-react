@@ -9,8 +9,13 @@ const isLoggedIn = !!window.sessionStorage.getItem('token');
 const Navbar = () => {
   return (
     <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ from: 90, duration: 2 }}
+      initial={{ y: -999, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 20
+      }}
     >
       <nav className="menu-container">
         <input type="checkbox" aria-label="Toggle menu" />

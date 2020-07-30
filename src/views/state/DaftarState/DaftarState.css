@@ -1,8 +1,9 @@
 .radio {
-  width: 10em;
+  width: 15em;
   outline: none;
   color: #f4224b;
   border-radius: 10px;
+  margin-left: -1em;
   padding: 0.75em;
   background-color: white;
   border: solid 2px #f4224b;
@@ -12,6 +13,15 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+
+
+@media (max-width: 768px) {
+  .radio{
+    width: 15em;
+    font-size: small;
+  }
+}
+
 input[type='radio'] {
   opacity: 0;
 }
@@ -19,4 +29,10 @@ input[type='radio'] {
 input[type='radio']:checked + .radio {
   background-color: #f4224b;
   color: white;
+}
+
+input[type='radio']:disabled + .radio{
+  background-color: #d99aa6;
+  color: grey;
+  border: solid 2px #d99aa6;
 }
