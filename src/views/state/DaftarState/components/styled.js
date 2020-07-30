@@ -18,7 +18,9 @@ export const RadioContainer = styled.div`
 `;
 
 export const RadioLabelSlot = styled.div`
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 4.5em;
   margin: 0 0 0 2vw;
   outline: none;

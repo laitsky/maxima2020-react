@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, Container } from '@material-ui/core';
+import { MxmButton } from '../../../components/reusable/button';
+import { AlignMiddle } from '../../../components/reusable/container';
 import Header from './components/Header';
 import logo from '../../../assets/mxm_white.png';
 import {
@@ -48,6 +50,8 @@ const DaftarState = () => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
+        paddingBottom="1em"
+        boxSizing="border-box"
       >
         <StateTokenContainer mt="2em">
           Kamu memiliki 3 token
@@ -74,9 +78,16 @@ const DaftarState = () => {
             </RadioContainer>
           ))}
           {errors.organisator && errors.organisator.message}
-          <Button type="submit" variant="contained" color="primary">
-            Submit
-          </Button>
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <MxmButton type="submit" variant="contained" color="primary">
+              Submit
+            </MxmButton>
+          </Box>
         </form>
       </Box>
     </>

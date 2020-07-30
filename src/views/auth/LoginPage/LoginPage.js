@@ -16,30 +16,6 @@ import {
 } from '../../../components/reusable/container';
 import authService from '../../../services/auth';
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: '-100vw',
-    scale: 0.8,
-  },
-  in: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-  },
-  out: {
-    opacity: 0,
-    x: '100vw',
-    scale: 1.2,
-  },
-};
-
-const pageTransition = {
-  type: 'tween',
-  ease: 'anticipate',
-  duration: 0.5,
-};
-
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors } = useForm({
@@ -65,19 +41,24 @@ const LoginPage = () => {
 
   return (
     <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
+      initial={{ x:-999, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 20
+      }}
     >
-      <Container>
+      <Container maxWidth="sm">
         <form onSubmit={handleSubmit(onSubmit)}>
           <AlignMiddle>
             <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
             <h1
               className="mxm-navy"
               style={{
+                margin: 0,
+                marginBottom: '0.5em',
+                fontSize: 'x-large',
                 textAlign: 'center',
                 fontFamily: 'canaro-bold',
               }}
@@ -117,7 +98,7 @@ const LoginPage = () => {
               <Error>{errors.password.message}</Error>
             )}
             {!loading ? (
-              <MxmButton mt="1.5em" mb="1.5em">
+              <MxmButton mt="2vh">
                 Masuk
               </MxmButton>
             ) : (

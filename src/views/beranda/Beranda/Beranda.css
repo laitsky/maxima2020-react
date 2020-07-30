@@ -1,0 +1,23 @@
+.slash-text{
+    margin: 0 2vw 0 2vw;
+}
+
+.insta-text{
+    text-decoration: none;
+    color: white;
+}
+
+.insta-text:hover{
+	background: linear-gradient(to right, #fccc63 0%, #8a3ab9 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.line-text{
+    text-decoration: none;
+    color: white;
+}
+
+.line-text:hover{
+    color: #00B900;
+}
