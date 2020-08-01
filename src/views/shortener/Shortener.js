@@ -6,9 +6,7 @@ import shortenerService from '../../services/shortener';
 
 const Shortener = () => {
   const [notification, setNotification] = useState(null);
-  const {
-    register, handleSubmit, errors, reset,
-  } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = async (data) => {
     setNotification(null);
     reset();

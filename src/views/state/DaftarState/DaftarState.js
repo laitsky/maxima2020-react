@@ -1,18 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Box, Button, Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { MxmButton } from '../../../components/reusable/button';
-import { AlignMiddle } from '../../../components/reusable/container';
 import Header from './components/Header';
 import logo from '../../../assets/mxm_white.png';
 import {
   StateTokenContainer,
   RadioContainer,
   RadioLabelSlot,
+  StateSelectOverflow,
 } from './components/styled';
 import './DaftarState.css';
 
-const DaftarState = () => {
+const DaftarState = ({ day }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
@@ -44,7 +44,7 @@ const DaftarState = () => {
 
   return (
     <>
-      <Header logo={logo} />
+      <Header logo={logo} day={day} />
       <Box
         display="flex"
         flexDirection="column"
@@ -57,26 +57,28 @@ const DaftarState = () => {
           Kamu memiliki 3 token
         </StateTokenContainer>
         <form onSubmit={handleSubmit(onSubmit)}>
-          {datas.map((data) => (
-            <RadioContainer key={data.nama}>
-              <input
-                type="radio"
-                name="organisator"
-                id={data.nama}
-                value={data.nama}
-                ref={register({
-                  required: 'Kamu harus memilih salah satu opsi!',
-                })}
-                disabled={!data.slot}
-              />
-              <label htmlFor={data.nama} className="radio">
-                {data.nama}
-              </label>
-              <RadioLabelSlot slot={data.slot}>
-                {!data.slot ? 'FULL' : data.slot}
-              </RadioLabelSlot>
-            </RadioContainer>
-          ))}
+          <StateSelectOverflow>
+            {datas.map((data) => (
+              <RadioContainer key={data.nama}>
+                <input
+                  type="radio"
+                  name="organisator"
+                  id={data.nama}
+                  value={data.nama}
+                  ref={register({
+                    required: 'Kamu harus memilih salah satu opsi!',
+                  })}
+                  disabled={!data.slot}
+                />
+                <label htmlFor={data.nama} className="radio">
+                  {data.nama}
+                </label>
+                <RadioLabelSlot slot={data.slot}>
+                  {!data.slot ? 'FULL' : data.slot}
+                </RadioLabelSlot>
+              </RadioContainer>
+            ))}
+          </StateSelectOverflow>
           {errors.organisator && errors.organisator.message}
           <Box
             display="flex"
@@ -84,8 +86,12 @@ const DaftarState = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <MxmButton type="submit" variant="contained" color="primary">
-              Submit
+            <MxmButton
+              type="submit"
+              variant="contained"
+              color="primary"
+            >
+              Pilih
             </MxmButton>
           </Box>
         </form>

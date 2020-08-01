@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Typography } from '@material-ui/core';
 
 const MaxiTourTabPanel = (props) => {
-  const {
-    children, value, index, ...other
-  } = props;
+  const { children, value, index, ...other } = props;
 
   return (
     <div
@@ -14,7 +12,7 @@ const MaxiTourTabPanel = (props) => {
       hidden={value !== index}
       id={`scrollable-auto-tabpanel-${index}`}
       aria-labelledby={`scrollable-auto-tab-${index}`}
-          // eslint-disable-next-line react/jsx-props-no-spreading
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...other}
     >
       {value === index && (

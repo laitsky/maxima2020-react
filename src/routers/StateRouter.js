@@ -1,17 +1,27 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { StateMainPage, DaftarState } from '../views';
 
 const StateRouter = () => (
-  <>
-    <Route path="/state" exact strict component={StateMainPage} />
+  <Switch>
+    <Route path="/state" exact component={StateMainPage} />
     <Route
-      path="/state/daftar"
+      path="/state/daftar/day1"
       exact
-      strict
-      component={DaftarState}
+      render={(props) => <DaftarState {...props} day={1} />}
     />
-  </>
+    <Route
+      path="/state/daftar/day2"
+      exact
+      render={(props) => <DaftarState {...props} day={2} />}
+    />
+    <Route
+      path="/state/daftar/day3"
+      exact
+      render={(props) => <DaftarState {...props} day={3} />}
+    />
+  </Switch>
 );
 
 export default StateRouter;

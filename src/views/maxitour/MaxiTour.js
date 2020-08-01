@@ -23,7 +23,9 @@ const MaxiTour = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1 className="mxm-pink">MAXIMA 360 Tour (testing environment)</h1>
+          <h1 className="mxm-pink">
+            MAXIMA 360 Tour (testing environment)
+          </h1>
           <MaxiTourItems value={value} />
         </Box>
       </Container>

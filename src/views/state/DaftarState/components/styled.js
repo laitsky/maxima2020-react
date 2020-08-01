@@ -34,3 +34,10 @@ export const RadioLabelSlot = styled.div`
   transition-duration: 0.3s;
   box-shadow: 0 0.5vh #b5b5b5;
 `;
+
+export const StateSelectOverflow = styled.div`
+  margin: 2vh 0 2vh 0;
+  padding: 1vh 2vw 1vh 2vw;
+  height: 40vh;
+  overflow-y: scroll;
+`;

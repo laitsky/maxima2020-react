@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -8,22 +8,26 @@ import {
   MxmInput,
   MxmPrependInput,
   MxmAppendInput,
-} from '../../../components/reusable/input';
-import { MxmButton } from '../../../components/reusable/button';
-import { Error } from '../../../components/reusable/error';
-import {
+  MxmButton,
+  Error,
   MxmLogoContainer,
   AlignMiddle,
-} from '../../../components/reusable/container';
+  MxmLoading,
+} from '../../../components';
+
 import authService from '../../../services/auth';
 
 const DaftarMaba = () => {
+  const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors, watch } = useForm({
     mode: 'onChange',
   });
+
   const password = useRef({});
   password.current = watch('password', '');
+
   const onSubmit = async (data) => {
+    setLoading(true);
     reset();
     // eslint-disable-next-line no-param-reassign
     delete data.password_conf;
@@ -33,22 +37,24 @@ const DaftarMaba = () => {
       roles: 'maba',
     };
     console.log(dataMaba);
+
     try {
       const returnedData = await authService.daftarMaba(dataMaba);
       console.log(returnedData);
     } catch (ex) {
       console.log(ex.response.data);
     }
+    setLoading(false);
   };
 
   return (
     <motion.div
-      initial={{ x: 999, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
+      initial={{ y: -999, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{
-        type: "spring",
+        type: 'spring',
         stiffness: 50,
-        damping: 20
+        damping: 20,
       }}
     >
       <Container maxWidth="sm">
@@ -57,7 +63,11 @@ const DaftarMaba = () => {
             <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
             <h1
               className="mxm-navy"
-              style={{ textAlign: 'center', fontSize: 'x-large', fontFamily: 'canaro-bold' }}
+              style={{
+                textAlign: 'center',
+                fontSize: 'x-large',
+                fontFamily: 'canaro-bold',
+              }}
             >
               PENDAFTARAN AKUN BARU MAXIMA 2020
             </h1>
@@ -132,7 +142,11 @@ const DaftarMaba = () => {
             {errors.password_conf && (
               <Error>{errors.password_conf.message}</Error>
             )}
-            <MxmButton mt="1.5em">Daftar</MxmButton>
+            {!loading ? (
+              <MxmButton mt="1.5em">Daftar</MxmButton>
+            ) : (
+              <MxmLoading />
+            )}
             <Box mt={4}>
               <Link
                 to="/login"
@@ -142,7 +156,10 @@ const DaftarMaba = () => {
                 <h4 className="mxm-cyan">
                   Sudah memiliki akun?
                   <span
-                    style={{ fontFamily: 'canaro-bold', marginLeft: 5 }}
+                    style={{
+                      fontFamily: 'canaro-bold',
+                      marginLeft: 5,
+                    }}
                   >
                     Masuk
                   </span>

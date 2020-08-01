@@ -12,9 +12,9 @@ const Navbar = () => {
       initial={{ y: -999, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
-        type: "spring",
+        type: 'spring',
         stiffness: 50,
-        damping: 20
+        damping: 20,
       }}
     >
       <nav className="menu-container">

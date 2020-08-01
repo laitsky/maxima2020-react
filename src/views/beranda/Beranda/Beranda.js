@@ -15,9 +15,9 @@ const Beranda = () => {
       initial={{ opacity: 0 }}
       animate={{ rotate: 360, opacity: 1 }}
       transition={{
-        type: "spring",
+        type: 'spring',
         stiffness: 50,
-        damping: 20
+        damping: 20,
       }}
     >
       <Box
@@ -39,22 +39,24 @@ const Beranda = () => {
             <h1 className="mxm-cyan">agustus 2020</h1>
           </Box>
         </Container>
-        <Box color="white" letterSpacing={5} lineHeight={4}>
+        <Box
+          display="flex"
+          flexDirection="row"
+          color="white"
+          letterSpacing={5}
+          lineHeight={4}
+        >
           <a
-            className = "insta-text"
+            className="insta-text"
             href="https://www.instagram.com/maximaumn/"
             target="_blank"
             rel="noopener noreferrer"
           >
             INSTAGRAM
           </a>
+          <p className="slash-text">|</p>
           <a
-            className= "slash-text"
-          >
-            |
-          </a>
-          <a
-            className = "line-text"
+            className="line-text"
             href="https://lin.ee/fV5PZKk"
             target="_blank"
             rel="noopener noreferrer"

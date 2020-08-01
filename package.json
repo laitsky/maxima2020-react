@@ -1,6 +1,6 @@
 {
   "name": "maxima2020-react",
-  "version": "3.0.0-a.20",
+  "version": "3.0.0-a.21",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -25,8 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix"
+    "lint": "./node_modules/.bin/eslint src",
+    "lint:fix": "./node_modules/.bin/eslint src --fix"
   },
   "eslintConfig": {
     "extends": "react-app"

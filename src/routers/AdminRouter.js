@@ -1,31 +1,39 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { AdminDashboard, AddHome } from '../views';
-import ShortenerLists from '../views/dashboards/admin/Shortener';
+import { Box, Container } from '@material-ui/core';
+import { Route, Redirect, Switch } from 'react-router-dom';
+import {
+  AdminDashboard,
+  AddHome,
+  ShortenerLists,
+  TambahAkun,
+} from '../views';
 
-const AdminRouter = () => (
-  <>
-    <Route path="/admin" exact>
-      <Redirect to="/admin/dashboard" />
-    </Route>
-    <Route
-      path="/admin/dashboard"
-      exact
-      strict
-      component={AdminDashboard}
-    />
-    <Route
-      path="/admin/add-home"
-      exact
-      strict
-      component={AddHome}
-    />
-    <Route
-      path="/admin/shorteners"
-      exact
-      strict
-      component={ShortenerLists}
-    />
-  </>
+const AdminRouter = ({ Sidebar }) => (
+  <Box display="flex" height="100vh" fontFamily="Open Sans">
+    <Sidebar />
+    <Container>
+      <Switch>
+        <Route path="/admin" exact>
+          <Redirect to="/admin/dashboard" />
+        </Route>
+        <Route
+          path="/admin/dashboard"
+          exact
+          component={AdminDashboard}
+        />
+        <Route path="/admin/add-home" exact component={AddHome} />
+        <Route
+          path="/admin/tambah-akun"
+          exact
+          component={TambahAkun}
+        />
+        <Route
+          path="/admin/shorteners"
+          exact
+          component={ShortenerLists}
+        />
+      </Switch>
+    </Container>
+  </Box>
 );
 export default AdminRouter;

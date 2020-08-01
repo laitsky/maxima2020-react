@@ -1,44 +1,55 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import {
-  Beranda,
-  DaftarMaba,
-  HomeMainPage,
-  LoginPage,
-  MaxiTour,
-} from './views';
-import HookForm from './views/testing/HookForm';
-import Shortener from './views/shortener/Shortener';
+  MxmNavbar,
+  AdminSidebar,
+  OrganisatorSidebar,
+  StateBottomNav,
+} from './components';
+import { Beranda, HomeMainPage, MaxiTour } from './views';
 import ShowName from './views/testing/ShowName';
 import {
+  AcaraRouter,
   AdminRouter,
+  AuthRouter,
   StateRouter,
   OrganisatorRouter,
 } from './routers';
 
 const AppRouter = () => (
-  <div>
-    <Route path="/" exact strict component={Beranda} />
-    <Route path="/home" exact strict component={HomeMainPage} />
-    <Route path="/tour" exact strict component={MaxiTour} />
-    <Route path="/test" exact strict component={HookForm} />
-    <Route path="/login" exact strict component={LoginPage} />
-    <Route
-      path="/logout"
-      exact
-      strict
-      render={() => {
-        window.sessionStorage.clear();
-        window.location = '/';
-      }}
-    />
-    <Route path="/daftar" exact strict component={DaftarMaba} />
-    <Route path="/shortener" exact strict component={Shortener} />
-    <Route path="/user/:name" exact strict component={ShowName} />
-    <AdminRouter />
-    <StateRouter />
-    <OrganisatorRouter />
-  </div>
+  <Switch>
+    <Route path="/admin/:path1?/:path2?/:path3?" exact>
+      <Switch>
+        <AdminRouter Sidebar={AdminSidebar} />
+      </Switch>
+    </Route>
+    <Route path="/acara/:path1?:/:path2?/:path3?" exact>
+      <Switch>
+        <AcaraRouter />
+      </Switch>
+    </Route>
+    <Route path="/state/:path1?/:path2?/:path3?" exact>
+      <MxmNavbar />
+      <Switch>
+        <StateRouter />
+      </Switch>
+      <StateBottomNav />
+    </Route>
+
+    <Route path="/organisator/:path?" exact>
+      <Switch>
+        <OrganisatorRouter Sidebar={OrganisatorSidebar} />
+      </Switch>
+    </Route>
+    <Route>
+      <MxmNavbar />
+      <Switch>
+        <Route path="/" exact component={Beranda} />
+        <Route path="/home" exact component={HomeMainPage} />
+        <AuthRouter />
+      </Switch>
+    </Route>
+  </Switch>
 );
 
 export default AppRouter;

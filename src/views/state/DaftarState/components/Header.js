@@ -22,11 +22,11 @@ const StateDayHeader = styled.div`
   }
 `;
 
-const Header = ({ logo }) => (
+const Header = ({ logo, day }) => (
   <StateDayHeader>
     <MxmLogoContainer src={logo} alt="Logo MAXIMA 2020" />
     <h2 style={{ fontFamily: 'canaro-bold', letterSpacing: 2 }}>
-      STATE DAY ?
+      STATE DAY {day}
     </h2>
     <h4 style={{ marginTop: '-0.5em', letterSpacing: 1.5 }}>
       Pilih kegiatanmu!

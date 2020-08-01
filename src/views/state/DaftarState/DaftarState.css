@@ -14,7 +14,9 @@
   text-transform: uppercase;
 }
 
-
+.radio:hover {
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   .radio{
     width: 15em;

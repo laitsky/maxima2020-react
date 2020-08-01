@@ -44,7 +44,7 @@ export const MxmPrependInput = styled.div`
   @media (max-width: 768px) {
     width: 85%;
 
-    span{
+    span {
       font-size: small;
     }
   }
@@ -99,7 +99,7 @@ export const MxmAppendInput = styled.div`
   @media (max-width: 768px) {
     width: 85%;
 
-    span{
+    span {
       font-size: x-small;
     }
   }

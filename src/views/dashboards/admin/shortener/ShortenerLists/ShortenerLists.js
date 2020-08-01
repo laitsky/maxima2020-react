@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import shortenerService from '../../../services/shortener';
+import shortenerService from '../../../../../services/shortener';
 
-const Shortener = () => {
+const ShortenerLists = () => {
   const [shorteners, setShorteners] = useState([]);
 
   useEffect(() => {
@@ -12,13 +12,15 @@ const Shortener = () => {
     fetchData();
   }, []);
 
-  console.log(shorteners);
 
   return (
     <div>
-      {shorteners.map((s) => <h6>{s.short_url}</h6>)}
+      <h1>Ini halaman shortener</h1>
+      {shorteners.map((s) => (
+        <h6>{s.short_url}</h6>
+      ))}
     </div>
   );
 };
 
-export default Shortener;
+export default ShortenerLists;

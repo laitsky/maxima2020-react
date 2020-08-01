@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Container, Box, CircularProgress } from '@material-ui/core';
+import { Container, Box } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
 import {
   MxmInput,
   MxmPrependInput,
-} from '../../../components/reusable/input';
-import { MxmButton } from '../../../components/reusable/button';
-import { Error } from '../../../components/reusable/error';
-import {
+  MxmButton,
+  Error,
   MxmLogoContainer,
   AlignMiddle,
-} from '../../../components/reusable/container';
+  MxmLoading
+} from '../../../components';
 import authService from '../../../services/auth';
 
 const LoginPage = () => {
@@ -21,10 +20,12 @@ const LoginPage = () => {
   const { register, handleSubmit, reset, errors } = useForm({
     mode: 'onChange',
   });
+
   const onSubmit = async (data) => {
     setLoading(true);
     reset();
     console.log(data);
+
     try {
       const returnedData = await authService.loginMaba(data);
       console.log(returnedData.accessToken);
@@ -41,12 +42,12 @@ const LoginPage = () => {
 
   return (
     <motion.div
-      initial={{ x:-999, opacity: 0 }}
+      initial={{ x: -999, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{
-        type: "spring",
+        type: 'spring',
         stiffness: 50,
-        damping: 20
+        damping: 20,
       }}
     >
       <Container maxWidth="sm">
@@ -98,11 +99,9 @@ const LoginPage = () => {
               <Error>{errors.password.message}</Error>
             )}
             {!loading ? (
-              <MxmButton mt="2vh">
-                Masuk
-              </MxmButton>
+              <MxmButton mt="1.5em">Masuk</MxmButton>
             ) : (
-              <CircularProgress />
+              <MxmLoading />
             )}
             <Box mt={4}>
               <Link

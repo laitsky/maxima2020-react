@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {
   MxmLogoContainer,
   AlignMiddle,
@@ -29,7 +23,6 @@ const useStyles = makeStyles({
 
 const StateMainPage = () => {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -37,13 +30,13 @@ const StateMainPage = () => {
       try {
         const returnedData = await userService.getCredential(22222);
         setData(returnedData);
-        console.log(returnedData);
-      } catch (ex) {
-        console.log(ex.response);
+        console.log(data);
+      } catch (error) {
+        console.log(error.response);
       }
     };
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <>
@@ -58,54 +51,27 @@ const StateMainPage = () => {
           </h1>
         </AlignMiddle>
         <Link
-          to="/state/daftar"
+          to="/state/daftar/day1"
           exact
           style={{ textDecoration: 'none' }}
         >
           <MxmLongCard>DAY 01</MxmLongCard>
         </Link>
         <Link
-          to="/state/daftar"
+          to="/state/daftar/day2"
           exact
           style={{ textDecoration: 'none' }}
         >
           <MxmLongCard>DAY 02</MxmLongCard>
         </Link>
         <Link
-          to="/state/daftar"
+          to="/state/daftar/day3"
           exact
           style={{ textDecoration: 'none' }}
         >
           <MxmLongCard>DAY 03</MxmLongCard>
         </Link>
       </Container>
-      <BottomNavigation
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationAction
-          label="Recents"
-          icon={<RestoreIcon />}
-        />
-        <BottomNavigationAction
-          label="Favorites"
-          icon={<FavoriteIcon />}
-        />
-        <BottomNavigationAction
-          label="Nearby"
-          icon={<LocationOnIcon />}
-        />
-        <BottomNavigationAction
-          component={Link}
-          to="/tour"
-          label="Profil"
-          icon={<AccountCircleIcon />}
-        />
-      </BottomNavigation>
     </>
   );
 };

@@ -8,7 +8,6 @@ import AppRouter from './AppRouter';
 function App() {
   return (
     <AnimatePresence>
-      <MxmNavbar />
       <GlobalStyles />
       <AppRouter />
     </AnimatePresence>
