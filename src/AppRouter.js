@@ -44,11 +44,13 @@ const AppRouter = () => (
     <Route>
       <MxmNavbar />
       <Switch>
+        <Route path="/tour" exact component={MaxiTour} />
         <Route path="/" exact component={Beranda} />
         <Route path="/home" exact component={HomeMainPage} />
         <AuthRouter />
       </Switch>
     </Route>
+    
   </Switch>
 );
 
