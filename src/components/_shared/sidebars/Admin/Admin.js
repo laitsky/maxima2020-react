@@ -15,23 +15,11 @@ import LanguageIcon from '@material-ui/icons/Language';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddIcon from '@material-ui/icons/Add';
 
-const Admin = () => {
+const Admin = ({ toggled, handleToggleSidebar }) => {
   const [collapsed] = useState(false);
-  const [toggled, setToggled] = useState(false);
-
-  const handleToggleSidebar = (value) => {
-    setToggled(value);
-  };
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => handleToggleSidebar(true)}
-        style={{ position: 'absolute', marginLeft: '2em' }}
-      >
-        Toggle
-      </button>
       <ProSidebar
         breakPoint="md"
         collapsed={collapsed}

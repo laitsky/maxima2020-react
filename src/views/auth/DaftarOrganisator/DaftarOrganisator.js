@@ -17,16 +17,15 @@ import {
 
 import authService from '../../../services/auth';
 
-const DaftarMaba = () => {
+const DaftarOrganisator = () => {
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors, watch } = useForm({
     mode: 'onChange',
   });
 
   useEffect(() => {
-    document.title = 'Pendaftaran Akun Mahasiswa Baru - MAXIMA 2020'
-  }, [])
-
+    document.title = 'Pendaftaran Akun Organisator - MAXIMA 2020';
+  }, []);
   const password = useRef({});
   password.current = watch('password', '');
 
@@ -35,15 +34,15 @@ const DaftarMaba = () => {
     reset();
     // eslint-disable-next-line no-param-reassign
     delete data.password_conf;
-    const dataMaba = {
+    const dataOrganisator = {
       ...data,
       email: `${data.email}@student.umn.ac.id`,
-      roles: 'maba',
+      roles: 'ukm',
     };
-    console.log(dataMaba);
+    console.log(dataOrganisator);
 
     try {
-      const returnedData = await authService.daftar(dataMaba);
+      const returnedData = await authService.daftar(dataOrganisator);
       console.log(returnedData);
     } catch (ex) {
       console.log(ex.response.data);
@@ -53,7 +52,7 @@ const DaftarMaba = () => {
 
   return (
     <motion.div
-      initial={{ y: -999, opacity: 0 }}
+      initial={{ y: 999, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
         type: 'spring',
@@ -73,7 +72,7 @@ const DaftarMaba = () => {
                 fontFamily: 'canaro-bold',
               }}
             >
-              PENDAFTARAN AKUN BARU MAXIMA 2020
+              PENDAFTARAN AKUN ORGANISATOR MAXIMA 2020
             </h1>
             <MxmInput
               type="text"
@@ -177,4 +176,4 @@ const DaftarMaba = () => {
   );
 };
 
-export default DaftarMaba;
+export default DaftarOrganisator;

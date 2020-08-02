@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { StateMainPage, DaftarState } from '../views';
+import { StateMainPage, DaftarState, StateOrgDetail } from '../views';
 
 const StateRouter = () => (
   <Switch>
@@ -20,6 +20,11 @@ const StateRouter = () => (
       path="/state/daftar/day3"
       exact
       render={(props) => <DaftarState {...props} day={3} />}
+    />
+    <Route
+      path="/state/detail-organisator/:organisator"
+      exact
+      component={StateOrgDetail}
     />
   </Switch>
 );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 import { MxmButton } from '../../../components/reusable/button';
 import Header from './components/Header';
@@ -13,10 +14,15 @@ import {
 import './DaftarState.css';
 
 const DaftarState = ({ day }) => {
+  const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    const { organisator } = data;
+    history.push({
+      pathname: `/state/detail-organisator/${organisator.toLowerCase()}`,
+      day,
+    });
   };
 
   const datas = [

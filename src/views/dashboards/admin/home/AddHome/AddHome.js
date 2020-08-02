@@ -10,7 +10,6 @@ import {
   Select,
   InputLabel,
   MenuItem,
-  Typography,
 } from '@material-ui/core';
 
 const AddHome = () => {
@@ -33,7 +32,7 @@ const AddHome = () => {
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
-      <Typography variant="h3">Tambah Data HoME</Typography>
+      <h1>Add Home</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box display="flex" flexDirection="column">

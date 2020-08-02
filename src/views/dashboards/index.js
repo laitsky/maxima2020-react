@@ -3,6 +3,7 @@ export { OrganisatorDashboard } from './organisator';
 export {
   Dashboard as AdminDashboard,
   AddHome,
+  AddHomeMedia,
   TambahAkun,
   ShortenerLists,
 } from './admin';

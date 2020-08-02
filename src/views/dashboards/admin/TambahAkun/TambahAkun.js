@@ -10,7 +10,6 @@ import {
   Select,
   InputLabel,
   MenuItem,
-  Typography,
 } from '@material-ui/core';
 
 const TambahAkun = () => {
@@ -34,7 +33,7 @@ const TambahAkun = () => {
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
-      <Typography variant="h3">Tambah Akun</Typography>
+      <h1>Tambah Akun</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box display="flex" flexDirection="column">
@@ -50,7 +49,7 @@ const TambahAkun = () => {
           <TextField
             type="number"
             name="nim"
-            placeholder="NIM"
+            label="NIM"
             variant="outlined"
             inputRef={register({
               required: 'Isi NIM kamu',
@@ -69,7 +68,7 @@ const TambahAkun = () => {
           <TextField
             type="text"
             name="email"
-            placeholder="Email"
+            label="Email"
             variant="outlined"
             inputRef={register({ required: 'Isi Email kamu' })}
           />
@@ -78,7 +77,7 @@ const TambahAkun = () => {
           <TextField
             type="password"
             name="password"
-            placeholder="Kata Sandi"
+            label="Kata Sandi"
             variant="outlined"
             inputRef={register({ required: 'Isi kata sandi kamu' })}
           />

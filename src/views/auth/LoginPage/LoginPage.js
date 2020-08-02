@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ import {
   Error,
   MxmLogoContainer,
   AlignMiddle,
-  MxmLoading
+  MxmLoading,
 } from '../../../components';
 import authService from '../../../services/auth';
 
@@ -21,21 +22,30 @@ const LoginPage = () => {
     mode: 'onChange',
   });
 
+  useEffect(() => {
+    document.title = 'Masuk - MAXIMA 2020';
+  }, []);
+
   const onSubmit = async (data) => {
     setLoading(true);
     reset();
     console.log(data);
 
     try {
-      const returnedData = await authService.loginMaba(data);
-      console.log(returnedData.accessToken);
+      const returnedData = await authService.login(data);
+      console.log(returnedData);
       window.sessionStorage.setItem(
         'token',
         returnedData.accessToken,
       );
       window.location = '/';
     } catch (error) {
-      console.log(error.response.data);
+      Swal.fire({
+        title: 'Perhatian!',
+        text: 'Kata sandi yang kamu masukkan salah!',
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
     setLoading(false);
   };
@@ -109,7 +119,10 @@ const LoginPage = () => {
                 exact
                 style={{ textDecoration: 'none' }}
               >
-                <h4 className="mxm-cyan">
+                <h4
+                  className="mxm-cyan"
+                  style={{ textAlign: 'center' }}
+                >
                   Belum memiliki akun?
                   <span
                     style={{
@@ -117,7 +130,27 @@ const LoginPage = () => {
                       marginLeft: 5,
                     }}
                   >
-                    Daftar
+                    Daftar akun mahasiswa baru.
+                  </span>
+                </h4>
+              </Link>
+              <Link
+                to="/daftar-organisator"
+                exact
+                style={{ textDecoration: 'none' }}
+              >
+                <h4
+                  className="mxm-cyan"
+                  style={{ textAlign: 'center' }}
+                >
+                  Daftar akun organisator
+                  <span
+                    style={{
+                      fontFamily: 'canaro-bold',
+                      marginLeft: 5,
+                    }}
+                  >
+                    disini.
                   </span>
                 </h4>
               </Link>

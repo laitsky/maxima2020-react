@@ -6,7 +6,7 @@ import {
   OrganisatorSidebar,
   StateBottomNav,
 } from './components';
-import { Beranda, HomeMainPage, MaxiTour } from './views';
+import { Beranda, HomeMainPage, MaxiTour, NotFound } from './views';
 import ShowName from './views/testing/ShowName';
 import {
   AcaraRouter,
@@ -18,6 +18,7 @@ import {
 
 const AppRouter = () => (
   <Switch>
+    <Route path="/404" exact component={NotFound} />
     <Route path="/admin/:path1?/:path2?/:path3?" exact>
       <Switch>
         <AdminRouter Sidebar={AdminSidebar} />
@@ -35,7 +36,6 @@ const AppRouter = () => (
       </Switch>
       <StateBottomNav />
     </Route>
-
     <Route path="/organisator/:path?" exact>
       <Switch>
         <OrganisatorRouter Sidebar={OrganisatorSidebar} />
