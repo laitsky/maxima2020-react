@@ -2,14 +2,14 @@ import axios from 'axios';
 
 const baseUrl = 'https://mxm20-test.herokuapp.com/api/auth';
 
-const daftarMaba = async (dataMaba) => {
-  const request = await axios.post(`${baseUrl}/signup`, dataMaba);
+const daftar = async (data) => {
+  const request = await axios.post(`${baseUrl}/signup`, data);
   return request.data;
 };
 
-const loginMaba = async (dataMaba) => {
-  const request = await axios.post(`${baseUrl}/signin`, dataMaba);
+const login = async (data) => {
+  const request = await axios.post(`${baseUrl}/signin`, data);
   return request.data;
 };
 
-export default { daftarMaba, loginMaba };
+export default { daftar, login };
