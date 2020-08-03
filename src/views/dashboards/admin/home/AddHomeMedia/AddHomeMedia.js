@@ -26,7 +26,7 @@ const AddHomeMedia = () => {
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
-        <h1>Add Home Media</h1>
+      <h1>Add Home Media</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box display="flex" flexDirection="column">

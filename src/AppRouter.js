@@ -6,12 +6,13 @@ import {
   OrganisatorSidebar,
   StateBottomNav,
 } from './components';
-import { Beranda, HomeMainPage, MaxiTour, NotFound } from './views';
+import { Beranda, MaxiTour, NotFound, JingleMaxima } from './views';
 import ShowName from './views/testing/ShowName';
 import {
   AcaraRouter,
   AdminRouter,
   AuthRouter,
+  HomeRouter,
   StateRouter,
   OrganisatorRouter,
 } from './routers';
@@ -24,9 +25,15 @@ const AppRouter = () => (
         <AdminRouter Sidebar={AdminSidebar} />
       </Switch>
     </Route>
-    <Route path="/acara/:path1?:/:path2?/:path3?" exact>
+    <Route path="/acara/:path1?/:path2?/:path3?" exact>
       <Switch>
         <AcaraRouter />
+      </Switch>
+    </Route>
+    <Route path="/home/:path1?/:path2?/:path3?" exact>
+      <MxmNavbar />
+      <Switch>
+        <HomeRouter />
       </Switch>
     </Route>
     <Route path="/state/:path1?/:path2?/:path3?" exact>
@@ -44,13 +51,12 @@ const AppRouter = () => (
     <Route>
       <MxmNavbar />
       <Switch>
+        <Route path="/jingle-maxima" exact component={JingleMaxima} />
         <Route path="/tour" exact component={MaxiTour} />
         <Route path="/" exact component={Beranda} />
-        <Route path="/home" exact component={HomeMainPage} />
         <AuthRouter />
       </Switch>
     </Route>
-    
   </Switch>
 );
 

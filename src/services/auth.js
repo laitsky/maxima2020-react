@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://mxm20-test.herokuapp.com/api/auth';
+const baseUrl = 'https://lumiere.my.id/api/auth';
 
 const daftar = async (data) => {
   const request = await axios.post(`${baseUrl}/signup`, data);

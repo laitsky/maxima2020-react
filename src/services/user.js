@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://mxm20-test.herokuapp.com/api/user';
+const baseUrl = 'https://lumiere.my.id/api/user';
 
 const token = window.sessionStorage.getItem('token');
 const getCredential = async (nim) => {

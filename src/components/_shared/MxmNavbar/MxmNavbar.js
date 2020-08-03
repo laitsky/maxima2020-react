@@ -39,6 +39,11 @@ const Navbar = () => {
                 STATE
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/jingle-maxima" exact>
+                Jingle MAXIMA
+              </NavLink>
+            </li>
           </ul>
           <ul>
             <li>

@@ -24,8 +24,8 @@ const DaftarMaba = () => {
   });
 
   useEffect(() => {
-    document.title = 'Pendaftaran Akun Mahasiswa Baru - MAXIMA 2020'
-  }, [])
+    document.title = 'Pendaftaran Akun Mahasiswa Baru - MAXIMA 2020';
+  }, []);
 
   const password = useRef({});
   password.current = watch('password', '');

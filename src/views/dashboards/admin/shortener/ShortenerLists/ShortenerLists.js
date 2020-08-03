@@ -12,7 +12,6 @@ const ShortenerLists = () => {
     fetchData();
   }, []);
 
-
   return (
     <div>
       <h1>Ini halaman shortener</h1>
