@@ -9,7 +9,9 @@ export {
   AddHome,
   AddHomeMedia,
   TambahAkun,
+  TambahState,
   ShortenerLists,
   OrganisatorDashboard,
+  StateLists,
 } from './dashboards';
 export { NotFound, JingleMaxima } from './others';

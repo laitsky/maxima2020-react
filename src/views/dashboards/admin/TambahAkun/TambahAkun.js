@@ -11,18 +11,24 @@ import {
   InputLabel,
   MenuItem,
 } from '@material-ui/core';
+import authService from '../../../../services/auth';
 
 const TambahAkun = () => {
-  const [role, setRole] = useState('');
+  const [roles, setRole] = useState('');
   const { register, handleSubmit, reset, errors } = useForm();
 
   const onSubmit = async (data) => {
     reset();
     const newData = {
       ...data,
-      role,
+      roles,
     };
-    console.log(newData);
+    try {
+      const returnedData = await authService.daftar(newData);
+      console.log(returnedData);
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
   const handleRoleChange = (e) => {
     setRole(e.target.value);
@@ -92,7 +98,7 @@ const TambahAkun = () => {
                 name: 'role',
                 id: 'role-select',
               }}
-              value={role || ''}
+              value={roles || ''}
               onChange={handleRoleChange}
               inputRef={register}
             >

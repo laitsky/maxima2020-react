@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { Box } from '@material-ui/core';
@@ -11,9 +11,11 @@ import {
   RadioLabelSlot,
   StateSelectOverflow,
 } from './components/styled';
+import studentService from '../../../services/student';
 import './DaftarState.css';
 
 const DaftarState = ({ day }) => {
+  const [data, setData] = useState(false);
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
 

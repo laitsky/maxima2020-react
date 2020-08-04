@@ -1,8 +1,10 @@
 export {
   MxmNavbar,
+  MxmFooter,
   AdminSidebar,
   OrganisatorSidebar,
   StateBottomNav,
+  DashboardAppBar,
 } from './_shared';
 export {
   MxmButton,

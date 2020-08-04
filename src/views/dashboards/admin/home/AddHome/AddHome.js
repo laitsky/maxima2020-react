@@ -32,7 +32,7 @@ const AddHome = () => {
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
-      <h1>Add Home</h1>
+      <h1>Tambah HoME</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box display="flex" flexDirection="column">
@@ -113,9 +113,21 @@ const AddHome = () => {
             <span>{errors.link_audio.message}</span>
           )}
           <Box paddingBottom="2em" />
+          <TextField
+            type="text"
+            name="link_video"
+            label="Link Video"
+            variant="outlined"
+            inputRef={register({ required: 'Isi Link Video' })}
+          />
+          {errors.link_video && (
+            <span>{errors.link_video.message}</span>
+          )}
+          <Box paddingBottom="2em" />
           <Button type="submit" variant="contained" color="primary">
             Submit
           </Button>
+          <Box paddingBottom="2em" />
         </Box>
       </form>
     </Container>
