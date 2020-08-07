@@ -11,7 +11,7 @@ export const MxmLongCard = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 1.2vh;
+  padding: 0.5em 2em 0.5em 2em;
   margin-top: 3vh;
   background-color: #f4224b;
   box-shadow: ${(props) => (props.border ? '0 1vh #ffbd08' : '0')};

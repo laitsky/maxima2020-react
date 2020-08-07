@@ -21,4 +21,5 @@ export {
   MxmLoading,
   MxmAppendInput,
   MxmPrependInput,
+  StateTokenContainer,
 } from './reusable';

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import logo from '../../../assets/mxm20_logo.png';
 import {
   MxmInput,
@@ -17,6 +18,7 @@ import {
 import authService from '../../../services/auth';
 
 const LoginPage = () => {
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors } = useForm({
     mode: 'onChange',
@@ -76,6 +78,12 @@ const LoginPage = () => {
             >
               SELAMAT DATANG!
             </h1>
+            {location.data && (
+              <Alert severity={location.data.severity}>
+                {location.data.message}
+              </Alert>
+            )}
+
             <MxmPrependInput>
               <span>00000</span>
               <input

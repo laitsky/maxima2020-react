@@ -24,6 +24,18 @@ export const AlignMiddle = styled.div`
   }
 `;
 
+export const StateTokenContainer = styled.div`
+  color: white;
+  border-radius: 10px;
+  background-color: #41ceba;
+  padding: 0.35em 1.5em 0.35em 1.5em;
+  border: solid #41ceba;
+  transition-duration: 0.3s;
+  box-shadow: 0 0.5vh #b5b5b5;
+  margin-top: ${(props) => props.mt || '0'};
+  margin-bottom: ${(props) => props.mb || '0'};
+`;
+
 export const MxmHomeContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,3 +53,4 @@ export const MxmHomeContainer = styled.div`
     margin-right: 1.5em;
   }
 `;
+

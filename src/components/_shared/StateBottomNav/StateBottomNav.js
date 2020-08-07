@@ -6,9 +6,9 @@ import {
   BottomNavigationAction,
 } from '@material-ui/core';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import TimelineIcon from '@material-ui/icons/Timeline';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles({
   root: {
@@ -40,12 +40,12 @@ const StateBottomNav = () => {
           icon={<HomeWorkIcon />}
         />
         <BottomNavigationAction
-          label="Favorites"
-          icon={<FavoriteIcon />}
+          label="Linimasa"
+          icon={<TimelineIcon />}
         />
         <BottomNavigationAction
-          label="Nearby"
-          icon={<LocationOnIcon />}
+          label="Informasi"
+          icon={<InfoIcon />}
         />
         <BottomNavigationAction
           component={Link}

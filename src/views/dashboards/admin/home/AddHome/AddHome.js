@@ -11,6 +11,7 @@ import {
   InputLabel,
   MenuItem,
 } from '@material-ui/core';
+import categories from './categories';
 
 const AddHome = () => {
   const [kategori, setKategori] = useState('');
@@ -21,6 +22,7 @@ const AddHome = () => {
       ...data,
       kategori,
     };
+    setKategori('');
     console.log(newData);
   };
   const handleKategoriChange = (e) => {
@@ -62,10 +64,11 @@ const AddHome = () => {
               onChange={handleKategoriChange}
               inputRef={register}
             >
-              <MenuItem value=""> None </MenuItem>
-              <MenuItem value="Ten">Ten</MenuItem>
-              <MenuItem value="Twenty">Twenty</MenuItem>
-              <MenuItem value="Thirty">Thirty</MenuItem>
+              {categories.map((category) => (
+                <MenuItem key={category} value={category}>
+                  {category}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           <Box paddingBottom="2em" />

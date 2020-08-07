@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import adminService from '../../../../../services/admin';
 
 const StateLists = () => {
+  const location = useLocation();
   const [data, setData] = useState([]);
+
   useEffect(() => {
+    document.title = 'Daftar Kegiatan STATE - MAXIMA 2020';
     const fetchData = async () => {
       try {
         const returnedData = await adminService.getAllState();
         setData(returnedData);
-        console.log(returnedData);
       } catch (err) {
         console.log(err.response);
       }
@@ -24,32 +34,47 @@ const StateLists = () => {
   }, []);
 
   return (
-    <>
-      <TableContainer component={Paper}>
-        <Table aria-label="State Lists Table">
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Nama Organisator</TableCell>
-              <TableCell>Kuota</TableCell>
-              <TableCell>Hari ke-</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((d) => (
-              <TableRow key={d.state_id}>
-                <TableCell component="th" scope="row">
-                  {d.name}
-                </TableCell>
-                <TableCell>{d.name}</TableCell>
-                <TableCell>{d.quota}</TableCell>
-                <TableCell>{d.day}</TableCell>
+    <Container maxWidth="md" style={{ paddingTop: '2em' }}>
+      {location.message && (
+        <Alert severity="success">{location.message}</Alert>
+      )}
+
+      <h1>Daftar Kegiatan STATE 2020</h1>
+      <Divider style={{ marginBottom: '1.5em' }} />
+      <Box>
+        <TableContainer component={Paper}>
+          <Table aria-label="State Lists Table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Nama Organisator</TableCell>
+                <TableCell align="center">Kuota</TableCell>
+                <TableCell align="center">Hari ke-</TableCell>
+                <TableCell align="center">Aksi</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </>
+            </TableHead>
+            <TableBody>
+              {data.map((d) => (
+                <TableRow hover key={d.state_id}>
+                  <TableCell align="center">{d.name}</TableCell>
+                  <TableCell align="center">{d.quota}</TableCell>
+                  <TableCell align="center">{d.day}</TableCell>
+                  <TableCell align="center">
+                    <Link
+                      to={`/admin/edit-state/${d.state_id}`}
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <Button variant="contained" color="primary">
+                        Sunting
+                      </Button>
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </Container>
   );
 };
 

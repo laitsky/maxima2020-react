@@ -1,26 +1,74 @@
-import React, { useEffect } from 'react';
-import { useParams, useLocation, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import { MxmButton } from '../../../components/reusable/button';
+import studentService from '../../../services/student';
 
 const StateOrgDetail = () => {
-  const { organisator } = useParams();
-  const location = useLocation();
+  const [data, setData] = useState({});
+  const [nim, setNim] = useState(Number);
+  let { organisator } = useParams();
   const history = useHistory();
+  organisator = organisator.split('-').join(' ');
+  useEffect(() => {
+    document.title = 'Detail Organisator - STATE MAXIMA 2020';
+    const decoded = jwtDecode(window.sessionStorage.getItem('token'));
+    setNim(decoded.nim);
+
+    const fetchData = async () => {
+      try {
+        let returnedData = await studentService.getAllState();
+        returnedData = returnedData.find(
+          (o) => o.name.toLowerCase() === organisator,
+        );
+        setData(returnedData);
+      } catch (err) {
+        console.log(err.response);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
-    if (!location.day) history.push('/404');
-    document.title = 'Detail Organisator - STATE MAXIMA 2020';
-  }, [history, location.day]);
+    console.log(data);
+  }, [data]);
+
+  const handleClick = async () => {
+    // eslint-disable-next-line camelcase
+    const { state_id } = data;
+
+    try {
+      const returnedStatus = await studentService.registerState({
+        nim,
+        state_id,
+      });
+      if (returnedStatus === 200) {
+        history.push({
+          pathname: '/state',
+          data: {
+            severity: 'success',
+            message: `Kamu berhasil mendaftarkan diri untuk STATE ${organisator.toUpperCase()}`,
+          },
+        });
+      }
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
   return (
-    <div>
-      <h1>
-        Ini adalah halaman organisator untuk
-        {organisator}
-      </h1>
+    <>
+      <h1>Ini adalah halaman organisator untuk {organisator}</h1>
       <h3>
-        Nanti disini akan ditampilkan data-data yang diminta, kemudian
-        ada submisi form untuk konfirmasi pendaftaran state
+        TAMPILIN LOGO (kalau blm ada kasih logo maxima aja, sampe skrg
+        blm ada), TANGGAL (ntar diisi sama div kosong aja, sesuai
+        UInya karena tanggal blm dikasih), sama ruangan (DIGANTI SAMA
+        LINK ZOOM). Liat State Website Ui di drive.
       </h3>
-    </div>
+      <MxmButton onClick={handleClick}>
+        Simpan (Hari {data.day})
+      </MxmButton>
+    </>
   );
 };
 
