@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import {
+  Route,
+  Switch,
+  useLocation,
+  useHistory,
+} from 'react-router-dom';
 import {
   MxmNavbar,
   MxmFooter,
@@ -19,8 +25,25 @@ import {
 
 const AppRouter = () => {
   const location = useLocation();
+  const history = useHistory();
+  const token = window.sessionStorage.getItem('token');
   useEffect(() => {
     console.log('location changed!', location);
+    if (token) {
+      const { exp } = jwtDecode(token);
+      const expirationTime = exp * 1000 - 60000;
+      console.log(Date.now() >= expirationTime);
+      if (Date.now() >= expirationTime) {
+        window.sessionStorage.clear();
+        history.push({
+          pathname: '/login',
+          data: {
+            severity: 'error',
+            message: 'Sesi kamu telah habis, silakan login kembali.',
+          },
+        });
+      }
+    }
   }, [location]);
 
   return (

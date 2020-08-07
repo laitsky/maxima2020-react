@@ -16,7 +16,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddIcon from '@material-ui/icons/Add';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
-const Admin = ({ toggled }) => {
+const Admin = ({ toggled, handleToggleSidebar }) => {
   const [collapsed] = useState(false);
 
   return (
@@ -25,6 +25,7 @@ const Admin = ({ toggled }) => {
         breakPoint="lg"
         collapsed={collapsed}
         toggled={toggled}
+        onToggle={handleToggleSidebar}
       >
         <SidebarHeader>
           <div

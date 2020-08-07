@@ -17,4 +17,46 @@ const getAllState = async () => {
   return request.data;
 };
 
-export default { getAllState };
+const registerState = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/state/register_state`,
+    data,
+    config,
+  );
+  return request.status;
+};
+
+const getRegisteredState = async (nim) => {
+  const request = await axios.post(
+    `${baseUrl}/state/registered_state`,
+    { nim },
+    config,
+  );
+  return request.data;
+};
+
+const cancelRegisteredState = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/state/deregister_state`,
+    data,
+    config,
+  );
+  return request.status;
+};
+
+const absenState = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/state/state_checkin`,
+    data,
+    config,
+  );
+  return request.data;
+};
+
+export default {
+  getAllState,
+  registerState,
+  getRegisteredState,
+  cancelRegisteredState,
+  absenState,
+};

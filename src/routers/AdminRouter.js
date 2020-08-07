@@ -11,6 +11,7 @@ import {
   TambahAkun,
   TambahState,
   StateLists,
+  EditState,
 } from '../views';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +41,10 @@ const AdminRouter = ({ Sidebar }) => {
         handleToggleSidebar={handleToggleSidebar}
         title="Laman Admin"
       />
-      <Sidebar toggled={toggled} />
+      <Sidebar
+        toggled={toggled}
+        handleToggleSidebar={handleToggleSidebar}
+      />
       <Container>
         <Switch>
           <Route path="/admin" exact>
@@ -76,6 +80,11 @@ const AdminRouter = ({ Sidebar }) => {
             path="/admin/shorteners"
             exact
             component={ShortenerLists}
+          />
+          <Route
+            path="/admin/edit-state/:stateId"
+            exact
+            component={EditState}
           />
         </Switch>
       </Container>

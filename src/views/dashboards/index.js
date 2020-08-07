@@ -8,4 +8,5 @@ export {
   TambahState,
   ShortenerLists,
   StateLists,
+  EditState,
 } from './admin';

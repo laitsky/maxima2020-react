@@ -17,6 +17,15 @@ const getAllState = async () => {
   return request.data;
 };
 
+const getStateById = async (stateId) => {
+  const request = await axios.post(
+    `${baseUrl}/state/get_state_details`,
+    { state_id: stateId },
+    config,
+  );
+  return request.data;
+};
+
 const addState = async (data) => {
   const request = await axios.post(
     `${baseUrl}/state/add_state`,
@@ -26,4 +35,12 @@ const addState = async (data) => {
   return request.data;
 };
 
-export default { getAllState, addState };
+const editState = async (data, stateId) => {
+  const request = await axios.post(
+    `${baseUrl}/state/edit_state`,
+    { state_id: stateId, ...data },
+    config,
+  );
+  return request.status;
+};
+export default { getAllState, getStateById, addState, editState };

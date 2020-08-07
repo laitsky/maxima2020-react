@@ -9,7 +9,6 @@ import {
   Radio,
 } from '@material-ui/core';
 import adminService from '../../../../../services/admin';
-import Snackbar from '@material-ui/core/Snackbar';
 
 const TambahState = () => {
   const { register, handleSubmit, reset, errors } = useForm();
@@ -26,22 +25,22 @@ const TambahState = () => {
   };
 
   useEffect(() => {
-    document.title = 'Tambah Data STATE - MAXIMA 2020';
+    document.title = 'Tambah Kegiatan STATE - MAXIMA 2020';
   }, []);
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
-      <h1>Tambah STATE</h1>
+      <h1>Tambah Kegiatan STATE</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box display="flex" flexDirection="column">
           <TextField
             type="text"
             name="name"
-            label="Nama Organisator"
+            label="Nama Kegiatan"
             variant="outlined"
             inputRef={register({
-              required: 'Isi nama organisator',
+              required: 'Isi nama kegiatan',
             })}
           />
           {errors.name && <span>{errors.name.message}</span>}

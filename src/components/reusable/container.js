@@ -23,3 +23,15 @@ export const AlignMiddle = styled.div`
     padding-right: 1.3em;
   }
 `;
+
+export const StateTokenContainer = styled.div`
+  color: white;
+  border-radius: 10px;
+  background-color: #41ceba;
+  padding: 0.35em 1.5em 0.35em 1.5em;
+  border: solid #41ceba;
+  transition-duration: 0.3s;
+  box-shadow: 0 0.5vh #b5b5b5;
+  margin-top: ${(props) => props.mt || '0'};
+  margin-bottom: ${(props) => props.mb || '0'};
+`;

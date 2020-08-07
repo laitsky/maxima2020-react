@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
-const DashboardAppBar = ({handleToggleSidebar, title}) => {
+const DashboardAppBar = ({ handleToggleSidebar, title }) => {
   const classes = useStyles();
   return (
     <AppBar>

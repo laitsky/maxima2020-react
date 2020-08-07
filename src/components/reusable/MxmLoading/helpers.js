@@ -1,4 +1,4 @@
-export const Container = {
+const Container = {
   width: '2.5em',
   height: '2em',
   display: 'flex',
@@ -6,7 +6,7 @@ export const Container = {
   marginTop: '1em',
 };
 
-export const pinkCircle = {
+const pinkCircle = {
   display: 'block',
   width: '1.5em',
   height: '1.75em',
@@ -14,7 +14,7 @@ export const pinkCircle = {
   borderRadius: '0.25em',
   marginRight: '0.35em',
 };
-export const yellowCircle = {
+const yellowCircle = {
   display: 'block',
   width: '1.5em',
   height: '1.75em',
@@ -22,7 +22,7 @@ export const yellowCircle = {
   borderRadius: '0.25em',
   marginRight: '0.35em',
 };
-export const navyCircle = {
+const navyCircle = {
   display: 'block',
   width: '1.5em',
   height: '1.75em',
@@ -30,7 +30,7 @@ export const navyCircle = {
   borderRadius: '0.25em',
   marginRight: '0.35em',
 };
-export const cyanCircle = {
+const cyanCircle = {
   display: 'block',
   width: '1.5em',
   height: '1.75em',
@@ -38,7 +38,7 @@ export const cyanCircle = {
   borderRadius: '0.25em',
   marginRight: '0.35em',
 };
-export const ContainerVariants = {
+const ContainerVariants = {
   start: {
     transition: {
       staggerChildren: 0.2,
@@ -51,7 +51,7 @@ export const ContainerVariants = {
   },
 };
 
-export const CircleVariants = {
+const CircleVariants = {
   start: {
     y: '0%',
   },
@@ -60,7 +60,7 @@ export const CircleVariants = {
   },
 };
 
-export const CircleTransition = {
+const CircleTransition = {
   duration: 0.5,
   yoyo: Infinity,
   ease: 'easeInOut',

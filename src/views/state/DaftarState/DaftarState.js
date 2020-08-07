@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { Box } from '@material-ui/core';
+import { Box, TextField } from '@material-ui/core';
 import { MxmButton } from '../../../components/reusable/button';
 import Header from './components/Header';
 import logo from '../../../assets/mxm_white.png';
 import {
-  StateTokenContainer,
   RadioContainer,
   RadioLabelSlot,
   StateSelectOverflow,
@@ -15,41 +14,50 @@ import studentService from '../../../services/student';
 import './DaftarState.css';
 
 const DaftarState = ({ day }) => {
-  const [data, setData] = useState(false);
+  const [organisators, setOrganisators] = useState([]);
+  const [filter, setFilter] = useState('');
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const returnedData = await studentService.getAllState();
+        // menambahkan key 'slot' (quota - registered) ke dalam variable organisators
+        const organisatorsWithSlot = await returnedData
+          .filter((data) => data.day === day)
+          .map((data) => ({
+            ...data,
+            slot: data.quota - data.registered,
+          }));
+        setOrganisators(organisatorsWithSlot);
+        console.log('empty deps', organisators);
+      } catch (err) {
+        console.log(err.response.data.message);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log('with deps', organisators);
+  }, [organisators]);
+
   const onSubmit = async (data) => {
     const { organisator } = data;
-    history.push({
-      pathname: `/state/detail-organisator/${organisator.toLowerCase()}`,
-      day,
-    });
+    history.push(
+      `/state/detail-organisator/${organisator
+        .split(' ')
+        .join('-')
+        .toLowerCase()}`,
+    );
   };
 
-  const datas = [
-    {
-      nama: 'Medic',
-      slot: 20,
-    },
-    {
-      nama: 'UESC',
-      slot: 8,
-    },
-    {
-      nama: 'Rencang',
-      slot: 78,
-    },
-    {
-      nama: 'Sonora',
-      slot: 0,
-    },
-    {
-      nama: 'Komcor',
-      slot: 32,
-    },
-  ];
-
+  const organisatorsToShow = filter
+    ? organisators.filter((o) =>
+        o.name.toLowerCase().includes(filter.trim().toLowerCase()),
+      )
+    : organisators;
   return (
     <>
       <Header logo={logo} day={day} />
@@ -61,25 +69,30 @@ const DaftarState = ({ day }) => {
         paddingBottom="1em"
         boxSizing="border-box"
       >
-        <StateTokenContainer mt="2em">
-          Kamu memiliki 3 token
-        </StateTokenContainer>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <TextField
+            type="text"
+            label="Cari kegiatan..."
+            color="secondary"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            fullWidth
+          />
           <StateSelectOverflow>
-            {datas.map((data) => (
+            {organisatorsToShow.map((data) => (
               <RadioContainer key={data.nama}>
                 <input
                   type="radio"
                   name="organisator"
-                  id={data.nama}
-                  value={data.nama}
+                  id={data.name}
+                  value={data.name}
                   ref={register({
                     required: 'Kamu harus memilih salah satu opsi!',
                   })}
                   disabled={!data.slot}
                 />
-                <label htmlFor={data.nama} className="radio">
-                  {data.nama}
+                <label htmlFor={data.name} className="radio">
+                  {data.name}
                 </label>
                 <RadioLabelSlot slot={data.slot}>
                   {!data.slot ? 'FULL' : data.slot}
@@ -94,13 +107,7 @@ const DaftarState = ({ day }) => {
             alignItems="center"
             justifyContent="center"
           >
-            <MxmButton
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Pilih
-            </MxmButton>
+            <MxmButton type="submit">Pilih</MxmButton>
           </Box>
         </form>
       </Box>
