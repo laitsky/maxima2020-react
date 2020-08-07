@@ -13,7 +13,14 @@ import {
   OrganisatorSidebar,
   StateBottomNav,
 } from './components';
-import { Beranda, MaxiTour, NotFound, JingleMaxima } from './views';
+import {
+  Beranda,
+  MaxiTour,
+  NotFound,
+  JingleMaxima,
+  Unauthorized401,
+  Forbidden403,
+} from './views';
 import {
   AcaraRouter,
   AdminRouter,
@@ -22,6 +29,8 @@ import {
   StateRouter,
   OrganisatorRouter,
 } from './routers';
+// eslint-disable-next-line no-unused-vars
+import axiosMiddleware from './utils/middleware';
 
 const AppRouter = () => {
   const location = useLocation();
@@ -48,6 +57,8 @@ const AppRouter = () => {
 
   return (
     <Switch>
+      <Route path="/401" exact component={Unauthorized401} />
+      <Route path="/403" exact component={Forbidden403} />
       <Route path="/404" exact component={NotFound} />
       <Route path="/admin/:path1?/:path2?/:path3?" exact>
         <Switch>

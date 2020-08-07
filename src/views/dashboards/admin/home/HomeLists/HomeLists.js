@@ -16,16 +16,16 @@ import {
 import Alert from '@material-ui/lab/Alert';
 import adminService from '../../../../../services/admin';
 
-const StateLists = () => {
+const HomeLists = () => {
   const location = useLocation();
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    document.title = 'Daftar Kegiatan STATE - MAXIMA 2020';
+    document.title = 'Daftar Organisator HoME - MAXIMA 2020';
     const fetchData = async () => {
       try {
-        const returnedData = await adminService.getAllState();
-        setData(returnedData);
+        const returnedData = await adminService.getAllHome();
+        setData(returnedData.data);
       } catch (err) {
         console.log(err.response);
       }
@@ -33,33 +33,34 @@ const StateLists = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log('data: ', data);
+  }, [data]);
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
-      <h1>Daftar Kegiatan STATE 2020</h1>
+      <h1>Daftar Organisator HOME 2020</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       {location.message && (
         <Alert severity="success">{location.message}</Alert>
       )}
       <Box style={{ marginTop: '1em' }}>
         <TableContainer component={Paper}>
-          <Table aria-label="Tabel Daftar Kegiatan STATE">
+          <Table aria-label="Tabel Daftar Organisator HoME">
             <TableHead>
               <TableRow>
-                <TableCell align="center">Nama Kegiatan</TableCell>
-                <TableCell align="center">Kuota</TableCell>
-                <TableCell align="center">Hari ke-</TableCell>
+                <TableCell align="center">Nama Organisator</TableCell>
+                <TableCell align="center">Kategori</TableCell>
                 <TableCell align="center">Aksi</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((d) => (
-                <TableRow hover key={d.state_id}>
+                <TableRow hover key={d.home_id}>
                   <TableCell align="center">{d.name}</TableCell>
-                  <TableCell align="center">{d.quota}</TableCell>
-                  <TableCell align="center">{d.day}</TableCell>
+                  <TableCell align="center">{d.kategori}</TableCell>
                   <TableCell align="center">
                     <Link
-                      to={`/admin/edit-state/${d.state_id}`}
+                      to={`/admin/edit-home/${d.home_id}`}
                       style={{ textDecoration: 'none' }}
                     >
                       <Button variant="contained" color="primary">
@@ -77,4 +78,4 @@ const StateLists = () => {
   );
 };
 
-export default StateLists;
+export default HomeLists;

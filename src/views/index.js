@@ -1,6 +1,12 @@
 export { LoginPage, DaftarMaba, DaftarOrganisator } from './auth';
 export { Beranda } from './beranda';
-export { HomeMainPage, HomePuzzle, HomeLists } from './home';
+export {
+  HomeMainPage,
+  HomePuzzle,
+  HomeLists,
+  HomeDetail,
+
+} from './home';
 export { MaxiTour } from './maxitour';
 export {
   StateMainPage,
@@ -19,5 +25,12 @@ export {
   ShortenerLists,
   OrganisatorDashboard,
   StateLists,
+  AdminHomeLists,
+  EditHome,
 } from './dashboards';
-export { NotFound, JingleMaxima } from './others';
+export {
+  NotFound,
+  JingleMaxima,
+  Unauthorized401,
+  Forbidden403,
+} from './others';

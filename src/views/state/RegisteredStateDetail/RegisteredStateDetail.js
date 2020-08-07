@@ -5,7 +5,11 @@ import jwtDecode from 'jwt-decode';
 import { Container, Box, Button } from '@material-ui/core';
 import CancelStateDialog from './components/CancelStateDialog';
 import AbsenStateDialog from './components/AbsenStateDialog';
-import { MxmLongCard, MxmButton } from '../../../components';
+import {
+  MxmLongCard,
+  MxmButton,
+  MxmLogoContainer,
+} from '../../../components';
 import studentService from '../../../services/student';
 
 const RegisteredStateDetail = ({ day }) => {
@@ -118,7 +122,7 @@ const RegisteredStateDetail = ({ day }) => {
 
   return (
     <Container maxWidth="xs">
-      <h1>Logo Kegiatan {data.state_activity.name}</h1>
+      {data.link_logo && <MxmLogoContainer src={data.link_logo} />}
       <h3>Tanggal</h3>
       <MxmLongCard>tanggal disini</MxmLongCard>
       <h3>Link Zoom</h3>

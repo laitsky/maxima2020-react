@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
   Container,
@@ -11,20 +12,40 @@ import {
   InputLabel,
   MenuItem,
 } from '@material-ui/core';
+import adminService from '../../../../../services/admin';
 import categories from './categories';
 
+const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
+const cdnUrl = 'https://d1z9g6p5mcoq6s.cloudfront.net';
+
 const AddHome = () => {
+  const history = useHistory();
   const [kategori, setKategori] = useState('');
   const { register, handleSubmit, reset, errors } = useForm();
+
   const onSubmit = async (data) => {
     reset();
     const newData = {
       ...data,
       kategori,
+      link_logo: data.link_logo.replace(originUrl, cdnUrl),
     };
     setKategori('');
     console.log(newData);
+    try {
+      const returnedStatus = await adminService.addHome(newData);
+      console.log(returnedStatus);
+      if (returnedStatus === 200) {
+        history.push({
+          pathname: '/admin/home-lists',
+          message: `Kamu berhasil menambahkan data organisator HoME ${data.name}`,
+        });
+      }
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
+
   const handleKategoriChange = (e) => {
     setKategori(e.target.value);
   };
@@ -107,21 +128,10 @@ const AddHome = () => {
           <Box paddingBottom="2em" />
           <TextField
             type="text"
-            name="link_audio"
-            label="Link Audio"
-            variant="outlined"
-            inputRef={register({ required: 'Isi Link Audio' })}
-          />
-          {errors.link_audio && (
-            <span>{errors.link_audio.message}</span>
-          )}
-          <Box paddingBottom="2em" />
-          <TextField
-            type="text"
             name="link_video"
             label="Link Video"
             variant="outlined"
-            inputRef={register({ required: 'Isi Link Video' })}
+            inputRef={register()}
           />
           {errors.link_video && (
             <span>{errors.link_video.message}</span>
