@@ -35,3 +35,22 @@ export const StateTokenContainer = styled.div`
   margin-top: ${(props) => props.mt || '0'};
   margin-bottom: ${(props) => props.mb || '0'};
 `;
+
+export const MxmHomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid #41CEBA;
+  border-radius: 20px;
+  margin-bottom: 1em;
+  padding: 1.5em 3em 1.5em 3em;
+  letter-spacing: normal;
+
+  @media (max-width: 768px){
+    padding: 1.5em 1em 1.5em 1em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+`;
+
