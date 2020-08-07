@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
   Container,
@@ -11,14 +12,21 @@ import {
 import adminService from '../../../../../services/admin';
 
 const TambahState = () => {
+  const history = useHistory();
   const { register, handleSubmit, reset, errors } = useForm();
 
   const onSubmit = async (data) => {
     reset();
     console.log(data);
     try {
-      const returnedData = await adminService.addState(data);
-      console.log(returnedData);
+      const returnedStatus = await adminService.addState(data);
+      console.log(returnedStatus);
+      if (returnedStatus === 200) {
+        history.push({
+          pathname: '/admin/state-lists',
+          message: `Kamu berhasil menambahkan data kegiatan STATE ${data.name}`,
+        });
+      }
     } catch (err) {
       console.log(err.response.data);
     }
@@ -56,6 +64,18 @@ const TambahState = () => {
           />
           {errors.quota && <span>{errors.quota.message}</span>}
           <Box paddingBottom="2em" />
+          <TextField
+            type="text"
+            name="link_logo"
+            label="Link Logo"
+            variant="outlined"
+            inputRef={register({
+              required: 'Isi link logo',
+            })}
+          />
+          {errors.link_logo && (
+            <span>{errors.link_logo.message}</span>
+          )}
           <Box>
             Hari ke-
             <br />

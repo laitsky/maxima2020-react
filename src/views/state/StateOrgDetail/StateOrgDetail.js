@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { MxmButton } from '../../../components/reusable/button';
+import { MxmButton, MxmLogoContainer } from '../../../components';
 import studentService from '../../../services/student';
 
 const StateOrgDetail = () => {
@@ -59,11 +59,11 @@ const StateOrgDetail = () => {
   return (
     <>
       <h1>Ini adalah halaman organisator untuk {organisator}</h1>
+      {data.link_logo && <MxmLogoContainer src={data.link_logo} />}
       <h3>
-        TAMPILIN LOGO (kalau blm ada kasih logo maxima aja, sampe skrg
-        blm ada), TANGGAL (ntar diisi sama div kosong aja, sesuai
-        UInya karena tanggal blm dikasih), sama ruangan (DIGANTI SAMA
-        LINK ZOOM). Liat State Website Ui di drive.
+        TAMPILIN TANGGAL (ntar diisi sama div kosong aja, sesuai UInya
+        karena tanggal blm dikasih), sama ruangan (DIGANTI SAMA LINK
+        ZOOM). Liat State Website Ui di drive.
       </h3>
       <MxmButton onClick={handleClick}>
         Simpan (Hari {data.day})

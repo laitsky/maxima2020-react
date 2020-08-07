@@ -32,7 +32,7 @@ const addState = async (data) => {
     data,
     config,
   );
-  return request.data;
+  return request.status;
 };
 
 const editState = async (data, stateId) => {
@@ -43,4 +43,45 @@ const editState = async (data, stateId) => {
   );
   return request.status;
 };
-export default { getAllState, getStateById, addState, editState };
+
+const getAllHome = async () => {
+  const request = axios.get(`${baseUrl}/home/all_home`, config);
+  return request;
+};
+
+const addHome = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/home/add_home`,
+    data,
+    config,
+  );
+  return request.status;
+};
+
+const editHome = async (data, homeId) => {
+  const request = await axios.post(
+    `${baseUrl}/home/update_home`,
+    { home_id: homeId, ...data },
+    config,
+  );
+  return request.status;
+};
+
+const getHomeById = async (homeId) => {
+  const request = await axios.post(
+    `${baseUrl}/home/get_home_details`,
+    { home_id: homeId },
+    config,
+  );
+  return request.data;
+};
+export default {
+  getAllState,
+  getStateById,
+  addState,
+  editState,
+  getAllHome,
+  addHome,
+  editHome,
+  getHomeById,
+};

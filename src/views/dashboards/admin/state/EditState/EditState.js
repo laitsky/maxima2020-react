@@ -10,15 +10,24 @@ import {
 } from '@material-ui/core';
 import adminService from '../../../../../services/admin';
 
+const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
+const cdnUrl = 'https://d1z9g6p5mcoq6s.cloudfront.net';
+
 const EditState = () => {
   const history = useHistory();
   const { stateId } = useParams();
   const [data, setData] = useState({});
   const { register, handleSubmit, reset, errors } = useForm();
 
-  const onSubmit = async (formData) => {
+const onSubmit = async (formData) => {
     reset();
+    // eslint-disable-next-line no-param-reassign
+    formData.link_logo = formData.link_logo.replace(
+      originUrl,
+      cdnUrl,
+    );
     console.log(formData);
+
     try {
       const returnedStatus = await adminService.editState(
         formData,

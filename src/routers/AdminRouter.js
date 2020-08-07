@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Container } from '@material-ui/core';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
 import { DashboardAppBar } from '../components';
 import {
   AdminDashboard,
@@ -12,21 +11,12 @@ import {
   TambahState,
   StateLists,
   EditState,
+  AdminHomeLists,
+  EditHome,
 } from '../views';
 
-const useStyles = makeStyles((theme) => ({
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
-
 const AdminRouter = ({ Sidebar }) => {
-  const classes = useStyles();
   const [toggled, setToggled] = useState(false);
-
   const handleToggleSidebar = () => {
     setToggled((prevState) => !prevState);
   };
@@ -62,6 +52,11 @@ const AdminRouter = ({ Sidebar }) => {
             component={AddHomeMedia}
           />
           <Route
+            path="/admin/home-lists"
+            exact
+            component={AdminHomeLists}
+          />
+          <Route
             path="/admin/tambah-akun"
             exact
             component={TambahAkun}
@@ -85,6 +80,11 @@ const AdminRouter = ({ Sidebar }) => {
             path="/admin/edit-state/:stateId"
             exact
             component={EditState}
+          />
+          <Route
+            path="/admin/edit-home/:homeId"
+            exact
+            component={EditHome}
           />
         </Switch>
       </Container>

@@ -55,12 +55,12 @@ export const MxmTallCard = styled.div`
 export const MxmHomeCardDeck = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
-  background-color: #1F2C4C;
+  background-color: #1f2c4c;
   padding: 5em 25em 5em 25em;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     grid-template-columns: auto auto;
     padding: 2em;
   }
@@ -72,7 +72,7 @@ export const MxmHomeDeckItem = styled.div`
   align-items: center;
   padding: 1em 1em 1em 1em;
 
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     padding: 0.5em 0.5em 0.5em 0.5em;
   }
 `;
@@ -81,10 +81,8 @@ export const MxmHomeCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: ${(props) =>
-    (props.color || '#41CEBA')};
-  border: 1px solid ${(props) =>
-    (props.border || '#41CEBA')};
+  background-color: ${(props) => props.color || '#41CEBA'};
+  border: 1px solid ${(props) => props.border || '#41CEBA'};
   border-radius: 20px;
   width: fit-content;
   box-sizing: border-box;
@@ -93,18 +91,19 @@ export const MxmHomeCard = styled.div`
   padding: 35px 30px 35px 30px;
   transition-duration: 0.2s;
 
-  & div{
+  & div {
     text-align: left;
   }
-  
 
-  & h3{
+  & h3 {
     font-family: canaro-bold;
     margin: 20px 0 13px 0;
   }
 
-  &:hover{
-    box-shadow: 0 10px 10px #262626; 
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.15);
+    box-shadow: 0 10px 10px #262626;
     animation: jello-vertical 0.7s both;
   }
 
@@ -131,17 +130,17 @@ export const MxmHomeCard = styled.div`
       transform: scale3d(1, 1, 1);
     }
   }
-  
-  @media (max-width: 766px){
+
+  @media (max-width: 766px) {
     width: 130px;
     height: 130px;
     padding: 15px 15px 15px 15px;
 
-    & a{
+    & a {
       font-size: xx-small;
     }
-  
-    & h3{
+
+    & h3 {
       margin: 10px 0 2px 0;
       font-size: small;
     }

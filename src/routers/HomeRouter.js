@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { HomeMainPage, HomePuzzle, HomeLists } from '../views';
+import {
+  HomeMainPage,
+  HomePuzzle,
+  HomeLists,
+  HomeDetail,
+} from '../views';
 
 const HomeRouter = () => (
   <Switch>
@@ -10,6 +15,11 @@ const HomeRouter = () => (
       path="/home/organisator/:kategori"
       exact
       component={HomeLists}
+    />
+    <Route
+      path="/home/detail-organisator/:organisator"
+      exact
+      component={HomeDetail}
     />
   </Switch>
 );

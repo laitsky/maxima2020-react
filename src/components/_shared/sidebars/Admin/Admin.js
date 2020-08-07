@@ -54,7 +54,7 @@ const Admin = ({ toggled, handleToggleSidebar }) => {
                 <Link to="/admin/tambah-state" />
               </MenuItem>
               <MenuItem>
-                Daftar STATE
+                Daftar Kegiatan STATE
                 <Link to="/admin/state-lists" />
               </MenuItem>
             </SubMenu>
@@ -66,6 +66,10 @@ const Admin = ({ toggled, handleToggleSidebar }) => {
               <MenuItem>
                 Tambah Media HoME
                 <Link to="/admin/add-home-media" />
+              </MenuItem>
+              <MenuItem>
+                Daftar Organisator HoME
+                <Link to="/admin/home-lists" />
               </MenuItem>
             </SubMenu>
             <SubMenu title="Shortener" icon={<LanguageIcon />}>
