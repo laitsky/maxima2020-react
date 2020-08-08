@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import publicService from '../../../services/public';
 
 const HomeDetail = () => {
@@ -38,6 +38,11 @@ const HomeDetail = () => {
         title={data.name}
       />
       <p>{data.narasi_panjang}</p>
+      <Link
+        to={`/home/antanaklasi/${organisator.split(' ').join('-')}`}
+      >
+        <button type="button">Selesai</button>
+      </Link>
     </>
   );
 };

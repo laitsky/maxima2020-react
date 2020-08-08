@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import {
   Container,
@@ -11,13 +11,16 @@ import {
   InputLabel,
   MenuItem,
 } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import adminService from '../../../../../services/admin';
 
 const AddHomeMedia = () => {
   const { register, handleSubmit, reset, errors } = useForm();
+  const [data, setData] = useState([]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     reset();
-    console.log(data);
+    console.log(formData);
   };
 
   useEffect(() => {
@@ -43,6 +46,9 @@ const AddHomeMedia = () => {
             <span>{errors.link_media.message}</span>
           )}
           <Box paddingBottom="2em" />
+          <Button type="submit" variant="contained" color="primary">
+            Submit
+          </Button>
         </Box>
       </form>
     </Container>

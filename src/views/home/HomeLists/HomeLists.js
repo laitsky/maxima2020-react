@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import homeMatchParams from '../acceptableParams';
+import homeMatchParams from '../homeHelpers';
 import publicService from '../../../services/public';
 
 const HomeLists = () => {

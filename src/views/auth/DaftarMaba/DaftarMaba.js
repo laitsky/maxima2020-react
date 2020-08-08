@@ -127,7 +127,7 @@ const DaftarMaba = () => {
                 pattern: {
                   value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
                   message:
-                    'Kata sandi harus mengandung minimal 6 karakter yang terdiri atas huruf dan angka',
+                    'Kata sandi harus mengandung minimal 6 karakter yang terdiri atas huruf dan angka, serta tidak mengandung simbol.',
                 },
               })}
             />
