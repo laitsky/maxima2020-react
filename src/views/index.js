@@ -5,7 +5,8 @@ export {
   HomePuzzle,
   HomeLists,
   HomeDetail,
-
+  Antanaklasi,
+  HomeFinalPage,
 } from './home';
 export { MaxiTour } from './maxitour';
 export {

@@ -23,7 +23,7 @@ const HomePuzzle = () => {
       <MxmHomeCardDeck>
         <MxmHomeDeckItem>
           <Link
-            to="/home/organisator/sains-dan-sosial"
+            to="/home/organisator/ukm-sains-dan-sosial"
             className={classes.link}
           >
             <MxmHomeCard color="#F4224B" border="#F4224B">
@@ -34,7 +34,7 @@ const HomePuzzle = () => {
                   <br />
                   EPTIMONIKES
                 </h3>
-                (Sains & Sosial)
+                (UKM Sains & Sosial)
               </div>
             </MxmHomeCard>
           </Link>
@@ -42,14 +42,14 @@ const HomePuzzle = () => {
 
         <MxmHomeDeckItem>
           <Link
-            to="/home/organisator/seni-dan-budaya"
+            to="/home/organisator/ukm-seni-dan-budaya"
             className={classes.link}
           >
             <MxmHomeCard>
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#1F2C4C' }}>TECHNI</h3>
-                (Seni & Budaya)
+                (UKM Seni & Budaya)
               </div>
             </MxmHomeCard>
           </Link>
@@ -57,14 +57,14 @@ const HomePuzzle = () => {
 
         <MxmHomeDeckItem>
           <Link
-            to="/home/organisator/olahraga"
+            to="/home/organisator/ukm-olahraga"
             className={classes.link}
           >
             <MxmHomeCard>
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#1F2C4C' }}>ATHLIMA</h3>
-                (Olahraga)
+                (UKM Olahraga)
               </div>
             </MxmHomeCard>
           </Link>
@@ -72,7 +72,7 @@ const HomePuzzle = () => {
 
         <MxmHomeDeckItem>
           <Link
-            to="/home/organisator/mahasiswa-dan-lso"
+            to="/home/organisator/kegiatan-kemahasiswaan-dan-lembaga-semi-otonom"
             className={classes.link}
           >
             <MxmHomeCard color="#F4224B" border="#F4224B">
@@ -83,7 +83,7 @@ const HomePuzzle = () => {
                   <br />
                   TITES
                 </h3>
-                (Mahasiswa & LSO)
+                (Kegiatan Kemahasiswaan & Lembaga Semi Otonom)
               </div>
             </MxmHomeCard>
           </Link>
@@ -136,14 +136,14 @@ const HomePuzzle = () => {
 
         <MxmHomeDeckItem>
           <Link
-            to="/home/organisator/organisasi-dan-himpunan"
+            to="/home/organisator/organisasi-dan-himpunan-mahasiswa"
             className={classes.link}
           >
             <MxmHomeCard color="#F4224B" border="#F4224B">
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#FFD008' }}>ORGANOSI</h3>
-                (Organisasi & Himpunan)
+                (Organisasi & Himpunan Mahasiswa)
               </div>
             </MxmHomeCard>
           </Link>

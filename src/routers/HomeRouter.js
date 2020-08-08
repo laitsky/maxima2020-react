@@ -5,6 +5,8 @@ import {
   HomePuzzle,
   HomeLists,
   HomeDetail,
+  Antanaklasi,
+  HomeFinalPage,
 } from '../views';
 
 const HomeRouter = () => (
@@ -20,6 +22,16 @@ const HomeRouter = () => (
       path="/home/detail-organisator/:organisator"
       exact
       component={HomeDetail}
+    />
+    <Route
+      path="/home/antanaklasi/:organisator"
+      exact
+      component={Antanaklasi}
+    />
+    <Route
+      path="/home/twibbon/:organisator"
+      exact
+      component={HomeFinalPage}
     />
   </Switch>
 );
