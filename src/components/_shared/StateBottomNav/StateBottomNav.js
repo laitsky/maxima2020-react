@@ -36,20 +36,26 @@ const StateBottomNav = () => {
         className={classes.root}
       >
         <BottomNavigationAction
+          component={Link}
+          to="/state"
           label="Beranda"
           icon={<HomeWorkIcon />}
         />
         <BottomNavigationAction
+          component={Link}
+          to="/state/linimasa"
           label="Linimasa"
           icon={<TimelineIcon />}
         />
         <BottomNavigationAction
+          component={Link}
+          to="/state/info"
           label="Informasi"
           icon={<InfoIcon />}
         />
         <BottomNavigationAction
           component={Link}
-          to="/tour"
+          to="/state/profil"
           label="Profil"
           icon={<AccountCircleIcon />}
         />

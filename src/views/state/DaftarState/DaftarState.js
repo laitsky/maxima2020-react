@@ -11,7 +11,7 @@ import {
   StateSelectOverflow,
 } from './components/styled';
 import studentService from '../../../services/student';
-import './DaftarState.css';
+import './DaftarState.scss';
 
 const DaftarState = ({ day }) => {
   const [organisators, setOrganisators] = useState([]);

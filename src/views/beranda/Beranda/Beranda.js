@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Box } from '@material-ui/core';
 import { YellowLogo } from '../../../assets';
-import './Beranda.css';
+import './Beranda.scss';
 
 const Beranda = () => {
   useEffect(() => {

@@ -6,10 +6,6 @@ import {
   TextField,
   Divider,
   Button,
-  FormControl,
-  Select,
-  InputLabel,
-  MenuItem,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import adminService from '../../../../../services/admin';
@@ -20,12 +16,29 @@ const AddHomeMedia = () => {
 
   const onSubmit = async (formData) => {
     reset();
-    console.log(formData);
+    const newData = {
+      home_id: data.find((d) => d.name === formData.name).home_id,
+      link_media: formData.link_media,
+    };
+    console.log(newData);
   };
 
   useEffect(() => {
     document.title = 'Tambah HoME Media - MAXIMA 2020';
+    const fetchData = async () => {
+      try {
+        const returnedData = await adminService.getAllHome();
+        setData(returnedData.data);
+      } catch (err) {
+        console.log(err.response);
+      }
+    };
+    fetchData();
   }, []);
+
+  useEffect(() => {
+    console.log('data', data);
+  }, [data]);
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
@@ -33,6 +46,25 @@ const AddHomeMedia = () => {
       <Divider style={{ marginBottom: '1.5em' }} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box display="flex" flexDirection="column">
+          <Autocomplete
+            id="home-combo-box"
+            options={data}
+            getOptionLabel={(option) => option.name}
+            renderInput={(params) => (
+              <TextField
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                {...params}
+                name="name"
+                label="Combo box"
+                variant="outlined"
+                inputRef={register({
+                  required: 'Pilih Organisator HoME',
+                })}
+              />
+            )}
+          />
+          {errors.name && <span>{errors.name.message}</span>}
+          <Box paddingBottom="2em" />
           <TextField
             type="text"
             name="link_media"

@@ -13,6 +13,7 @@ import {
 } from '../../../components';
 import logo from '../../../assets/mxm20_logo.png';
 import studentService from '../../../services/student';
+import './StateMainPage.scss';
 
 const useStyles = makeStyles({
   root: {
@@ -66,7 +67,7 @@ const StateMainPage = () => {
   }, [hasDay]);
 
   return (
-    <>
+    <div id="state_main_page-container">
       <Container maxWidth="xs" className={classes.spacing}>
         <AlignMiddle>
           <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
@@ -115,7 +116,7 @@ const StateMainPage = () => {
           );
         })}
       </Container>
-    </>
+    </div>
   );
 };
 
