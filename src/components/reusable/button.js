@@ -28,3 +28,24 @@ export const MxmButton = styled.button`
     box-shadow: 0 0 #f4224b;
   }
 `;
+
+export const MxmCancelButton = styled.button`
+  outline:none;
+  font-family: 'canaro-medium';
+  color: #F4224B;
+  border-radius : 50px;
+  background-color: white;
+  padding : 1vh 2vw 1vh 2vw;
+  border: solid #F4224B;
+  transition-duration: 0.2s;
+
+  &:hover{
+    background-color: #F4224B;
+    color: #FFD008;
+  }
+
+  &:active{
+    background-color: #c41d3e;
+    border-color: #c41d3e;
+  }
+`;

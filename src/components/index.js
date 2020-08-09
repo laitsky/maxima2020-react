@@ -8,6 +8,7 @@ export {
 } from './_shared';
 export {
   MxmButton,
+  MxmCancelButton,
   MxmInput,
   MxmLogoContainer,
   MxmHomeContainer,
