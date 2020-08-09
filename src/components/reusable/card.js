@@ -100,6 +100,10 @@ export const MxmHomeCard = styled.div`
     margin: 20px 0 13px 0;
   }
 
+  & a{
+    font-size: 13px;
+  }
+
   &:hover {
     cursor: pointer;
     filter: brightness(1.15);
@@ -132,16 +136,16 @@ export const MxmHomeCard = styled.div`
   }
 
   @media (max-width: 766px) {
-    width: 130px;
-    height: 130px;
-    padding: 15px 15px 15px 15px;
+    width: 150px;
+    height: 150px;
+    padding: 20px 15px 15px 15px;
 
     & a {
       font-size: xx-small;
     }
 
     & h3 {
-      margin: 10px 0 2px 0;
+      margin: 10px 0 5px 0;
       font-size: small;
     }
   }

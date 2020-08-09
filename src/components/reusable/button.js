@@ -32,10 +32,12 @@ export const MxmButton = styled.button`
 export const MxmCancelButton = styled.button`
   outline:none;
   font-family: 'canaro-medium';
+  font-weight: 900;
+  font-size: 1em;
   color: #F4224B;
   border-radius : 50px;
   background-color: white;
-  padding : 1vh 2vw 1vh 2vw;
+  padding : 0.5em 2.5em 0.5em 2.5em;
   border: solid #F4224B;
   transition-duration: 0.2s;
 
