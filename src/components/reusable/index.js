@@ -1,4 +1,4 @@
-export { MxmButton } from './button';
+export { MxmButton, MxmCancelButton } from './button';
 export {
   MxmLongCard,
   MxmTallCard,
