@@ -82,7 +82,7 @@ const DaftarOrganisator = () => {
             />
             {errors.name && <Error>{errors.name.message}</Error>}
             <MxmPrependInput>
-              <span>00000</span>
+              <span>000000</span>
               <input
                 type="number"
                 name="nim"

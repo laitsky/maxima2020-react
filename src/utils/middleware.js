@@ -12,10 +12,6 @@ axios.interceptors.response.use(
       window.sessionStorage.clear();
       window.location.href = '/401';
     }
-    if (error.response.status === 403) {
-      window.sessionStorage.clear();
-      window.location.href = '/403';
-    }
     return Promise.reject(error);
   },
 );

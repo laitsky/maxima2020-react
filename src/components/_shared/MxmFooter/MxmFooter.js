@@ -5,7 +5,7 @@ import {
   InstagramLogo,
   LINELogo,
 } from '../../../assets';
-import './MxmFooter.css';
+import './MxmFooter.scss';
 
 const MxmFooter = () => (
   <>

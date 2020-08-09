@@ -46,8 +46,6 @@ const StateLists = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center">Nama Kegiatan</TableCell>
-                <TableCell align="center">Kuota</TableCell>
-                <TableCell align="center">Hari ke-</TableCell>
                 <TableCell align="center">Aksi</TableCell>
               </TableRow>
             </TableHead>
@@ -55,14 +53,26 @@ const StateLists = () => {
               {data.map((d) => (
                 <TableRow hover key={d.state_id}>
                   <TableCell align="center">{d.name}</TableCell>
-                  <TableCell align="center">{d.quota}</TableCell>
-                  <TableCell align="center">{d.day}</TableCell>
                   <TableCell align="center">
+                    <Link
+                      to={`/admin/state-detail/${d.state_id}`}
+                      style={{
+                        textDecoration: 'none',
+                      }}
+                    >
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        style={{ marginRight: '0.5em' }}
+                      >
+                        Detail
+                      </Button>
+                    </Link>
                     <Link
                       to={`/admin/edit-state/${d.state_id}`}
                       style={{ textDecoration: 'none' }}
                     >
-                      <Button variant="contained" color="primary">
+                      <Button variant="outlined" color="primary">
                         Sunting
                       </Button>
                     </Link>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './MxmNavbar.css';
+import './MxmNavbar.scss';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/mxm20_title_icon.png';
 

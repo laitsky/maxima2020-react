@@ -13,6 +13,7 @@ import {
   EditState,
   AdminHomeLists,
   EditHome,
+  StateDetail,
 } from '../views';
 
 const AdminRouter = ({ Sidebar }) => {
@@ -85,6 +86,11 @@ const AdminRouter = ({ Sidebar }) => {
             path="/admin/edit-home/:homeId"
             exact
             component={EditHome}
+          />
+          <Route
+            path="/admin/state-detail/:stateId"
+            exact
+            component={StateDetail}
           />
         </Switch>
       </Container>

@@ -85,7 +85,7 @@ const LoginPage = () => {
             )}
 
             <MxmPrependInput>
-              <span>00000</span>
+              <span>000000</span>
               <input
                 type="number"
                 name="nim"

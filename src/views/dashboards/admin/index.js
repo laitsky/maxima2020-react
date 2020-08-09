@@ -7,4 +7,9 @@ export {
 } from './home';
 export { ShortenerLists } from './shortener';
 export { TambahAkun } from './TambahAkun';
-export { TambahState, StateLists, EditState } from './state';
+export {
+  TambahState,
+  StateLists,
+  EditState,
+  StateDetail,
+} from './state';

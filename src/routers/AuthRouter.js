@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { LoginPage, DaftarMaba, DaftarOrganisator } from '../views';
-import { MxmLoading } from '../components';
 
 const AuthRouter = () => (
   <Switch>

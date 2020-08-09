@@ -122,7 +122,9 @@ const RegisteredStateDetail = ({ day }) => {
 
   return (
     <Container maxWidth="xs">
-      {data.link_logo && <MxmLogoContainer src={data.link_logo} />}
+      {data.state_activity.link_logo && (
+        <MxmLogoContainer src={data.state_activity.link_logo} />
+      )}
       <h3>Tanggal</h3>
       <MxmLongCard>tanggal disini</MxmLongCard>
       <h3>Link Zoom</h3>
@@ -137,13 +139,23 @@ const RegisteredStateDetail = ({ day }) => {
         </Button>
         <MxmButton onClick={handleAbsenOpen}>Absen</MxmButton>
       </Box>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={handleCancelOpen}
-      >
-        Batalkan STATE ini
-      </Button>
+      {data.attendance ? (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleCancelOpen}
+        >
+          Survei Day 2
+        </Button>
+      ) : (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleCancelOpen}
+        >
+          Batalkan STATE ini
+        </Button>
+      )}
       <CancelStateDialog
         openCancelDialog={openCancelDialog}
         handleCancelClose={handleCancelClose}

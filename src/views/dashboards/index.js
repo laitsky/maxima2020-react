@@ -11,4 +11,5 @@ export {
   EditState,
   AdminHomeLists,
   EditHome,
+  StateDetail,
 } from './admin';

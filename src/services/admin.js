@@ -44,6 +44,15 @@ const editState = async (data, stateId) => {
   return request.status;
 };
 
+const viewRegisteredState = async (stateId) => {
+  const request = await axios.post(
+    `${baseUrl}/state/view_registered`,
+    { state_id: stateId },
+    config,
+  );
+  return request.data;
+};
+
 const getAllHome = async () => {
   const request = axios.get(`${baseUrl}/home/all_home`, config);
   return request;
@@ -80,6 +89,7 @@ export default {
   getStateById,
   addState,
   editState,
+  viewRegisteredState,
   getAllHome,
   addHome,
   editHome,

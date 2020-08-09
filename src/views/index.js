@@ -14,6 +14,9 @@ export {
   DaftarState,
   StateOrgDetail,
   RegisteredStateDetail,
+  ProfileMaba,
+  Linimasa,
+  StateInfo,
 } from './state';
 export {
   AcaraDashboard,
@@ -28,6 +31,7 @@ export {
   StateLists,
   AdminHomeLists,
   EditHome,
+  StateDetail,
 } from './dashboards';
 export {
   NotFound,

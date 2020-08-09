@@ -6,6 +6,9 @@ import {
   DaftarState,
   StateOrgDetail,
   RegisteredStateDetail,
+  ProfileMaba,
+  Linimasa,
+  StateInfo,
 } from '../views';
 
 const StateRouter = () => (
@@ -37,6 +40,10 @@ const StateRouter = () => (
       exact
       component={StateOrgDetail}
     />
+
+    <Route path="/state/profil" exact component={ProfileMaba} />
+    <Route path="/state/linimasa" exact component={Linimasa} />
+    <Route path="/state/info" exact component={StateInfo} />
   </Switch>
 );
 
