@@ -2,6 +2,7 @@ export {
   MxmNavbar,
   MxmFooter,
   AdminSidebar,
+  AcaraSidebar,
   OrganisatorSidebar,
   StateBottomNav,
   DashboardAppBar,

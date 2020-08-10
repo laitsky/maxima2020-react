@@ -19,7 +19,6 @@ export {
   StateInfo,
 } from './state';
 export {
-  AcaraDashboard,
   AdminDashboard,
   AddHome,
   AddHomeMedia,
@@ -27,12 +26,19 @@ export {
   TambahAkun,
   TambahState,
   ShortenerLists,
-  OrganisatorDashboard,
   StateLists,
   AdminHomeLists,
   EditHome,
   StateDetail,
-} from './dashboards';
+} from './dashboards/admin';
+export {
+  AcaraDashboard,
+  AcaraEditState,
+  AcaraStateLists,
+  AcaraStateDetail,
+  AcaraTambahState,
+} from './dashboards/acara';
+export { OrganisatorDashboard } from './dashboards/organisator';
 export {
   NotFound,
   JingleMaxima,

@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Container, Box } from '@material-ui/core';
+import { AlignMiddle } from '../../../components';
 import { YellowLogo } from '../../../assets';
 import './Beranda.scss';
 
@@ -32,11 +33,18 @@ const Beranda = () => {
       >
         <Container maxWidth="sm">
           <Box paddingBottom={12}>
-            <img src={YellowLogo} alt="MAXIMA 2020 Logo" />
-            <p style={{ fontSize: '3em', fontFamily: 'canaro-bold' }}>
-              tunggu sebentar ya.
-            </p>
-            <h1 className="mxm-cyan">agustus 2020</h1>
+            <AlignMiddle>
+              <img src={YellowLogo} alt="MAXIMA 2020 Logo" />
+            </AlignMiddle>
+            <div style={{ color: 'white', textAlign: 'center' }}>
+              <p
+                style={{ fontSize: '3em', fontFamily: 'canaro-bold' }}
+              >
+                YOU WANDERED TO THE RIGHT PAGE!
+              </p>
+              <h1>Sadly, our page is still on an Odyssey...</h1>
+              <h2>Check our Instagram instead for more info!</h2>
+            </div>
           </Box>
         </Container>
         <Box

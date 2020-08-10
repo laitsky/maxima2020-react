@@ -3,7 +3,7 @@ import { Container, Box } from '@material-ui/core';
 import { Link, useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { MxmCancelButton } from '../../../components/reusable/button';
-import homeMatchParams from '../homeHelpers';
+import homeHelpers from '../homeHelpers';
 import publicService from '../../../services/public';
 
 const useStyles = makeStyles({
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     borderRadius: '10px',
     border: '5px solid #41CEBA',
-    width: '160px', 
+    width: '160px',
     height: '160px',
     padding: 0,
     margin: '10px',
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
       margin: '5px',
       border: '3px solid #41CEBA',
     },
-  },  
+  },
   middle: {
     display: 'flex',
     justifyContent: 'center',
@@ -47,7 +47,7 @@ const useStyles = makeStyles({
     },
   },
   logo: {
-    height: 'auto', 
+    height: 'auto',
     width: '150px',
 
     '@media (max-width: 766px)': {
@@ -79,30 +79,36 @@ const useStyles = makeStyles({
     },
   },
   architou: {
-    padding: '0 10px 0 10px', 
-    margin: '10px 0 10px 0', 
-    textTransform: 'uppercase', 
+    padding: '0 10px 0 10px',
+    margin: '10px 0 10px 0',
+    textTransform: 'uppercase',
     color: '#1F2C4C',
     fontFamily: 'canaro-bold',
   },
   architoudesc: {
-    padding: '0 10px 0 10px', 
-    marginBottom: '2em', 
-    textTransform: 'uppercase', 
+    padding: '0 10px 0 10px',
+    marginBottom: '2em',
+    textTransform: 'uppercase',
     color: '#1F2C4C',
 
     '@media (max-width: 766px)': {
       fontSize: '17px',
       marginBottom: '1em',
     },
-  }
+  },
+  cancelButton: {
+    transform: 'scale(1.5)',
+    margin: '3em',
+  },
 });
-  
+
 const HomeLists = () => {
   const classes = useStyles();
   const { kategori } = useParams();
   const [data, setData] = useState([]);
-  const match = homeMatchParams.find((d) => d.params === kategori);
+  const match = homeHelpers.homeMatchParams.find(
+    (d) => d.params === kategori,
+  );
 
   useEffect(() => {
     document.title = `Daftar Organisator HoME 2020 - ${kategori
@@ -130,22 +136,36 @@ const HomeLists = () => {
 
   return (
     <>
-      <Container maxWidth="md" style={{ padding: '18px 10px 18px 10px'}}>
-        <h1 className={classes.architou}>Archi Tou <a style={{ color: '#F2442B' }}>{match.istilah}</a></h1>
+      <Container
+        maxWidth="md"
+        style={{ padding: '18px 10px 18px 10px' }}
+      >
+        <h1 className={classes.architou}>
+          Archi Tou
+          <span style={{ color: '#F2442B', marginLeft: '0.2em' }}>
+            {match.istilah}
+          </span>
+        </h1>
         <h2 className={classes.architoudesc}>{match.kategori}</h2>
 
         {data.map((d) => (
           <div key={d.home_id}>
             <Box className={classes.middle}>
-              <Box
-                className={classes.image}
-              >
-                <img
-                  className={classes.logo}
-                  src={d.link_logo}
-                  alt={`Logo ${d.name}`}
-                  title={`Logo ${d.name}`}
-                />
+              <Box className={classes.image}>
+                <Link
+                  className={classes.link}
+                  to={`/home/detail-organisator/${d.name
+                    .toLowerCase()
+                    .split(' ')
+                    .join('-')}`}
+                >
+                  <img
+                    className={classes.logo}
+                    src={d.link_logo}
+                    alt={`Logo ${d.name}`}
+                    title={`Logo ${d.name}`}
+                  />
+                </Link>
               </Box>
               <Box className={classes.desc}>
                 <Link
@@ -155,7 +175,7 @@ const HomeLists = () => {
                     .split(' ')
                     .join('-')}`}
                 >
-                  <a className={classes.title}>{d.name}</a>
+                  <span className={classes.title}>{d.name}</span>
                   <h3 className={classes.narasi}>{d.narasi}</h3>
                 </Link>
               </Box>
@@ -164,7 +184,12 @@ const HomeLists = () => {
         ))}
         <Box className={classes.middle}>
           <Link to="/home/puzzle">
-            <MxmCancelButton style={{ transform: 'scale(1.5)',margin: '3em' }} type="button">Kembali ke puzzle</MxmCancelButton>
+            <MxmCancelButton
+              className={classes.cancelButton}
+              type="button"
+            >
+              Kembali ke puzzle
+            </MxmCancelButton>
           </Link>
         </Box>
       </Container>

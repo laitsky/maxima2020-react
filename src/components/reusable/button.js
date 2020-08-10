@@ -30,23 +30,24 @@ export const MxmButton = styled.button`
 `;
 
 export const MxmCancelButton = styled.button`
-  outline:none;
+  outline: none;
   font-family: 'canaro-medium';
   font-weight: 900;
   font-size: 1em;
-  color: #F4224B;
-  border-radius : 50px;
+  color: #f4224b;
+  border-radius: 50px;
   background-color: white;
-  padding : 0.5em 2.5em 0.5em 2.5em;
-  border: solid #F4224B;
+  padding: 0.5em 2.5em 0.5em 2.5em;
+  border: solid #f4224b;
   transition-duration: 0.2s;
 
-  &:hover{
-    background-color: #F4224B;
-    color: #FFD008;
+  &:hover {
+    background-color: #f4224b;
+    color: #ffd008;
+    cursor: pointer;
   }
 
-  &:active{
+  &:active {
     background-color: #c41d3e;
     border-color: #c41d3e;
   }

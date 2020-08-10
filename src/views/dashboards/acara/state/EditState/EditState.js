@@ -8,7 +8,7 @@ import {
   TextField,
   Divider,
 } from '@material-ui/core';
-import adminService from '../../../../../services/admin';
+import acaraService from '../../../../../services/acara';
 
 const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
 const cdnUrl = 'https://d1z9g6p5mcoq6s.cloudfront.net';
@@ -29,13 +29,13 @@ const EditState = () => {
     console.log(formData);
 
     try {
-      const returnedStatus = await adminService.editState(
+      const returnedStatus = await acaraService.editState(
         formData,
         stateId,
       );
       if (returnedStatus === 200) {
         history.push({
-          pathname: '/admin/state-lists',
+          pathname: '/acara/state-lists',
           message: `Kamu berhasil menyunting data kegiatan STATE ${data.name}`,
         });
       }
@@ -47,7 +47,7 @@ const EditState = () => {
     document.title = 'Edit Kegiatan STATE - MAXIMA 2020';
     const fetchData = async () => {
       try {
-        let returnedData = await adminService.getStateById(stateId);
+        let returnedData = await acaraService.getStateById(stateId);
         returnedData = returnedData.find(
           (d) => d.state_id === Number(stateId),
         );

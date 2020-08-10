@@ -10,6 +10,7 @@ import {
   MxmNavbar,
   MxmFooter,
   AdminSidebar,
+  AcaraSidebar,
   OrganisatorSidebar,
   StateBottomNav,
 } from './components';
@@ -67,7 +68,7 @@ const AppRouter = () => {
       </Route>
       <Route path="/acara/:path1?/:path2?/:path3?" exact>
         <Switch>
-          <AcaraRouter />
+          <AcaraRouter Sidebar={AcaraSidebar} />
         </Switch>
       </Route>
       <Route path="/home/:path1?/:path2?/:path3?" exact>

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import publicService from '../../../services/public';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { MxmButton, MxmCancelButton } from '../../../components/reusable/button';
-import { MxmHomeContainer } from '../../../components/reusable/container';
+import publicService from '../../../services/public';
+import {
+  MxmButton,
+  MxmCancelButton,
+} from '../../../components/reusable/button';
 import './HomeDetail.scss';
 
 const useStyles = makeStyles({
   container: {
-    textAlign: 'justify',
+    textAlign: 'left',
     border: 'solid #41CEBA',
     borderRadius: '15px',
     padding: '5px 20px 5px 20px',
@@ -21,10 +23,15 @@ const useStyles = makeStyles({
 
 const HomeDetail = () => {
   const classes = useStyles();
+  const history = useHistory();
   let { organisator } = useParams();
   const [data, setData] = useState({});
 
   organisator = organisator.split('-').join(' ');
+
+  const handleCancelClick = () => {
+    history.goBack();
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,15 +55,19 @@ const HomeDetail = () => {
 
   return (
     <>
-      <Container maxWidth="sm" style={{ padding: '18px 10px 18px 10px'}}>
-        <h1>{data.name}</h1>
+      <Container
+        maxWidth="sm"
+        style={{ padding: '18px 10px 18px 10px' }}
+      >
+        <h1 id="homedetail-nama">{data.name}</h1>
         <iframe
-          width="560" 
+          className="homedetail-iframe"
+          width="560"
           height="315"
           src={data.link_video}
           title={data.name}
         />
-        <Box className={classes.container}> 
+        <Box className={classes.container}>
           <p>{data.narasi_panjang}</p>
         </Box>
         <Box
@@ -65,11 +76,26 @@ const HomeDetail = () => {
           alignItems="center"
           style={{ width: '100%' }}
         >
-          <MxmCancelButton type="button" style={{ margin: '0 10px 0 10px' }}>Cancel</MxmCancelButton>
-          <Link
-            to={`/home/antanaklasi/${organisator.split(' ').join('-')}`}
+          <MxmCancelButton
+            type="button"
+            style={{
+              margin: '0 10px 0 10px',
+            }}
+            onClick={handleCancelClick}
           >
-            <MxmButton type="button" style={{ margin: '0 10px 5px 10px' }}>Selesai</MxmButton>
+            Lihat yang lain
+          </MxmCancelButton>
+          <Link
+            to={`/home/antanaklasi/${organisator
+              .split(' ')
+              .join('-')}`}
+          >
+            <MxmButton
+              type="button"
+              style={{ margin: '0 10px 5px 10px' }}
+            >
+              Selesai
+            </MxmButton>
           </Link>
         </Box>
       </Container>
