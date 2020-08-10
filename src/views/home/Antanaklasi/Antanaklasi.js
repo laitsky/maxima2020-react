@@ -27,7 +27,7 @@ const Antanaklasi = () => {
   useEffect(() => {
     console.log('data', data);
     const { kategori } = data;
-    homeHelpers.find((d) =>
+    homeHelpers.homeMatchParams.find((d) =>
       d.kategori === kategori ? setVoiceNote(d.voicenote) : null,
     );
   }, [data]);

@@ -1,4 +1,4 @@
-export { Dashboard } from './Dashboard';
+export { Dashboard as AdminDashboard } from './Dashboard';
 export {
   AddHome,
   AddHomeMedia,

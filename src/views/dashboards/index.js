@@ -1,7 +1,13 @@
-export { AcaraDashboard } from './acara';
 export { OrganisatorDashboard } from './organisator';
 export {
-  Dashboard as AdminDashboard,
+  AcaraDashboard,
+  AcaraEditState,
+  AcaraStateDetail,
+  AcaraStateLists,
+  AcaraTambahState,
+} from './acara';
+export {
+  AdminDashboard,
   AddHome,
   AddHomeMedia,
   TambahAkun,

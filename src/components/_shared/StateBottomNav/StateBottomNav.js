@@ -50,7 +50,7 @@ const StateBottomNav = () => {
         <BottomNavigationAction
           component={Link}
           to="/state/info"
-          label="Informasi"
+          label="Newsfeed"
           icon={<InfoIcon />}
         />
         <BottomNavigationAction

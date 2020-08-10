@@ -10,6 +10,9 @@ import {
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import adminService from '../../../../../services/admin';
 
+const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
+const cdnUrl = 'https://d1z9g6p5mcoq6s.cloudfront.net';
+
 const AddHomeMedia = () => {
   const { register, handleSubmit, reset, errors } = useForm();
   const [data, setData] = useState([]);
@@ -18,7 +21,7 @@ const AddHomeMedia = () => {
     reset();
     const newData = {
       home_id: data.find((d) => d.name === formData.name).home_id,
-      link_media: formData.link_media,
+      link_media: formData.link_media.replace(originUrl, cdnUrl),
     };
     console.log(newData);
   };

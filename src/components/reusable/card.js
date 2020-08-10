@@ -100,7 +100,7 @@ export const MxmHomeCard = styled.div`
     margin: 20px 0 13px 0;
   }
 
-  & a{
+  & a {
     font-size: 13px;
   }
 

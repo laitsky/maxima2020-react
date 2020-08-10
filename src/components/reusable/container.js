@@ -46,7 +46,7 @@ export const MxmHomeContainer = styled.div`
   margin-bottom: 1em;
   padding: 1.5em 3em 1.5em 3em;
   letter-spacing: normal;
-  
+
   @media (max-width: 768px) {
     padding: 1.5em 1em 1.5em 1em;
     margin-left: 1.5em;

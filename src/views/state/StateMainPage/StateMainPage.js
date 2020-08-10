@@ -58,7 +58,7 @@ const StateMainPage = () => {
     console.log('data', data);
     // hasil map di bawah ini itu nyaring days dari orang lain juga,
     // jadi pake Set (unique value only) buat nyaringnya.
-    setDays([...new Set(data.map((d) => d.state_activity.day))]);
+    setDays(data.map((d) => d.state_activity.day));
   }, [data]);
 
   useEffect(() => {

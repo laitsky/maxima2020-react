@@ -34,7 +34,7 @@ const HomePuzzle = () => {
                   <br />
                   EPTIMONIKES
                 </h3>
-                <a>(UKM Sains & Sosial)</a>
+                <span>(UKM Sains & Sosial)</span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -49,7 +49,7 @@ const HomePuzzle = () => {
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#1F2C4C' }}>TECHNI</h3>
-                <a>(UKM Seni & Budaya)</a>
+                <span>(UKM Seni & Budaya)</span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -64,7 +64,7 @@ const HomePuzzle = () => {
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#1F2C4C' }}>ATHLIMA</h3>
-                <a>(UKM Olahraga)</a>
+                <span>(UKM Olahraga)</span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -83,7 +83,9 @@ const HomePuzzle = () => {
                   <br />
                   TITES
                 </h3>
-                <a>(Kegiatan Kemahasiswaan & Lembaga Semi Otonom)</a>
+                <span>
+                  (Kegiatan Kemahasiswaan & Lembaga Semi Otonom)
+                </span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -98,7 +100,7 @@ const HomePuzzle = () => {
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#FFD008' }}>MESOU</h3>
-                <a>(Media Kampus)</a>
+                <span>(Media Kampus)</span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -113,7 +115,7 @@ const HomePuzzle = () => {
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#1F2C4C' }}>KOINOTITA</h3>
-                <a>(Komunitas)</a>
+                <span>(Komunitas)</span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -128,7 +130,7 @@ const HomePuzzle = () => {
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#1F2C4C' }}>LYDRYMA</h3>
-                <a>(Lembaga Kampus)</a>
+                <span>(Lembaga Kampus)</span>
               </div>
             </MxmHomeCard>
           </Link>
@@ -143,7 +145,7 @@ const HomePuzzle = () => {
               <div>
                 <span style={{ color: 'white' }}>ARCHI TOU</span>
                 <h3 style={{ color: '#FFD008' }}>ORGANOSI</h3>
-                <a>(Organisasi & Himpunan Mahasiswa)</a>
+                <span>(Organisasi & Himpunan Mahasiswa)</span>
               </div>
             </MxmHomeCard>
           </Link>
