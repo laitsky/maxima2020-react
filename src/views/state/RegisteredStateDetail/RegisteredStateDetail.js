@@ -5,14 +5,64 @@ import jwtDecode from 'jwt-decode';
 import { Container, Box, Button } from '@material-ui/core';
 import CancelStateDialog from './components/CancelStateDialog';
 import AbsenStateDialog from './components/AbsenStateDialog';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   MxmLongCard,
   MxmButton,
+  MxmCancelButton,
+  MxmStateLogoFrame,
   MxmLogoContainer,
 } from '../../../components';
 import studentService from '../../../services/student';
 
+const useStyles = makeStyles({
+  statetext: {
+    color: '#1F2C4C',
+    fontFamily: 'canaro-bold',
+    padding: 0,
+    margin: '10px',
+  },  
+  statecard:{
+    margin: '0 0 1em 0',
+    boxShadow: '0 1px 5px #ababab', 
+    width: '100%',
+    '@media (max-width: 766px)':{
+      fontSize: 'medium',
+    },
+  },
+  stateback: {
+    marginRight: '0.5em',
+
+    '@media (max-width: 766px)':{
+      padding: '10px 20px 10px 20px',
+    },
+  },
+  statebatal: {
+    backgroundColor: '#F4224B',
+    color: 'white',
+
+    '&:hover':{
+      color: '#F2D008',
+    },
+  },  
+  stateabsen: {
+    marginLeft: '0.5em',
+
+    '@media (max-width: 766px)':{
+      padding: '10px 30px 10px 30px',
+    },
+  },
+  statelogo:{
+    '@media (max-width: 766px)':{
+      width: '150px',
+      height: 'auto',
+    },
+  },
+});
+
+
 const RegisteredStateDetail = ({ day }) => {
+  const classes = useStyles();
   const history = useHistory();
   const [openCancelDialog, setCancelDialog] = useState(false);
   const [openAbsenDialog, setAbsenDialog] = useState(false);
@@ -121,58 +171,75 @@ const RegisteredStateDetail = ({ day }) => {
   };
 
   return (
-    <Container maxWidth="xs">
-      {data.state_activity.link_logo && (
-        <MxmLogoContainer src={data.state_activity.link_logo} />
-      )}
-      <h3>Tanggal</h3>
-      <MxmLongCard>tanggal disini</MxmLongCard>
-      <h3>Link Zoom</h3>
-      <MxmLongCard>Link Zoom disini</MxmLongCard>
-      <Box marginTop="2em" marginBottom="2em">
-        <Button
-          variant="outlined"
-          color="secondary"
-          onClick={handleBackClick}
+    <Container maxWidth="xs" style={{ padding: '0 2em 0 2em'}}>
+      <MxmStateLogoFrame>   
+        {data.state_activity.link_logo && (
+          <MxmLogoContainer className={classes.statelogo} src={data.state_activity.link_logo} />
+        )}
+      </MxmStateLogoFrame>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
+        <h3 className={classes.statetext}>Tanggal</h3>
+        <MxmLongCard className={classes.statecard}>tanggal disini</MxmLongCard>
+        <h3 className={classes.statetext}>Link Zoom</h3>
+        <MxmLongCard className={classes.statecard}>Link Zoom disini</MxmLongCard>
+        <Box 
+          marginTop="1em" 
+          marginBottom="1em" 
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          style={{ width: '100%' }}
         >
-          Kembali
-        </Button>
-        <MxmButton onClick={handleAbsenOpen}>Absen</MxmButton>
+          <MxmCancelButton
+            variant="outlined"
+            color="secondary"
+            onClick={handleBackClick}
+            className={classes.stateback}
+          >
+            Kembali
+          </MxmCancelButton>
+          <MxmButton onClick={handleAbsenOpen} className={classes.stateabsen}>Absen</MxmButton>
+        </Box>
+        {data.attendance ? (
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleCancelOpen}
+          >
+            Survei Day 2
+          </Button>
+        ) : (
+          <MxmCancelButton
+            variant="contained"
+            onClick={handleCancelOpen}
+            className={classes.statebatal}
+          >
+            Batalkan STATE ini
+          </MxmCancelButton>
+        )}
+        <CancelStateDialog
+          openCancelDialog={openCancelDialog}
+          handleCancelClose={handleCancelClose}
+          handleStateCancellation={handleStateCancellation}
+          name={data.state_activity.name}
+        />
+        <AbsenStateDialog
+          openAbsenDialog={openAbsenDialog}
+          handleAbsenClose={handleAbsenClose}
+          handleAbsenState={handleAbsenState}
+          name={data.state_activity.name}
+          day={day}
+          kodePresensi={kodePresensi}
+          setKodePresensi={setKodePresensi}
+          loading={absenLoading}
+          error={errorMessage}
+        />
       </Box>
-      {data.attendance ? (
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleCancelOpen}
-        >
-          Survei Day 2
-        </Button>
-      ) : (
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleCancelOpen}
-        >
-          Batalkan STATE ini
-        </Button>
-      )}
-      <CancelStateDialog
-        openCancelDialog={openCancelDialog}
-        handleCancelClose={handleCancelClose}
-        handleStateCancellation={handleStateCancellation}
-        name={data.state_activity.name}
-      />
-      <AbsenStateDialog
-        openAbsenDialog={openAbsenDialog}
-        handleAbsenClose={handleAbsenClose}
-        handleAbsenState={handleAbsenState}
-        name={data.state_activity.name}
-        day={day}
-        kodePresensi={kodePresensi}
-        setKodePresensi={setKodePresensi}
-        loading={absenLoading}
-        error={errorMessage}
-      />
     </Container>
   );
 };

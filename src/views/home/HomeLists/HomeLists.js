@@ -5,100 +5,23 @@ import { makeStyles } from '@material-ui/core/styles';
 import { MxmCancelButton } from '../../../components/reusable/button';
 import homeHelpers from '../homeHelpers';
 import publicService from '../../../services/public';
+import './HomeLists.scss';
 
 const useStyles = makeStyles({
-  image: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '10px',
-    border: '5px solid #41CEBA',
-    width: '160px',
-    height: '160px',
-    padding: 0,
-    margin: '10px',
-
-    '@media (max-width: 766px)': {
-      width: '90px',
-      height: '90px',
-      margin: '5px',
-      border: '3px solid #41CEBA',
-    },
-  },
-  middle: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-  },
-  desc: {
-    display: 'flex',
-    backgroundColor: '#F4224B',
-    width: '100%',
-    borderRadius: '10px',
-    height: '160px',
-    margin: '10px',
-    padding: '20px 40px 20px 40px',
-
-    '@media (max-width: 766px)': {
-      margin: '5px',
-      height: '90px',
-      padding: '10px 20px 10px 20px',
-    },
-  },
-  logo: {
-    height: 'auto',
-    width: '150px',
-
-    '@media (max-width: 766px)': {
-      width: '80px',
-      height: 'auto',
-    },
-  },
+  cancelButton: {
+    margin: '1em',
+  },  
   link: {
     textDecoration: 'none',
     color: 'white',
   },
-  title: {
-    textTransform: 'uppercase',
-    color: '#F2D008',
-    fontFamily: 'canaro-bold',
-    fontSize: '28px',
-    letterSpacing: '2px',
+  istilah: {
+    color: '#F4224B', 
+    margin: '0.2em',
 
     '@media (max-width: 766px)': {
-      fontSize: '13px',
-      letterSpacing: 'normal',
+      margin: 0,
     },
-  },
-  narasi: {
-    margin: '5px 0 5px 0',
-    letterSpacing: 'normal',
-    '@media (max-width: 766px)': {
-      fontSize: '8px',
-    },
-  },
-  architou: {
-    padding: '0 10px 0 10px',
-    margin: '10px 0 10px 0',
-    textTransform: 'uppercase',
-    color: '#1F2C4C',
-    fontFamily: 'canaro-bold',
-  },
-  architoudesc: {
-    padding: '0 10px 0 10px',
-    marginBottom: '2em',
-    textTransform: 'uppercase',
-    color: '#1F2C4C',
-
-    '@media (max-width: 766px)': {
-      fontSize: '17px',
-      marginBottom: '1em',
-    },
-  },
-  cancelButton: {
-    transform: 'scale(1.5)',
-    margin: '3em',
   },
 });
 
@@ -140,18 +63,18 @@ const HomeLists = () => {
         maxWidth="md"
         style={{ padding: '18px 10px 18px 10px' }}
       >
-        <h1 className={classes.architou}>
-          Archi Tou
-          <span style={{ color: '#F2442B', marginLeft: '0.2em' }}>
+        <h1 className="homelist-architou">
+          Archi Tou<br className="homelist-separator"/>
+          <span className={classes.istilah}>
             {match.istilah}
           </span>
         </h1>
-        <h2 className={classes.architoudesc}>{match.kategori}</h2>
+        <h2 className="homelist-architoudesc">{match.kategori}</h2>
 
         {data.map((d) => (
           <div key={d.home_id}>
-            <Box className={classes.middle}>
-              <Box className={classes.image}>
+            <Box className="homelist-middle">
+              <Box className="homelist-image">
                 <Link
                   className={classes.link}
                   to={`/home/detail-organisator/${d.name
@@ -160,14 +83,14 @@ const HomeLists = () => {
                     .join('-')}`}
                 >
                   <img
-                    className={classes.logo}
+                    className="homelist-logo"
                     src={d.link_logo}
                     alt={`Logo ${d.name}`}
                     title={`Logo ${d.name}`}
                   />
                 </Link>
               </Box>
-              <Box className={classes.desc}>
+              <Box className="homelist-desc">
                 <Link
                   className={classes.link}
                   to={`/home/detail-organisator/${d.name
@@ -175,14 +98,14 @@ const HomeLists = () => {
                     .split(' ')
                     .join('-')}`}
                 >
-                  <span className={classes.title}>{d.name}</span>
-                  <h3 className={classes.narasi}>{d.narasi}</h3>
+                  <span className="homelist-title">{d.name}</span>
+                  <h3 className='homelist-narasi'>{d.narasi}</h3>
                 </Link>
               </Box>
             </Box>
           </div>
         ))}
-        <Box className={classes.middle}>
+        <Box className="homelist-middle">
           <Link to="/home/puzzle">
             <MxmCancelButton
               className={classes.cancelButton}
