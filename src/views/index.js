@@ -37,6 +37,9 @@ export {
   AcaraStateLists,
   AcaraStateDetail,
   AcaraTambahState,
+  AcaraAddHome,
+  AcaraEditHome,
+  AcaraHomeLists,
 } from './dashboards/acara';
 export { OrganisatorDashboard } from './dashboards/organisator';
 export {
@@ -45,3 +48,4 @@ export {
   Unauthorized401,
   Forbidden403,
 } from './others';
+export { Shortener } from './shortener';

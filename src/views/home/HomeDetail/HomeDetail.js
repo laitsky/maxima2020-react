@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
+import { Carousel } from 'react-responsive-carousel';
 import { makeStyles } from '@material-ui/core/styles';
 import publicService from '../../../services/public';
 import {
@@ -8,6 +9,7 @@ import {
   MxmCancelButton,
 } from '../../../components/reusable/button';
 import './HomeDetail.scss';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const useStyles = makeStyles({
   container: {
@@ -26,6 +28,7 @@ const HomeDetail = () => {
   const history = useHistory();
   let { organisator } = useParams();
   const [data, setData] = useState({});
+  const [photos, setPhotos] = useState([]);
 
   organisator = organisator.split('-').join(' ');
 
@@ -51,6 +54,17 @@ const HomeDetail = () => {
   useEffect(() => {
     document.title = `${data.name} - HoME MAXIMA 2020`;
     console.log('data', data);
+    const fetchData = async () => {
+      try {
+        const returnedData = await publicService.getHomeByQuery(
+          data.search_key,
+        );
+        setPhotos(returnedData[0].home_media);
+      } catch (err) {
+        console.log(err.response);
+      }
+    };
+    fetchData();
   }, [data]);
 
   return (
@@ -70,11 +84,22 @@ const HomeDetail = () => {
         <Box className={classes.container}>
           <p>{data.narasi_panjang}</p>
         </Box>
+        <Carousel autoPlay>
+          {photos.map((photo) => (
+            <div key={photo.link_media}>
+              <img
+                src={photo.link_media}
+                alt="Foto"
+                style={{ borderRadius: 5 }}
+              />
+            </div>
+          ))}
+        </Carousel>
         <Box
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{ width: '100%' }}
+          style={{ width: '100%', marginTop: '1.5em' }}
         >
           <MxmCancelButton
             type="button"

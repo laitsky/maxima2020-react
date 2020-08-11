@@ -4,3 +4,4 @@ export { default as YellowLogo } from './mxm_yellow.png';
 export { default as InstagramLogo } from './instagram.png';
 export { default as LINELogo } from './network.png';
 export { default as HomeIllus } from './home_illus.png';
+export { default as WhiteMxmBg } from './bg-web-flat.png';
