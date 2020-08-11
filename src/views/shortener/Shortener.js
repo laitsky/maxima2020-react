@@ -1,41 +1,64 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Container, TextField, Button } from '@material-ui/core';
-import { AlignMiddle } from '../../components/reusable/container';
+import { Box, Container } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import {
+  AlignMiddle,
+  MxmLogoContainer,
+  MxmInput,
+  MxmButton,
+  Error,
+} from '../../components';
+import { MxmLogoText } from '../../assets';
 import shortenerService from '../../services/shortener';
+import './Shortener.scss';
+
+const withHttp = (url) =>
+  !/^https?:\/\//i.test(url) ? `http://${url}` : url;
 
 const Shortener = () => {
-  const [notification, setNotification] = useState(null);
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = async (data) => {
-    setNotification(null);
     reset();
+    // eslint-disable-next-line no-param-reassign
+    data.url = withHttp(data.url);
+    console.log(data);
     try {
-      const result = await shortenerService.create(data);
-      setNotification(result.short_url);
-    } catch (ex) {
-      setNotification(ex.response.data.error);
+      const returnedData = await shortenerService.create(data);
+      console.log(returnedData);
+    } catch (err) {
+      console.log(err.response.data);
     }
   };
 
   return (
-    <Container>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <AlignMiddle>
-          <TextField
-            name="url"
-            label="URL"
-            variant="outlined"
-            inputRef={register({ required: 'URL harus diisi!' })}
-          />
-          {errors.url && <span>{errors.url.message}</span>}
-          <h4 style={{ color: 'red' }}>{notification}</h4>
-          <Button type="submit" variant="contained" color="primary">
-            Primary
-          </Button>
-        </AlignMiddle>
-      </form>
-    </Container>
+    <div id="shortener-container">
+      <AlignMiddle>
+        <MxmLogoContainer
+          src={MxmLogoText}
+          style={{ marginTop: '5em' }}
+        />
+        <h1
+          style={{ fontFamily: 'canaro-bold', letterSpacing: 2 }}
+          className="mxm-pink"
+        >
+          MAXIMA URL SHORTENER
+        </h1>
+      </AlignMiddle>
+      <Box display="flex" placeItems="center">
+        <Container maxWidth="md">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <MxmInput
+              placeholder="Masukkan URL kamu"
+              name="url"
+              ref={register({ required: 'Isi URL kamu!' })}
+            />
+            {errors.url && <Error>{errors.url.message}</Error>}
+            <MxmButton>Submit</MxmButton>
+          </form>
+        </Container>
+      </Box>
+    </div>
   );
 };
 

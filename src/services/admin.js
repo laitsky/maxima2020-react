@@ -67,6 +67,14 @@ const addHome = async (data) => {
   return request.status;
 };
 
+const addHomeMedia = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/home/add_home_media`,
+    data,
+    config,
+  );
+  return request.data;
+};
 const editHome = async (data, homeId) => {
   const request = await axios.post(
     `${baseUrl}/home/update_home`,
@@ -92,6 +100,7 @@ export default {
   viewRegisteredState,
   getAllHome,
   addHome,
+  addHomeMedia,
   editHome,
   getHomeById,
 };

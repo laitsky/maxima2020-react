@@ -23,7 +23,12 @@ const AddHomeMedia = () => {
       home_id: data.find((d) => d.name === formData.name).home_id,
       link_media: formData.link_media.replace(originUrl, cdnUrl),
     };
-    console.log(newData);
+    try {
+      const returnedData = await adminService.addHomeMedia(newData);
+      console.log(returnedData);
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   useEffect(() => {

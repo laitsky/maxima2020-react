@@ -8,6 +8,9 @@ import {
   AcaraStateDetail,
   AcaraStateLists,
   AcaraTambahState,
+  AcaraAddHome,
+  AcaraEditHome,
+  AcaraHomeLists,
 } from '../views';
 
 const AcaraRouter = ({ Sidebar }) => {
@@ -39,6 +42,22 @@ const AcaraRouter = ({ Sidebar }) => {
             path="/acara/dashboard"
             exact
             component={AcaraDashboard}
+          />
+          <Route
+            path="/acara/add-home"
+            exact
+            component={AcaraAddHome}
+          />
+
+          <Route
+            path="/acara/home-lists"
+            exact
+            component={AcaraHomeLists}
+          />
+          <Route
+            path="/acara/edit-home/:homeId"
+            exact
+            component={AcaraEditHome}
           />
           <Route
             path="/acara/tambah-state"

@@ -7,4 +7,11 @@ const getAllHome = async () => {
   return request.data;
 };
 
-export default { getAllHome };
+const getHomeByQuery = async (searchKey) => {
+  const request = await axios.get(
+    `${baseUrl}/home/get_home_query?ukm=${searchKey}`,
+  );
+  return request.data;
+};
+
+export default { getAllHome, getHomeByQuery };

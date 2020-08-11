@@ -21,6 +21,7 @@ import {
   JingleMaxima,
   Unauthorized401,
   Forbidden403,
+  Shortener,
 } from './views';
 import {
   AcaraRouter,
@@ -61,6 +62,7 @@ const AppRouter = () => {
       <Route path="/401" exact component={Unauthorized401} />
       <Route path="/403" exact component={Forbidden403} />
       <Route path="/404" exact component={NotFound} />
+      <Route path="/shortener" exact component={Shortener} />
       <Route path="/admin/:path1?/:path2?/:path3?" exact>
         <Switch>
           <AdminRouter Sidebar={AdminSidebar} />

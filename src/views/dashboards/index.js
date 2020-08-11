@@ -5,6 +5,9 @@ export {
   AcaraStateDetail,
   AcaraStateLists,
   AcaraTambahState,
+  AcaraAddHome,
+  AcaraEditHome,
+  AcaraHomeLists,
 } from './acara';
 export {
   AdminDashboard,
