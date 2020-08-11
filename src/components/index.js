@@ -18,6 +18,7 @@ export {
   MxmHomeCard,
   MxmHomeCardDeck,
   MxmHomeDeckItem,
+  MxmStateLogoFrame,
   Error,
   AlignMiddle,
   MxmLoading,

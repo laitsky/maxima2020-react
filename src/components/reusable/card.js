@@ -140,7 +140,7 @@ export const MxmHomeCard = styled.div`
     height: 150px;
     padding: 20px 15px 15px 15px;
 
-    & a {
+    & span {
       font-size: xx-small;
     }
 
@@ -149,4 +149,17 @@ export const MxmHomeCard = styled.div`
       font-size: small;
     }
   }
+`;
+
+export const MxmStateLogoFrame = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #41CEBA;
+  width: 100%;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0 1px 5px #ababab;
+  margin: 2em 0 2em 0;
+  height: 13em;
 `;

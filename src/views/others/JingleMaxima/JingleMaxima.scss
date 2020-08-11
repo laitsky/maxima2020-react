@@ -1,9 +1,132 @@
+//audio player start
+
+.react-h5-audio-player{
+  margin-top: 2em;
+}
+
 .rhap_progress-section {
-  #rhap_current-time {
-    color: red;
+  #rhap_current-time{
+    color: #1F2C4C;
+  }
+  .rhap_total-time{
+    color: #1F2C4C;
+  }
+  .rhap_download-progress {
+    display: none;
+  }
+}
+
+.rhap_controls-section{
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.rhap_additional-controls{
+  display: none;
+}
+
+.rhap_main-controls{
+  width: auto;
+
+  .rhap_forward-button{
+    display: none;
   }
 
-  .rhap_download-progress {
-      background-color: yellow;
+  .rhap_rewind-button{
+    display: none;
   }
+
+  .rhap_play-pause-button{
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+    path{
+      color: #F2D008;
+    }
+  }
+}
+
+.rhap_volume-controls{
+  flex: none;
+  width: 100px;
+}
+
+.rhap_volume-indicator{
+  background-color: #1F2C4C;
+}
+
+.rhap_volume-bar-area{
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rhap_volume-bar{
+  background-color: #41CEBA;
+}
+
+.rhap_button-clear{
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  path{
+    color: #1F2C4C;
+  }
+}
+
+.rhap_container{
+  background-color: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.rhap_progress-indicator{
+  display: none;
+}
+
+.rhap_progress-container{
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.rhap_progress-filled{
+  background-color: #1F2C4C;
+}
+
+.rhap_progress-bar{
+  background-color: #F2D008;
+}
+
+//end of audio player
+
+.jingle-bersama{
+  border: solid #F2D008;
+  padding: 5px 20px 5px 20px;
+  border-top-left-radius: 30px 30px;
+  border-top-right-radius: 30px 30px;
+  margin: 15px 0 0 0;
+  font-family: canaro-bold;
+  color: #F4224B;
+  background-color: #F2D008;
+  transform: translateX(-1em) rotate(-2deg) translateY(15px);
+  box-shadow: 8px 10px #F4224B;
+  z-index: -1;
+}
+
+.jingle-maxima{
+  border-bottom-left-radius: 30px 30px;
+  border-bottom-right-radius: 30px 30px;
+  margin: 0 0 0 1.5em;
+  font-family: canaro-bold;
+  color: #F4224B;
+  background-color: #F2D008;
+  padding: 5px 20px 5px 20px;
+  box-shadow: -5px 15px #F4224B;
+  transform: rotate(-1deg);
+}
+  
+.jingle-maxima-highlight{
+  background-color: #F2D008;
+  border-radius: 3px;
+  padding: 0 2px 0 2px;
+  color: #F4224B;
 }
