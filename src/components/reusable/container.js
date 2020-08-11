@@ -6,7 +6,8 @@ export const MxmLogoContainer = styled.img`
   max-height: 200px;
   width: auto;
   @media (max-width: 768px) {
-    max-height: 100px;
+    width: 100px;
+    height: auto;
     margin: 0;
   }
 `;

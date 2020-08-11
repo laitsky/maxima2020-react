@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { MxmButton, MxmLogoContainer } from '../../../components';
+import { MxmButton, MxmLogoContainer, MxmStateLogoFrame, MxmLongCard } from '../../../components';
 import studentService from '../../../services/student';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container, Box } from '@material-ui/core';
+
+const useStyles = makeStyles({
+  statetext: {
+    color: '#1F2C4C',
+    fontFamily: 'canaro-bold',
+    padding: 0,
+    margin: '10px',
+  },  
+  statecard:{
+    margin: '0 0 1em 0',
+    boxShadow: '0 1px 5px #ababab', 
+    width: '100%',
+    '@media (max-width: 766px)':{
+      fontSize: 'medium',
+    },
+  },
+  statelogo:{
+    '@media (max-width: 766px)':{
+      width: '150px',
+      height: 'auto',
+    },
+  },
+});
 
 const StateOrgDetail = () => {
+  const classes = useStyles();
   const [data, setData] = useState({});
   const [nim, setNim] = useState(Number);
   let { organisator } = useParams();
@@ -58,16 +84,28 @@ const StateOrgDetail = () => {
   };
   return (
     <>
-      <h1>Ini adalah halaman organisator untuk {organisator}</h1>
-      {data.link_logo && <MxmLogoContainer src={data.link_logo} />}
-      <h3>
-        TAMPILIN TANGGAL (ntar diisi sama div kosong aja, sesuai UInya
-        karena tanggal blm dikasih), sama ruangan (DIGANTI SAMA LINK
-        ZOOM). Liat State Website Ui di drive.
-      </h3>
-      <MxmButton onClick={handleClick}>
-        Simpan (Hari {data.day})
-      </MxmButton>
+      <Container maxWidth="xs" style={{ padding: '0 2em 0 2em'}}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <h1>Ini adalah halaman organisator untuk {organisator}</h1>
+          <MxmStateLogoFrame>
+            {data.link_logo && <MxmLogoContainer className={classes.statelogo} src={data.link_logo} />}
+          </MxmStateLogoFrame>
+          <h3 className={classes.statetext}>Tanggal</h3>
+          <MxmLongCard className={classes.statecard}>AAA</MxmLongCard>
+          <h3 className={classes.statetext}>Ruangan</h3>
+          <MxmLongCard className={classes.statecard}>BBB</MxmLongCard>
+          <Box style={{ marginTop: '1em', marginBottom: '1em' }}>
+            <MxmButton onClick={handleClick}>
+              Simpan (Hari {data.day})
+            </MxmButton>
+          </Box>
+        </Box>
+      </Container>
     </>
   );
 };

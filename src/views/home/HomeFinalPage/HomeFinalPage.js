@@ -194,7 +194,9 @@ const HomeFinalPage = () => {
               </span>
             </li>
           </ol>
-          {randomPantun()}
+          <span style={{ textTransform: 'uppercase' }}>
+            {randomPantun()}
+          </span>
         </Box>
         <Box
           display="flex"

@@ -5,6 +5,7 @@ export {
   MxmHomeCard,
   MxmHomeCardDeck,
   MxmHomeDeckItem,
+  MxmStateLogoFrame,
 } from './card';
 export {
   MxmLogoContainer,

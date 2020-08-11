@@ -19,6 +19,20 @@ const useStyles = makeStyles({
     height: '250px',
     marginBottom: '1em',
   },
+  lainbutton: {
+    margin: '0 10px 0 10px',
+
+    '@media (max-width: 766px)':{
+      padding: '10px',
+    },
+  },
+  selesaibutton: {
+    margin: '0 10px 2.5px 10px',
+
+    '@media (max-width: 766px)':{
+      padding: '10px 15px 10px 15px',
+    },
+  }
 });
 
 const HomeDetail = () => {
@@ -62,8 +76,6 @@ const HomeDetail = () => {
         <h1 id="homedetail-nama">{data.name}</h1>
         <iframe
           className="homedetail-iframe"
-          width="560"
-          height="315"
           src={data.link_video}
           title={data.name}
         />
@@ -78,9 +90,7 @@ const HomeDetail = () => {
         >
           <MxmCancelButton
             type="button"
-            style={{
-              margin: '0 10px 0 10px',
-            }}
+            className={classes.lainbutton}
             onClick={handleCancelClick}
           >
             Lihat yang lain
@@ -92,7 +102,7 @@ const HomeDetail = () => {
           >
             <MxmButton
               type="button"
-              style={{ margin: '0 10px 5px 10px' }}
+              className={classes.selesaibutton}
             >
               Selesai
             </MxmButton>

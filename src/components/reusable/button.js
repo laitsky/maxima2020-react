@@ -13,18 +13,18 @@ export const MxmButton = styled.button`
   background-color: #ffd008;
   border: none;
   transition-duration: 0.2s;
-  box-shadow: 0 1vh #f4224b;
+  box-shadow: 0 5px #f4224b;
   margin-top: ${(props) => props.mt || '0'};
   margin-bottom: ${(props) => props.mb || '0'};
   &:hover {
     cursor: pointer;
     background-color: #e3bd1b;
-    transform: translateY(0.5vh);
-    box-shadow: 0 0.5vh #f4224b;
+    transform: translateY(2.5px);
+    box-shadow: 0 2.5px #f4224b;
   }
 
   &:active {
-    transform: translateY(1vh);
+    transform: translateY(5px);
     box-shadow: 0 0 #f4224b;
   }
 `;

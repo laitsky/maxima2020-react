@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import publicService from '../../../services/public';
 import homeHelpers from '../homeHelpers';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/src/styles.scss';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container, Box } from '@material-ui/core';
+import { MxmWhite } from '../../../assets';
+import { MxmButton } from '../../../components/reusable/button';
 
 const Antanaklasi = () => {
   const { organisator } = useParams();
@@ -37,16 +43,40 @@ const Antanaklasi = () => {
   }, [voiceNote]);
 
   return (
-    <>
-      <h1>Ini adalah halaman Antanaklasi {data.kategori}</h1>
-      <h2>
-        Link voiceNote bisa didapatkan melalu referensi variabel
-        `voiceNote`: {voiceNote}
-      </h2>
-      <Link to={`/home/twibbon/${organisator}`}>
-        <button type="button">Mulai melangkah</button>
-      </Link>
-    </>
+    <Box style={{ minHeight: '100vh', backgroundColor: '#F4224B' }}>
+      <Container maxWidth="sm">
+        <Box 
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          style={{ color: 'white', textAlign: 'center', padding: '10px 0 0 0' }}
+        >
+          <img
+            style={{ width: '100px', height: 'auto' }}
+            src={MxmWhite}
+          />
+          <h3 style={{ margin: 0 }}>Gunakan earphone biar<br/>cumin kamu yang tahu :) hehe</h3>
+          <AudioPlayer
+            style={{ marginTop: '1em', backgroundColor: '#F4224B'}}
+            className="react-h5-audio-player"
+            src={voiceNote}
+          />
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          style={{ marginTop: '3em' }}
+        >
+          <h2 style={{ fontFamily: 'canaro-bold', color: 'white' }}>Aku lebih dari impianku!</h2>
+          <Link to={`/home/twibbon/${organisator}`}>
+            <MxmButton type="button">Mulai melangkah</MxmButton>
+          </Link>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
