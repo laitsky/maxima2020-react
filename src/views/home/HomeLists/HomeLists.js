@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Box } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import { Link, useParams } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { MxmCancelButton } from '../../../components/reusable/button';
@@ -10,13 +11,13 @@ import './HomeLists.scss';
 const useStyles = makeStyles({
   cancelButton: {
     margin: '1em',
-  },  
+  },
   link: {
     textDecoration: 'none',
     color: 'white',
   },
   istilah: {
-    color: '#F4224B', 
+    color: '#F4224B',
     margin: '0.2em',
 
     '@media (max-width: 766px)': {
@@ -46,16 +47,17 @@ const HomeLists = () => {
           (d) => d.kategori === match.kategori,
         );
         setData(returnedData);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
 
   return (
     <>
@@ -64,10 +66,9 @@ const HomeLists = () => {
         style={{ padding: '18px 10px 18px 10px' }}
       >
         <h1 className="homelist-architou">
-          Archi Tou<br className="homelist-separator"/>
-          <span className={classes.istilah}>
-            {match.istilah}
-          </span>
+          Archi Tou
+          <br className="homelist-separator" />
+          <span className={classes.istilah}>{match.istilah}</span>
         </h1>
         <h2 className="homelist-architoudesc">{match.kategori}</h2>
 
@@ -99,7 +100,7 @@ const HomeLists = () => {
                     .join('-')}`}
                 >
                   <span className="homelist-title">{d.name}</span>
-                  <h3 className='homelist-narasi'>{d.narasi}</h3>
+                  <h3 className="homelist-narasi">{d.narasi}</h3>
                 </Link>
               </Box>
             </Box>

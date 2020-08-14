@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@material-ui/core';
 
-const AbsenStateDialog = ({
+export default ({
   openAbsenDialog,
   handleAbsenClose,
   handleAbsenState,
@@ -65,5 +65,3 @@ const AbsenStateDialog = ({
     )}
   </Dialog>
 );
-
-export default AbsenStateDialog;

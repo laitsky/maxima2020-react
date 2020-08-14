@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import jwtDecode from 'jwt-decode';
 import { Container, Box, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import CancelStateDialog from './components/CancelStateDialog';
 import AbsenStateDialog from './components/AbsenStateDialog';
-import { makeStyles } from '@material-ui/core/styles';
+import SurveiStateDialog from './components/SurveiStateDialog';
 import {
   MxmLongCard,
   MxmButton,
@@ -21,19 +24,19 @@ const useStyles = makeStyles({
     fontFamily: 'canaro-bold',
     padding: 0,
     margin: '10px',
-  },  
-  statecard:{
+  },
+  statecard: {
     margin: '0 0 1em 0',
-    boxShadow: '0 1px 5px #ababab', 
+    boxShadow: '0 1px 5px #ababab',
     width: '100%',
-    '@media (max-width: 766px)':{
+    '@media (max-width: 766px)': {
       fontSize: 'medium',
     },
   },
   stateback: {
     marginRight: '0.5em',
 
-    '@media (max-width: 766px)':{
+    '@media (max-width: 766px)': {
       padding: '10px 20px 10px 20px',
     },
   },
@@ -41,31 +44,34 @@ const useStyles = makeStyles({
     backgroundColor: '#F4224B',
     color: 'white',
 
-    '&:hover':{
+    '&:hover': {
       color: '#F2D008',
     },
-  },  
+  },
   stateabsen: {
     marginLeft: '0.5em',
 
-    '@media (max-width: 766px)':{
+    '@media (max-width: 766px)': {
       padding: '10px 30px 10px 30px',
     },
   },
-  statelogo:{
-    '@media (max-width: 766px)':{
+  statelogo: {
+    '@media (max-width: 766px)': {
       width: '150px',
       height: 'auto',
     },
   },
 });
 
-
 const RegisteredStateDetail = ({ day }) => {
+  const { register, handleSubmit, reset, errors } = useForm({
+    mode: 'onChange',
+  });
   const classes = useStyles();
   const history = useHistory();
   const [openCancelDialog, setCancelDialog] = useState(false);
   const [openAbsenDialog, setAbsenDialog] = useState(false);
+  const [openSurveiDialog, setSurveiDialog] = useState(false);
   const [absenLoading, setAbsenLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [kodePresensi, setKodePresensi] = useState('');
@@ -78,7 +84,12 @@ const RegisteredStateDetail = ({ day }) => {
     try {
       decoded = jwtDecode(window.sessionStorage.getItem('token'));
     } catch (InvalidTokenError) {
-      console.log(InvalidTokenError);
+      Swal.fire({
+        title: 'Perhatian!',
+        text: InvalidTokenError,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
     const fetchData = async () => {
       try {
@@ -90,15 +101,16 @@ const RegisteredStateDetail = ({ day }) => {
         );
         setData(returnedData);
       } catch (error) {
-        console.log(error.response);
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
 
   // cancel dialog handler
   const handleCancelOpen = () => {
@@ -118,7 +130,6 @@ const RegisteredStateDetail = ({ day }) => {
           state_id: data.state_id,
         },
       );
-      console.log(returnedData);
       history.push({
         pathname: '/state',
         data: {
@@ -126,8 +137,13 @@ const RegisteredStateDetail = ({ day }) => {
           message: `Kamu berhasil membatalkan STATE ${data.state_activity.name}`,
         },
       });
-    } catch (err) {
-      console.log(err.response);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
 
@@ -149,7 +165,6 @@ const RegisteredStateDetail = ({ day }) => {
       kode_presensi: kodePresensi,
     };
     setKodePresensi('');
-    console.log(absenData);
     try {
       await new Promise((resolve) =>
         setTimeout(() => {
@@ -157,24 +172,36 @@ const RegisteredStateDetail = ({ day }) => {
           resolve();
         }, 1500),
       );
-      const returnedData = await studentService.absenState(absenData);
-      console.log(returnedData);
+      await studentService.absenState(absenData);
     } catch (err) {
       setErrorMessage(err.response.data.message);
     }
     setAbsenLoading(false);
   };
 
+  // survei state handler
+  const handleSurveiState = async () => {
+    return null;
+  };
+  const handleSurveiOpen = () => {
+    setSurveiDialog(true);
+  };
+  const handleSurveiClose = () => {
+    setSurveiDialog(false);
+  };
   // go back click handler
   const handleBackClick = () => {
     history.goBack();
   };
 
   return (
-    <Container maxWidth="xs" style={{ padding: '0 2em 0 2em'}}>
-      <MxmStateLogoFrame>   
+    <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
+      <MxmStateLogoFrame>
         {data.state_activity.link_logo && (
-          <MxmLogoContainer className={classes.statelogo} src={data.state_activity.link_logo} />
+          <MxmLogoContainer
+            className={classes.statelogo}
+            src={data.state_activity.link_logo}
+          />
         )}
       </MxmStateLogoFrame>
       <Box
@@ -184,12 +211,16 @@ const RegisteredStateDetail = ({ day }) => {
         flexDirection="column"
       >
         <h3 className={classes.statetext}>Tanggal</h3>
-        <MxmLongCard className={classes.statecard}>tanggal disini</MxmLongCard>
+        <MxmLongCard className={classes.statecard}>
+          tanggal disini
+        </MxmLongCard>
         <h3 className={classes.statetext}>Link Zoom</h3>
-        <MxmLongCard className={classes.statecard}>Link Zoom disini</MxmLongCard>
-        <Box 
-          marginTop="1em" 
-          marginBottom="1em" 
+        <MxmLongCard className={classes.statecard}>
+          Link Zoom disini
+        </MxmLongCard>
+        <Box
+          marginTop="1em"
+          marginBottom="1em"
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -203,7 +234,12 @@ const RegisteredStateDetail = ({ day }) => {
           >
             Kembali
           </MxmCancelButton>
-          <MxmButton onClick={handleAbsenOpen} className={classes.stateabsen}>Absen</MxmButton>
+          <MxmButton
+            onClick={handleAbsenOpen}
+            className={classes.stateabsen}
+          >
+            Absen
+          </MxmButton>
         </Box>
         {data.attendance ? (
           <Button
@@ -222,6 +258,13 @@ const RegisteredStateDetail = ({ day }) => {
             Batalkan STATE ini
           </MxmCancelButton>
         )}
+        <MxmCancelButton
+          variant="contained"
+          onClick={handleSurveiOpen}
+          className={classes.statebatal}
+        >
+          Survei STATE 2020
+        </MxmCancelButton>
         <CancelStateDialog
           openCancelDialog={openCancelDialog}
           handleCancelClose={handleCancelClose}
@@ -238,6 +281,11 @@ const RegisteredStateDetail = ({ day }) => {
           setKodePresensi={setKodePresensi}
           loading={absenLoading}
           error={errorMessage}
+        />
+        <SurveiStateDialog
+          openSurveiDialog={openSurveiDialog}
+          handleSurveiClose={handleSurveiClose}
+          register={register}
         />
       </Box>
     </Container>

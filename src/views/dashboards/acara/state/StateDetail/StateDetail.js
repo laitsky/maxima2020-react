@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import MUIDataTable from 'mui-datatables';
 import {
   Paper,
   Tab,
@@ -22,6 +23,36 @@ const a11yProps = (index) => {
   };
 };
 
+const tableColumns = [
+  {
+    name: 'nama',
+    label: 'Nama',
+    options: {
+      customBodyRender: (_value, tableMeta) => (
+        <p>{`${tableMeta.rowData[3]} - ${tableMeta.rowData[2]}`}</p>
+      ),
+    },
+  },
+  {
+    name: 'attendance',
+    label: 'Kehadiran',
+    options: {
+      customBodyRender: (_value, tableMeta) => (
+        <p>{tableMeta.rowData[1] ? 'Hadir' : '-'}</p>
+      ),
+    },
+  },
+  {
+    name: 'nim',
+    label: 'Nomor Induk Mahasiswa',
+    options: { display: false },
+  },
+  {
+    name: 'name',
+    label: 'Nama Mahasiswa',
+    options: { display: false },
+  },
+];
 const StateDetail = () => {
   const { stateId } = useParams();
   const [data, setData] = useState({});
@@ -44,7 +75,13 @@ const StateDetail = () => {
         const returnedRegistered = await acaraService.viewRegisteredState(
           stateId,
         );
-        setRegistered(returnedRegistered);
+        setRegistered(
+          returnedRegistered.map((d) => ({
+            nim: d.nim,
+            attendance: d.attendance,
+            name: d.user.name,
+          })),
+        );
       } catch (err) {
         console.log(err.response);
       }
@@ -91,28 +128,7 @@ const StateDetail = () => {
           <h2>Link Zoom: {data.room}</h2>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <TableContainer component={Paper}>
-            <Table aria-label="Peserta Registrasi Kegiatan STATE">
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">Nama</TableCell>
-                  <TableCell align="center">Kehadiran</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {registered.map((r) => (
-                  <TableRow hover key={r.nim}>
-                    <TableCell align="center">
-                      {r.user.name} ({r.nim})
-                    </TableCell>
-                    <TableCell align="center">
-                      {r.attendance || '-'}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <MUIDataTable data={registered} columns={tableColumns} />
         </TabPanel>
       </Paper>
     </>

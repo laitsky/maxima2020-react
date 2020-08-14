@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
@@ -40,13 +41,16 @@ const DaftarMaba = () => {
       email: `${data.email}@student.umn.ac.id`,
       roles: 'maba',
     };
-    console.log(dataMaba);
 
     try {
-      const returnedData = await authService.daftar(dataMaba);
-      console.log(returnedData);
-    } catch (ex) {
-      console.log(ex.response.data);
+      await authService.daftar(dataMaba);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
     setLoading(false);
   };

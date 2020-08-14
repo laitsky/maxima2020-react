@@ -20,6 +20,17 @@ const HomePuzzle = () => {
   const classes = useStyles();
   return (
     <Box bgcolor="#1F2C4C" minHeight="100vh">
+      <h1
+        className="mxm-yellow"
+        style={{
+          fontFamily: 'canaro-bold',
+          letterSpacing: 1.5,
+          textAlign: 'center',
+          paddingTop: '1.5em',
+        }}
+      >
+        Pilih kategori organisasi yang ingin kamu cari.
+      </h1>
       <MxmHomeCardDeck>
         <MxmHomeDeckItem>
           <Link

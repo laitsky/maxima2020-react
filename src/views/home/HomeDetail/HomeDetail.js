@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { Container, Box } from '@material-ui/core';
 import { Carousel } from 'react-responsive-carousel';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,17 +25,17 @@ const useStyles = makeStyles({
   lainbutton: {
     margin: '0 10px 0 10px',
 
-    '@media (max-width: 766px)':{
+    '@media (max-width: 766px)': {
       padding: '10px',
     },
   },
   selesaibutton: {
     margin: '0 10px 2.5px 10px',
 
-    '@media (max-width: 766px)':{
+    '@media (max-width: 766px)': {
       padding: '10px 15px 10px 15px',
     },
-  }
+  },
 });
 
 const HomeDetail = () => {
@@ -58,27 +59,32 @@ const HomeDetail = () => {
           (d) => d.name.toLowerCase() === organisator,
         );
         setData(returnedData);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    document.title = `${data.name} - HoME MAXIMA 2020`;
-    console.log('data', data);
+    const { search_key } = data;
     const fetchData = async () => {
       try {
         const returnedData = await publicService.getHomeByQuery(
-          data.search_key,
+          search_key,
         );
         setPhotos(returnedData[0].home_media);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        console.log(error.response.status);
       }
     };
     fetchData();
+    document.title = `${data.name} - HoME MAXIMA 2020`;
   }, [data]);
 
   return (

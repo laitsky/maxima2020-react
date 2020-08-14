@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from '@material-ui/core';
 
-const CancelStateDialog = ({
+export default ({
   openCancelDialog,
   handleCancelClose,
   handleStateCancellation,
@@ -40,5 +40,3 @@ const CancelStateDialog = ({
     </DialogActions>
   </Dialog>
 );
-
-export default CancelStateDialog;

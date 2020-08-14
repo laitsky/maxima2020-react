@@ -31,11 +31,8 @@ const LoginPage = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     reset();
-    console.log(data);
-
     try {
       const returnedData = await authService.login(data);
-      console.log(returnedData);
       window.sessionStorage.setItem(
         'token',
         returnedData.accessToken,
@@ -44,7 +41,7 @@ const LoginPage = () => {
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',
-        text: 'Kata sandi yang kamu masukkan salah!',
+        text: error.response.data.message,
         icon: 'error',
         confirmButtonText: 'Coba lagi',
       });
