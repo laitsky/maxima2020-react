@@ -20,6 +20,7 @@ const Beranda = () => {
         stiffness: 50,
         damping: 20,
       }}
+      style={{ position: 'relative', top: '-70px', height: '100vh' }}
     >
       <Box
         color="#FFD008"
