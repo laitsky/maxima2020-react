@@ -2,17 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import MUIDataTable from 'mui-datatables';
-import {
-  Paper,
-  Tab,
-  Tabs,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@material-ui/core';
+import { Paper, Tab, Tabs } from '@material-ui/core';
 import acaraService from '../../../../../services/acara';
 import TabPanel from './components/TabPanel';
 

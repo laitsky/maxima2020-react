@@ -1,6 +1,6 @@
 {
   "name": "maxima2020-react",
-  "version": "3.0.0-a.37",
+  "version": "3.0.0-a.38",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -23,10 +23,10 @@
     "react-pro-sidebar": "^0.4.3",
     "react-responsive-carousel": "^3.2.9",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
+    "react-transition-group": "^4.4.1",
     "styled-components": "^5.1.1",
-    "sweetalert2": "^9.17.1",
-    "sweetalert2-react-content": "^3.0.3"
+    "sweetalert2": "^9.17.1"
   },
   "scripts": {
     "start": "react-scripts start",

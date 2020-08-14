@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Box, Container } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   AlignMiddle,
   MxmLogoContainer,
@@ -11,19 +12,18 @@ import {
 } from '../../components';
 import { MxmLogoText } from '../../assets';
 import shortenerService from '../../services/shortener';
-import { makeStyles } from '@material-ui/core/styles';
 import './Shortener.scss';
 
 const withHttp = (url) =>
   !/^https?:\/\//i.test(url) ? `http://${url}` : url;
 
 const useStyles = makeStyles({
-  separator:{
+  separator: {
     display: 'none',
-    '@media(max-width:766px)':{
+    '@media(max-width:766px)': {
       display: 'block',
     },
-  }
+  },
 });
 
 const Shortener = () => {
@@ -57,12 +57,20 @@ const Shortener = () => {
             style={{ marginTop: '5em' }}
           />
           <h1
-            style={{ fontFamily: 'canaro-bold', letterSpacing: 2, margin: 0 }}
+            style={{
+              fontFamily: 'canaro-bold',
+              letterSpacing: 2,
+              margin: 0,
+            }}
             className="mxm-pink"
           >
-            MAXIMA URL<br className={classes.separator}/> SHORTENER
+            MAXIMA URL
+            <br className={classes.separator} /> SHORTENER
           </h1>
-          <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>  
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={{ width: '100%' }}
+          >
             <Box
               display="flex"
               flexDirection="column"
@@ -75,7 +83,7 @@ const Shortener = () => {
                 ref={register({ required: 'Isi URL kamu!' })}
               />
               {errors.url && <Error>{errors.url.message}</Error>}
-              <br/>
+              <br />
               <MxmButton>Submit</MxmButton>
             </Box>
           </form>

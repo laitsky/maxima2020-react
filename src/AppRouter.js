@@ -22,6 +22,7 @@ import {
   Unauthorized401,
   Forbidden403,
   Shortener,
+  SurveiState,
 } from './views';
 import {
   AcaraRouter,
@@ -99,6 +100,7 @@ const AppRouter = () => {
             exact
             component={JingleMaxima}
           />
+          <Route path="/survei" exact component={SurveiState} />
           <Route path="/tour" exact component={MaxiTour} />
           <Route path="/" exact component={Beranda} />
           <AuthRouter />

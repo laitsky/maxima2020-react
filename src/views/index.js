@@ -1,3 +1,5 @@
+import SurveiState from './testing/SurveiState';
+
 export { LoginPage, DaftarMaba, DaftarOrganisator } from './auth';
 export { Beranda } from './beranda';
 export {
@@ -49,3 +51,4 @@ export {
   Forbidden403,
 } from './others';
 export { Shortener } from './shortener';
+export { default as SurveiState } from './testing/SurveiState';

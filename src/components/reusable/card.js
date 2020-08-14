@@ -155,7 +155,7 @@ export const MxmStateLogoFrame = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #41CEBA;
+  border: 2px solid #41ceba;
   width: 100%;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;

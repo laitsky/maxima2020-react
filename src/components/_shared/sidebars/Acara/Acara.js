@@ -11,7 +11,6 @@ import {
 import 'react-pro-sidebar/dist/css/styles.css';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import HomeIcon from '@material-ui/icons/Home';
-import LanguageIcon from '@material-ui/icons/Language';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 
