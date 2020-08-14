@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
+import Swal from 'sweetalert2';
 import { Link, useLocation } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
@@ -33,14 +34,11 @@ const StateMainPage = () => {
   const [hasDay, setDays] = useState([]);
   const [stateToken, setStateToken] = useState(Number);
   const days = [...Array(4).keys()].map((i) => i + 1);
-  let decoded = null;
+  const decoded = window.sessionStorage.getItem('token')
+    ? jwtDecode(window.sessionStorage.getItem('token'))
+    : '';
 
   useEffect(() => {
-    try {
-      decoded = jwtDecode(window.sessionStorage.getItem('token'));
-    } catch (InvalidTokenError) {
-      console.log(InvalidTokenError);
-    }
     const fetchData = async () => {
       try {
         const returnedData = await studentService.getRegisteredState(
@@ -48,22 +46,25 @@ const StateMainPage = () => {
         );
         setData(returnedData);
       } catch (error) {
-        console.log(error.response);
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    console.log('data', data);
     // hasil map di bawah ini itu nyaring days dari orang lain juga,
     // jadi pake Set (unique value only) buat nyaringnya.
     setDays(data.map((d) => d.state_activity.day));
   }, [data]);
 
   useEffect(() => {
-    console.log('hasDay', hasDay);
-    setStateToken(days.length - hasDay.length);
+    setStateToken(3 - hasDay.length);
   }, [hasDay]);
 
   return (

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 import publicService from '../../../services/public';
 import homeHelpers from '../homeHelpers';
 import { MxmButton } from '../../../components/reusable/button';
@@ -50,24 +52,24 @@ const HomeFinalPage = () => {
             d.name.toLowerCase() === organisator.split('-').join(' '),
         );
         setData(returnedData);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    console.log('data', data);
     const { kategori } = data;
     homeHelpers.homeMatchParams.find((d) =>
       d.kategori === kategori ? setTwibbon(d.twibbon) : null,
     );
   }, [data]);
-
-  useEffect(() => {
-    console.log('twibbon link', twibbon);
-  }, [twibbon]);
 
   const randomPantun = () => {
     const { homePantun } = homeHelpers;
@@ -111,14 +113,23 @@ const HomeFinalPage = () => {
           <span className={classes.download}>
             (klik di gambar untuk mengunduh)
           </span>
-          <a href={twibbon} download="Twibbon HoME 2020">
-            <img
-              src={twibbon}
-              alt="Twibbon"
-              title="Twibbon"
-              className={classes.image}
+          {twibbon ? (
+            <a href={twibbon} download="Twibbon HoME 2020">
+              <img
+                src={twibbon}
+                alt="Twibbon"
+                title="Twibbon"
+                className={classes.image}
+              />
+            </a>
+          ) : (
+            <Skeleton
+              variant="rect"
+              width={300}
+              height={300}
+              animation="wave"
             />
-          </a>
+          )}
         </Box>
         <Box style={{ textAlign: 'left', color: '#1F2C4C' }}>
           <ol>

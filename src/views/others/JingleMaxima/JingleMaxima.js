@@ -7,18 +7,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  lyrics:{
-    textAlign: 'center', 
-    overflowY: 'scroll', 
-    border: 'solid #F4224B', 
-    height: '300px', 
+  lyrics: {
+    textAlign: 'center',
+    overflowY: 'scroll',
+    border: 'solid #F4224B',
+    height: '300px',
     padding: '15px 10px 15px 10px',
     borderRadius: '15px',
     marginBottom: '2em',
     margin: 0,
     color: '#1F2C4C',
   },
-  musicbox:{
+  musicbox: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,8 +28,8 @@ const useStyles = makeStyles({
     padding: '15px',
     margin: 0,
   },
-  text:{
-    '@media(max-width: 766px)':{
+  text: {
+    '@media(max-width: 766px)': {
       fontSize: '12px',
     },
   },
@@ -38,7 +38,7 @@ const JingleMaxima = () => {
   const classes = useStyles();
   return (
     <Box style={{ minHeight: '100vh' }}>
-      <Container maxWidth="sm"> 
+      <Container maxWidth="sm">
         <Box className={classes.musicbox}>
           <h1 className="jingle-bersama">BERSAMA</h1>
           <h1 className="jingle-maxima">MAXIMA</h1>
@@ -49,37 +49,48 @@ const JingleMaxima = () => {
         </Box>
         <Box className={classes.lyrics}>
           <span className={classes.text}>
-            Halo semua<br/>
-            Dengkarkan ini <br/>
-            Lagu untukmu <br/>
-            Untuk langkahmu <br/>
-            Ayo resapi sepenuh hati <br/>
-            Jalanmu mulai disini <br/>
-            <br/>
-            Tak perlu ragu dengan pilihan <br/>
-            Kuatkan hatimu hadapi tantangan <br/>
-            Bagun jalan baru dengan tujuan <br/>
-            Saatnya kau ambil peran <br/>
-            <br/>
-            Teguhkan diri <br/>
-            Satukan hati <br/>
-            Langkahmu mulai disini <br/>
-            <br/>
-            REFF : <br/>
-            Oooo Eeee bersama <span className="jingle-maxima-highlight">MAXIMA</span><br/>
-            Oooo Eeeee ekspresikan dirimu<br/>
-            Ayo mahasiswa, pacu semangatmu <br/>
-            Mari kita bangun jalan yang baru <br/>
-            Bersama <span className="jingle-maxima-highlight">MAXIMA</span> <br/>
-            <br/>
-            Buka buka kita bukan jalan baru <br/>
-            Maju maju ayo kita melangkah maju<br/>
-            Teguhkan hatimu , raih impianmu <br/>
-            <br/>
-            Buka buka kita buka jalan baru <br/>
-            Maju maju ayo kita melangkah maju <br/>
-            Satukan hatimu, langkah maju, bersama <span className="jingle-maxima-highlight">MAXIMA</span><br/>
-            <br/>
+            Halo semua
+            <br />
+            Dengkarkan ini <br />
+            Lagu untukmu <br />
+            Untuk langkahmu <br />
+            Ayo resapi sepenuh hati <br />
+            Jalanmu mulai disini <br />
+            <br />
+            Tak perlu ragu dengan pilihan <br />
+            Kuatkan hatimu hadapi tantangan <br />
+            Bagun jalan baru dengan tujuan <br />
+            Saatnya kau ambil peran <br />
+            <br />
+            Teguhkan diri <br />
+            Satukan hati <br />
+            Langkahmu mulai disini <br />
+            <br />
+            REFF : <br />
+            Oooo Eeee bersama{' '}
+            <span className="jingle-maxima-highlight">MAXIMA</span>
+            <br />
+            Oooo Eeeee ekspresikan dirimu
+            <br />
+            Ayo mahasiswa, pacu semangatmu <br />
+            Mari kita bangun jalan yang baru <br />
+            Bersama{' '}
+            <span className="jingle-maxima-highlight">
+              MAXIMA
+            </span>{' '}
+            <br />
+            <br />
+            Buka buka kita bukan jalan baru <br />
+            Maju maju ayo kita melangkah maju
+            <br />
+            Teguhkan hatimu , raih impianmu <br />
+            <br />
+            Buka buka kita buka jalan baru <br />
+            Maju maju ayo kita melangkah maju <br />
+            Satukan hatimu, langkah maju, bersama{' '}
+            <span className="jingle-maxima-highlight">MAXIMA</span>
+            <br />
+            <br />
             REFF
           </span>
         </Box>

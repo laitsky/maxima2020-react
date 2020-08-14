@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { Box, TextField } from '@material-ui/core';
 import { MxmButton } from '../../../components/reusable/button';
 import Header from './components/Header';
@@ -31,17 +32,17 @@ const DaftarState = ({ day }) => {
             slot: data.quota - data.registered,
           }));
         setOrganisators(organisatorsWithSlot);
-        console.log('empty deps', organisators);
-      } catch (err) {
-        console.log(err.response.data.message);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log('with deps', organisators);
-  }, [organisators]);
 
   const onSubmit = async (data) => {
     const { organisator } = data;

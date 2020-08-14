@@ -84,7 +84,7 @@ const Linimasa = () => {
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent>
-                <Typography>Segera pilih STATE kamu!</Typography>
+                <Typography>-</Typography>
               </TimelineContent>
             </TimelineItem>
           );
