@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import { CSSTransition } from 'react-transition-group';
 import { Box } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Dehaze';
 import { makeStyles } from '@material-ui/core/styles';
 import logo from '../../../assets/mxm20_title_icon.png';
 import { MxmCancelButton } from '../../reusable/button';
@@ -94,7 +94,7 @@ export default () => {
     >
       <header className="Header" style={{ marginBottom: '70px' }}>
         <Box className="Navbar-logo">
-          <NavLink to="/" onClick={toggleNav} exact>
+          <NavLink to="/" exact tabIndex="-1">
             <img
               src={logo}
               alt="Malam Ekspresi Mahasiswa 2020"
@@ -179,9 +179,7 @@ export default () => {
           </nav>
         </CSSTransition>
         <button type="button" onClick={toggleNav} className="Burger">
-          <span role="img">
-            <MenuIcon />
-          </span>
+          <MenuIcon/>
         </button>
       </header>
     </motion.div>

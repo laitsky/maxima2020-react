@@ -60,7 +60,7 @@ const DaftarState = ({ day }) => {
       )
     : organisators;
   return (
-    <>
+    <Box style={{ position: 'relative', top: '-70px', height: '100vh' }}>
       <Header logo={logo} day={day} />
       <Box
         display="flex"
@@ -81,7 +81,7 @@ const DaftarState = ({ day }) => {
           />
           <StateSelectOverflow>
             {organisatorsToShow.map((data) => (
-              <RadioContainer key={data.nama}>
+              <RadioContainer key={data.nama} className="state-radio">
                 <input
                   type="radio"
                   name="organisator"
@@ -112,7 +112,7 @@ const DaftarState = ({ day }) => {
           </Box>
         </form>
       </Box>
-    </>
+    </Box>
   );
 };
 

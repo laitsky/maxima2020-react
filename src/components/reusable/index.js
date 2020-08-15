@@ -14,5 +14,5 @@ export {
   MxmHomeContainer,
 } from './container';
 export { Error } from './error';
-export { MxmInput, MxmAppendInput, MxmPrependInput } from './input';
+export { MxmInput, MxmTextArea, MxmAppendInput, MxmPrependInput } from './input';
 export { MxmLoading } from './MxmLoading';
