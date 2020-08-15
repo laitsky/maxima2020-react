@@ -11,6 +11,7 @@ export {
   MxmButton,
   MxmCancelButton,
   MxmInput,
+  MxmTextArea,
   MxmLogoContainer,
   MxmHomeContainer,
   MxmLongCard,

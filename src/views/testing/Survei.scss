@@ -1,0 +1,80 @@
+.section-step input{
+    text-align: center;
+}
+
+.section-step span{
+    font-family: canaro-bold;
+    color: #F4224B;
+    text-align: center;
+}
+
+.step-title-input{
+    font-size: 26px;
+}
+
+.step-title-radio{
+    font-size: 20px;
+}
+
+.step-aligner{
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	max-width: 50%;
+}
+
+$primary-color: #F4224B;
+$accent-color: #41CEBA;
+
+.step-radio-btn {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	&:checked + .step-label {
+		color: #F2D008;
+		&::before {
+			margin-right: 10px;
+			border: 5px solid $accent-color;
+			background: $primary-color;
+		}
+	}
+}
+
+.step-label {
+    font-family: canaro-medium;
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+	color: $primary-color;
+    font-size: medium;
+    margin: 0 0.5em 0 0.5em;
+	cursor: pointer;
+	transition: all 0.25s linear;
+}
+
+.step-label::before {
+	display: inline-block;
+	content: "";
+	min-height: 20px;
+	min-width: 20px;
+	margin-right: 10px;
+	border: 5px solid $primary-color;
+	border-radius: 50%;
+	transition: all 0.25s linear;
+}
+
+@media (max-width: 766px){
+	.step-aligner{
+		max-width: 75%;
+	}
+	.step-title-input{
+		font-size: 22px;
+	}
+	.step-title-radio{
+		font-size: 14px;
+	}
+	.step-label{
+		font-size: 12px;
+	}
+}

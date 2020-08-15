@@ -24,16 +24,16 @@
   }
 }
 
-input[type='radio'] {
+.state-radio input[type='radio'] {
   opacity: 0;
 }
 
-input[type='radio']:checked + .radio {
+.state-radio input[type='radio']:checked + .radio {
   background-color: #f4224b;
   color: white;
 }
 
-input[type='radio']:disabled + .radio{
+.state-radio  input[type='radio']:disabled + .radio{
   background-color: #d99aa6;
   color: grey;
   border: solid 2px #d99aa6;

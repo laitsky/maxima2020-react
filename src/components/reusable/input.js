@@ -31,6 +31,37 @@ export const MxmInput = styled.input`
   }
 `;
 
+export const MxmTextArea = styled.textarea`
+  width: 100%;
+  height: 200px;
+  font-family: 'canaro-bold';
+  font-size: 1em;
+  border-radius: 15px;
+  padding: 1.2vh 1em 1.2vh 1em;
+  margin: 2vh 0;
+  outline: none;
+  border-color: #f4224b;
+  border: solid 2px;
+  color: #f4224b;
+  box-sizing: border-box;
+  transition-duration: 0.4s;
+
+  &::placeholder {
+    font-family: 'canaro-light';
+    letter-spacing: 1.5px;
+    font-size: 0.85em;
+    color: #f4224b;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px rgb(244, 34, 75);
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: 150px;
+  }
+`;
 export const MxmPrependInput = styled.div`
   width: 60%;
   display: flex;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Box, Container } from '@material-ui/core';
 import {
   Stepper,
   Step,
@@ -47,7 +48,13 @@ export default () => {
   };
 
   return (
-    <div>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -64,7 +71,12 @@ export default () => {
         ) : (
           <div>
             <Typography>{getStepContent(activeStep)}</Typography>
-            <div>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              style={{ padding: '1em'}}
+            >
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -78,10 +90,10 @@ export default () => {
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
-            </div>
+            </Box>
           </div>
         )}
       </div>
-    </div>
+    </Box>
   );
 };
