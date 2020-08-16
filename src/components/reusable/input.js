@@ -62,6 +62,7 @@ export const MxmTextArea = styled.textarea`
     height: 150px;
   }
 `;
+
 export const MxmPrependInput = styled.div`
   width: 60%;
   display: flex;
@@ -81,6 +82,7 @@ export const MxmPrependInput = styled.div`
   }
 
   input {
+    font-size: 1em;
     width: 100%;
     padding: 1.2vh 1em 1.2vh 1em;
     outline: none;
@@ -90,6 +92,7 @@ export const MxmPrependInput = styled.div`
     transition-duration: 0.4s;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+    margin: 0;
   }
 
   input::placeholder {
@@ -113,7 +116,8 @@ export const MxmPrependInput = styled.div`
     border-bottom-left-radius: 50px;
     text-align: center;
     width: fit-content;
-    padding: 1.2vh 1.2vw 1.2vh 1.2vw;
+    padding: 1.2vh 1em 1.2vh 1em;
+    margin: 0;
   }
 `;
 
@@ -136,6 +140,7 @@ export const MxmAppendInput = styled.div`
   }
 
   input {
+    font-size: 1em;
     width: 100%;
     padding: 1.2vh 1em 1.2vh 1em;
     outline: none;
@@ -145,6 +150,7 @@ export const MxmAppendInput = styled.div`
     transition-duration: 0.4s;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
+    margin: 0;
   }
 
   input::placeholder {
@@ -168,6 +174,7 @@ export const MxmAppendInput = styled.div`
     border-bottom-right-radius: 50px;
     text-align: center;
     width: fit-content;
-    padding: 1.2vh 1.2vw 1.2vh 1.2vw;
+    padding: 1.2vh 1em 1.2vh 1em;
+    margin: 0;
   }
 `;

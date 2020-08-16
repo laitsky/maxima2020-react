@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 const HomePuzzle = () => {
   const classes = useStyles();
   return (
-    <Box bgcolor="#1F2C4C" minHeight="100vh">
+    <Box bgcolor="#1F2C4C" minHeight="100vh" paddingLeft="20px" paddingRight="20px">
       <h1
         className="mxm-yellow"
         style={{
@@ -27,6 +27,7 @@ const HomePuzzle = () => {
           letterSpacing: 1.5,
           textAlign: 'center',
           paddingTop: '1.5em',
+          margin: 0,
         }}
       >
         Pilih kategori organisasi yang ingin kamu cari.
