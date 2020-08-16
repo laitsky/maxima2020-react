@@ -9,6 +9,10 @@ import {
   MxmButton,
   MxmCancelButton,
 } from '../../../components/reusable/button';
+import {
+  InstagramLogo,
+  LINELogo,
+} from '../../../assets';
 import './HomeDetail.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -94,6 +98,37 @@ const HomeDetail = () => {
         style={{ padding: '18px 10px 18px 10px' }}
       >
         <h1 id="homedetail-nama">{data.name}</h1>
+        <a
+          href="https://lin.ee/fV5PZKk"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ width: '50px', height: '50px'}}
+        >
+          <img
+            src={LINELogo}
+            style={{
+              width: '30px',
+              height: 'auto',
+              margin: '0 10px 0 0',
+            }}
+            alt="LINE"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/maximaumn/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={InstagramLogo}
+            style={{
+              width: '30px',
+              height: 'auto',
+              margin: '0 0 0 10px',
+            }}
+            alt="Instagram"
+          />
+        </a>
         <iframe
           className="homedetail-iframe"
           src={data.link_video}

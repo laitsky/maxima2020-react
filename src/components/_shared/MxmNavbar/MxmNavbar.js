@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './MxmNavbar.scss';
 import { NavLink } from 'react-router-dom';
-
 import { CSSTransition } from 'react-transition-group';
 import { Box } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Dehaze';
@@ -92,9 +91,9 @@ export default () => {
         damping: 20,
       }}
     >
-      <header className="Header" style={{ marginBottom: '70px' }}>
+      <header className="Header">
         <Box className="Navbar-logo">
-          <NavLink to="/" exact tabIndex="-1">
+          <NavLink to="/" exact tabIndex="-1" style={{ outline: 'none' }}>
             <img
               src={logo}
               alt="Malam Ekspresi Mahasiswa 2020"

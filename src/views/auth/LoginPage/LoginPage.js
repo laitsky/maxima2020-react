@@ -76,6 +76,7 @@ const LoginPage = () => {
         stiffness: 50,
         damping: 20,
       }}
+      style={{ minHeight: '100vh'}}
     >
       <Container maxWidth="sm">
         <form onSubmit={handleSubmit(onSubmit)}>
