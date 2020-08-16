@@ -8,6 +8,8 @@ export {
   AcaraAddHome,
   AcaraEditHome,
   AcaraHomeLists,
+  AcaraAddHomeMedia,
+  AcaraAkunOrganisatorLists,
 } from './acara';
 export {
   AdminDashboard,
@@ -21,4 +23,6 @@ export {
   AdminHomeLists,
   EditHome,
   StateDetail,
+  PICOrganisator,
+  AkunOrganisatorLists,
 } from './admin';

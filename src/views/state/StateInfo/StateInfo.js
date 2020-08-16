@@ -192,10 +192,10 @@ const StateInfo = () => {
               </span>
               <br /> <br />
               Jadi Maximers, saat kalian akan mendaftar untuk STATE
-              kalian akan mendapatkan 4 Token.
+              kalian akan mendapatkan 3 Token.
               <br />
-              Nah, 4 token ini bisa kalian gunakan untuk mendaftar
-              maksimal 4 STATE diantara Day 1 sampai Day 4. (1 Token =
+              Nah, 3 token ini bisa kalian gunakan untuk mendaftar
+              maksimal 3 STATE diantara Day 1 sampai Day 4. (1 Token =
               1 STATE)
               <br />
               Penting banget untuk kalian perhatikan bahwa semua STATE

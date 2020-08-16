@@ -17,6 +17,8 @@ import categories from './categories';
 
 const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
 const cdnUrl = 'https://d1z9g6p5mcoq6s.cloudfront.net';
+const ytUrl = 'https://youtu.be';
+const embedYtUrl = 'https://youtube.com/embed';
 
 const AddHome = () => {
   const history = useHistory();
@@ -29,6 +31,7 @@ const AddHome = () => {
       ...data,
       kategori,
       link_logo: data.link_logo.replace(originUrl, cdnUrl),
+      link_video: data.link_video.replace(ytUrl, embedYtUrl),
     };
     setKategori('');
     console.log(newData);
@@ -135,6 +138,26 @@ const AddHome = () => {
           />
           {errors.link_video && (
             <span>{errors.link_video.message}</span>
+          )}
+          <Box paddingBottom="2em" />
+          <TextField
+            type="text"
+            name="line"
+            label="Media Sosial (LINE)"
+            variant="outlined"
+            inputRef={register()}
+          />
+          {errors.line && <span>{errors.line.message}</span>}
+          <Box paddingBottom="2em" />
+          <TextField
+            type="text"
+            name="instagram"
+            label="Media Sosial (Instagram)"
+            variant="outlined"
+            inputRef={register()}
+          />
+          {errors.instagram && (
+            <span>{errors.instagram.message}</span>
           )}
           <Box paddingBottom="2em" />
           <Button type="submit" variant="contained" color="primary">

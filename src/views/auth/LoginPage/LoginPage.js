@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import jwtDecode from 'jwt-decode';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Container, Box } from '@material-ui/core';
@@ -37,7 +38,24 @@ const LoginPage = () => {
         'token',
         returnedData.accessToken,
       );
-      window.location = '/';
+      const decoded = jwtDecode(returnedData.accessToken);
+      switch (decoded.roles[0]) {
+        case 1:
+          window.location = '/';
+          break;
+        case 3:
+          window.location = '/organisator';
+          break;
+        case 4:
+          window.location = '/acara';
+          break;
+        case 6:
+          window.location = '/admin';
+          break;
+        default:
+          window.location = '/';
+          break;
+      }
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',

@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import jwtDecode from 'jwt-decode';
-import { Container, Box, Button } from '@material-ui/core';
+import { Container, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CancelStateDialog from './components/CancelStateDialog';
 import AbsenStateDialog from './components/AbsenStateDialog';
-import SurveiStateDialog from './components/SurveiStateDialog';
 import {
   MxmLongCard,
   MxmButton,
@@ -48,6 +46,14 @@ const useStyles = makeStyles({
       color: '#F2D008',
     },
   },
+  statesurvei: {
+    backgroundColor: '#1f2c4c',
+    color: 'white',
+
+    '&:hover': {
+      color: '#F2D008',
+    },
+  },
   stateabsen: {
     marginLeft: '0.5em',
 
@@ -64,14 +70,10 @@ const useStyles = makeStyles({
 });
 
 const RegisteredStateDetail = ({ day }) => {
-  const { register, handleSubmit, reset, errors } = useForm({
-    mode: 'onChange',
-  });
   const classes = useStyles();
   const history = useHistory();
   const [openCancelDialog, setCancelDialog] = useState(false);
   const [openAbsenDialog, setAbsenDialog] = useState(false);
-  const [openSurveiDialog, setSurveiDialog] = useState(false);
   const [absenLoading, setAbsenLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [kodePresensi, setKodePresensi] = useState('');
@@ -124,12 +126,10 @@ const RegisteredStateDetail = ({ day }) => {
   const handleStateCancellation = async () => {
     try {
       decoded = jwtDecode(window.sessionStorage.getItem('token'));
-      const returnedData = await studentService.cancelRegisteredState(
-        {
-          nim: decoded.nim,
-          state_id: data.state_id,
-        },
-      );
+      await studentService.cancelRegisteredState({
+        nim: decoded.nim,
+        state_id: data.state_id,
+      });
       history.push({
         pathname: '/state',
         data: {
@@ -173,22 +173,19 @@ const RegisteredStateDetail = ({ day }) => {
         }, 1500),
       );
       await studentService.absenState(absenData);
+      history.push({
+        pathname: '/state',
+        data: {
+          severity: 'success',
+          message: `Absensi STATE ${data.state_activity.name} berhasil! `,
+        },
+      });
     } catch (err) {
       setErrorMessage(err.response.data.message);
     }
     setAbsenLoading(false);
   };
 
-  // survei state handler
-  const handleSurveiState = async () => {
-    return null;
-  };
-  const handleSurveiOpen = () => {
-    setSurveiDialog(true);
-  };
-  const handleSurveiClose = () => {
-    setSurveiDialog(false);
-  };
   // go back click handler
   const handleBackClick = () => {
     history.goBack();
@@ -242,13 +239,12 @@ const RegisteredStateDetail = ({ day }) => {
           </MxmButton>
         </Box>
         {data.attendance ? (
-          <Button
+          <MxmCancelButton
             variant="contained"
-            color="secondary"
-            onClick={handleCancelOpen}
+            className={classes.statesurvei}
           >
-            Survei Day 2
-          </Button>
+            Survei STATE 2020
+          </MxmCancelButton>
         ) : (
           <MxmCancelButton
             variant="contained"
@@ -258,13 +254,6 @@ const RegisteredStateDetail = ({ day }) => {
             Batalkan STATE ini
           </MxmCancelButton>
         )}
-        <MxmCancelButton
-          variant="contained"
-          onClick={handleSurveiOpen}
-          className={classes.statebatal}
-        >
-          Survei STATE 2020
-        </MxmCancelButton>
         <CancelStateDialog
           openCancelDialog={openCancelDialog}
           handleCancelClose={handleCancelClose}
@@ -281,11 +270,6 @@ const RegisteredStateDetail = ({ day }) => {
           setKodePresensi={setKodePresensi}
           loading={absenLoading}
           error={errorMessage}
-        />
-        <SurveiStateDialog
-          openSurveiDialog={openSurveiDialog}
-          handleSurveiClose={handleSurveiClose}
-          register={register}
         />
       </Box>
     </Container>

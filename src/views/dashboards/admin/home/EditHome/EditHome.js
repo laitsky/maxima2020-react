@@ -163,13 +163,28 @@ const EditHome = () => {
             name="link_video"
             label="Link Video"
             variant="outlined"
-            inputRef={register({
-              required: 'Isi link video',
-            })}
+            inputRef={register()}
           />
-          {errors.link_video && (
-            <span>{errors.link_video.message}</span>
-          )}
+          <Box paddingBottom="2em" />
+          <TextField
+            key={data.line}
+            defaultValue={data.line}
+            type="text"
+            name="line"
+            label="Media Sosial (LINE)"
+            variant="outlined"
+            inputRef={register()}
+          />
+          <Box paddingBottom="2em" />
+          <TextField
+            key={data.instagram}
+            defaultValue={data.instagram}
+            type="text"
+            name="instagram"
+            label="Media Sosial (Instagram)"
+            variant="outlined"
+            inputRef={register()}
+          />
           <Box paddingBottom="2em" />
           <Button type="submit" variant="contained" color="primary">
             Ubah

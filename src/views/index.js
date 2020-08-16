@@ -1,5 +1,3 @@
-import SurveiState from './testing/SurveiState';
-
 export { LoginPage, DaftarMaba, DaftarOrganisator } from './auth';
 export { Beranda } from './beranda';
 export {
@@ -32,6 +30,8 @@ export {
   AdminHomeLists,
   EditHome,
   StateDetail,
+  PICOrganisator,
+  AkunOrganisatorLists,
 } from './dashboards/admin';
 export {
   AcaraDashboard,
@@ -42,6 +42,8 @@ export {
   AcaraAddHome,
   AcaraEditHome,
   AcaraHomeLists,
+  AcaraAddHomeMedia,
+  AcaraAkunOrganisatorLists,
 } from './dashboards/acara';
 export { OrganisatorDashboard } from './dashboards/organisator';
 export {
@@ -52,3 +54,4 @@ export {
 } from './others';
 export { Shortener } from './shortener';
 export { default as SurveiState } from './testing/SurveiState';
+export { default as SurveiManual } from './testing/SurveiManual';

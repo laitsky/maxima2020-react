@@ -105,7 +105,6 @@ const StateOrgDetail = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <h1>Ini adalah halaman organisator untuk {organisator}</h1>
           <MxmStateLogoFrame>
             {data.link_logo && (
               <MxmLogoContainer

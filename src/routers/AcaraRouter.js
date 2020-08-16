@@ -11,6 +11,8 @@ import {
   AcaraAddHome,
   AcaraEditHome,
   AcaraHomeLists,
+  AcaraAddHomeMedia,
+  AcaraAkunOrganisatorLists,
 } from '../views';
 
 const AcaraRouter = ({ Sidebar }) => {
@@ -48,7 +50,11 @@ const AcaraRouter = ({ Sidebar }) => {
             exact
             component={AcaraAddHome}
           />
-
+          <Route
+            path="/acara/add-home-media"
+            exact
+            component={AcaraAddHomeMedia}
+          />
           <Route
             path="/acara/home-lists"
             exact
@@ -58,6 +64,11 @@ const AcaraRouter = ({ Sidebar }) => {
             path="/acara/edit-home/:homeId"
             exact
             component={AcaraEditHome}
+          />
+          <Route
+            path="/acara/akun-organisator-lists"
+            exact
+            component={AcaraAkunOrganisatorLists}
           />
           <Route
             path="/acara/tambah-state"

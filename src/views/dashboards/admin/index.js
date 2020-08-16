@@ -12,4 +12,6 @@ export {
   StateLists,
   EditState,
   StateDetail,
+  PICOrganisator,
+  AkunOrganisatorLists,
 } from './state';
