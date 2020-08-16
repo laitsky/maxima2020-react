@@ -57,6 +57,14 @@ const Admin = ({ toggled, handleToggleSidebar }) => {
                 Daftar Kegiatan STATE
                 <Link to="/admin/state-lists" />
               </MenuItem>
+              <MenuItem>
+                Daftar Akun Organisator STATE
+                <Link to="/admin/akun-organisator-lists" />
+              </MenuItem>
+              <MenuItem>
+                Daftar PIC Organisator
+                <Link to="/admin/pic-organisator" />
+              </MenuItem>
             </SubMenu>
             <SubMenu title="HoME" icon={<HomeIcon />}>
               <MenuItem>

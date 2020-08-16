@@ -47,6 +47,9 @@ html, body {
         font-family: "canaro-medium";
         letter-spacing: 0.5px;
 }
+p {
+  white-space: pre-wrap;
+}
 *, *::after, *::before {
         box-sizing: border-box;
 }

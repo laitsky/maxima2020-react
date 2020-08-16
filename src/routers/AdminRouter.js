@@ -14,6 +14,8 @@ import {
   AdminHomeLists,
   EditHome,
   StateDetail,
+  PICOrganisator,
+  AkunOrganisatorLists,
 } from '../views';
 
 const AdminRouter = ({ Sidebar }) => {
@@ -91,6 +93,16 @@ const AdminRouter = ({ Sidebar }) => {
             path="/admin/state-detail/:stateId"
             exact
             component={StateDetail}
+          />
+          <Route
+            path="/admin/pic-organisator"
+            exact
+            component={PICOrganisator}
+          />
+          <Route
+            path="/admin/akun-organisator-lists"
+            exact
+            component={AkunOrganisatorLists}
           />
         </Switch>
       </Container>

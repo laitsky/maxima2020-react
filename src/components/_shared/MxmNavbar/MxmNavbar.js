@@ -119,14 +119,16 @@ export default () => {
                 HoME
               </NavLink>
 
-              <NavLink
-                to="/state"
-                onClick={toggleNav}
-                exact
-                style={{ margin: '0 15px 0 15px' }}
-              >
-                STATE
-              </NavLink>
+              {isLoggedIn && (
+                <NavLink
+                  to="/state"
+                  onClick={toggleNav}
+                  exact
+                  style={{ margin: '0 15px 0 15px' }}
+                >
+                  STATE
+                </NavLink>
+              )}
 
               <NavLink
                 to="/jingle-maxima"
@@ -179,7 +181,7 @@ export default () => {
           </nav>
         </CSSTransition>
         <button type="button" onClick={toggleNav} className="Burger">
-          <MenuIcon/>
+          <MenuIcon />
         </button>
       </header>
     </motion.div>

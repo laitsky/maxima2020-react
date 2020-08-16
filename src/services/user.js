@@ -18,4 +18,12 @@ const getCredential = async (nim) => {
   return request.data;
 };
 
-export default { getCredential };
+const updatePassword = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/update_password`,
+    data,
+    config,
+  );
+  return request.data;
+};
+export default { getCredential, updatePassword };

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Box, Container } from '@material-ui/core';
+import { useForm } from 'react-hook-form';
 import {
+  Box,
   Stepper,
   Step,
   StepLabel,
   Button,
   Typography,
 } from '@material-ui/core';
+
 import StepComponent from './stepComponents';
 import './Survei.scss';
 
@@ -18,21 +20,24 @@ function getSteps() {
   ];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <StepComponent.SectionOne />;
-    case 1:
-      return <StepComponent.SectionTwo />;
-    case 2:
-      return <StepComponent.SectionThree />;
-    default:
-      return 'Unknown stepIndex';
-  }
-}
-
 export default () => {
   const [activeStep, setActiveStep] = useState(0);
+  const { register, handleSubmit, reset, errors } = useForm({
+    mode: 'onChange',
+  });
+
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return <StepComponent.SectionOne register={register} />;
+      case 1:
+        return <StepComponent.SectionTwo register={register} />;
+      case 2:
+        return <StepComponent.SectionThree register={register} />;
+      default:
+        return 'Unknown stepIndex';
+    }
+  }
   const steps = getSteps();
 
   const handleNext = () => {
@@ -47,6 +52,10 @@ export default () => {
     setActiveStep(0);
   };
 
+  const onSubmit = async (formData) => {
+    reset();
+    console.log(formData);
+  };
   return (
     <Box
       display="flex"
@@ -62,7 +71,7 @@ export default () => {
           </Step>
         ))}
       </Stepper>
-      <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {activeStep === steps.length ? (
           <div>
             <Typography>All steps completed</Typography>
@@ -75,7 +84,7 @@ export default () => {
               display="flex"
               justifyContent="center"
               alignItems="center"
-              style={{ padding: '1em'}}
+              style={{ padding: '1em' }}
             >
               <Button
                 disabled={activeStep === 0}
@@ -83,17 +92,29 @@ export default () => {
               >
                 Back
               </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-              >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
+
+              {activeStep === steps.length - 1 ? (
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                >
+                  Finish
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                >
+                  Next
+                </Button>
+              )}
             </Box>
           </div>
         )}
-      </div>
+      </form>
     </Box>
   );
 };

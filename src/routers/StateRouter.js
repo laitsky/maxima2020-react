@@ -18,6 +18,7 @@ const StateRouter = () => (
     {/* membuat 4 route /state/daftar/day(N), N = [1, 4] */}
     {[...Array(4)].map((e, i) => (
       <Route
+        key={i}
         path={`/state/daftar/day${i + 1}`}
         exact
         render={(props) => <DaftarState {...props} day={i + 1} />}
@@ -27,6 +28,7 @@ const StateRouter = () => (
     {/* membuat 4 route /state/detail-registrasi/day(N), N = [1, 4] */}
     {[...Array(4)].map((e, i) => (
       <Route
+        key={i}
         path={`/state/detail-registrasi/day${i + 1}`}
         exact
         render={(props) => (

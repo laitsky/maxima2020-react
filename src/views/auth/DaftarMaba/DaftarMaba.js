@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
 import {
@@ -15,10 +15,10 @@ import {
   AlignMiddle,
   MxmLoading,
 } from '../../../components';
-
 import authService from '../../../services/auth';
 
 const DaftarMaba = () => {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors, watch } = useForm({
     mode: 'onChange',
@@ -44,6 +44,13 @@ const DaftarMaba = () => {
 
     try {
       await authService.daftar(dataMaba);
+      history.push({
+        pathname: '/login',
+        data: {
+          severity: 'info',
+          message: `Kamu berhasil mendaftarkan akun MAXIMA 2020. Silakan masuk.`,
+        },
+      });
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',

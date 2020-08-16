@@ -8,7 +8,7 @@ import {
   Button,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import adminService from '../../../../../services/admin';
+import acaraService from '../../../../../services/acara';
 
 const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
 const cdnUrl = 'https://d1z9g6p5mcoq6s.cloudfront.net';
@@ -24,7 +24,7 @@ const AddHomeMedia = () => {
       link_media: formData.link_media.replace(originUrl, cdnUrl),
     };
     try {
-      const returnedData = await adminService.addHomeMedia(newData);
+      const returnedData = await acaraService.addHomeMedia(newData);
       console.log(returnedData);
     } catch (err) {
       console.log(err.response);
@@ -35,7 +35,7 @@ const AddHomeMedia = () => {
     document.title = 'Tambah HoME Media - MAXIMA 2020';
     const fetchData = async () => {
       try {
-        const returnedData = await adminService.getAllHome();
+        const returnedData = await acaraService.getAllHome();
         setData(returnedData.data);
       } catch (err) {
         console.log(err.response);

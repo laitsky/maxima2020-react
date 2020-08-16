@@ -75,6 +75,7 @@ const addHomeMedia = async (data) => {
   );
   return request.data;
 };
+
 const editHome = async (data, homeId) => {
   const request = await axios.post(
     `${baseUrl}/home/update_home`,
@@ -92,6 +93,27 @@ const getHomeById = async (homeId) => {
   );
   return request.data;
 };
+
+const getAllPICs = async () => {
+  const request = await axios.get(
+    `${baseUrl}/state/pic/all_pic`,
+    config,
+  );
+  return request.data;
+};
+
+const getAllMaba = async () => {
+  const request = await axios.get(`${baseUrl}/user/all_maba`, config);
+  return request.data;
+};
+
+const getAllOrganisators = async () => {
+  const request = await axios.get(
+    `${baseUrl}/user/all_pic_ukm`,
+    config,
+  );
+  return request.data;
+};
 export default {
   getAllState,
   getStateById,
@@ -103,4 +125,7 @@ export default {
   addHomeMedia,
   editHome,
   getHomeById,
+  getAllPICs,
+  getAllMaba,
+  getAllOrganisators,
 };

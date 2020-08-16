@@ -67,6 +67,15 @@ const addHome = async (data) => {
   return request.status;
 };
 
+const addHomeMedia = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/home/add_home_media`,
+    data,
+    config,
+  );
+  return request.data;
+};
+
 const editHome = async (data, homeId) => {
   const request = await axios.post(
     `${baseUrl}/home/update_home`,
@@ -84,6 +93,13 @@ const getHomeById = async (homeId) => {
   );
   return request.data;
 };
+const getAllOrganisators = async () => {
+  const request = await axios.get(
+    `${baseUrl}/user/all_pic_ukm`,
+    config,
+  );
+  return request.data;
+};
 
 export default {
   getAllState,
@@ -93,6 +109,8 @@ export default {
   viewRegisteredState,
   getAllHome,
   addHome,
+  addHomeMedia,
   editHome,
   getHomeById,
+  getAllOrganisators,
 };
