@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { LoginPage, DaftarMaba, DaftarOrganisator } from '../views';
+import {
+  LoginPage,
+  DaftarMaba,
+  DaftarOrganisator,
+  ResetPassword,
+} from '../views';
 
 const AuthRouter = () => (
   <Switch>
@@ -11,6 +16,7 @@ const AuthRouter = () => (
       exact
       component={DaftarOrganisator}
     />
+    <Route path="/reset-password" exact component={ResetPassword} />
     <Route
       path="/logout"
       exact

@@ -14,4 +14,5 @@ export {
   StateDetail,
   PICOrganisator,
   AkunOrganisatorLists,
+  TambahPIC,
 } from './state';

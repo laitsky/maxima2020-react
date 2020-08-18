@@ -1,4 +1,9 @@
-export { LoginPage, DaftarMaba, DaftarOrganisator } from './auth';
+export {
+  LoginPage,
+  DaftarMaba,
+  DaftarOrganisator,
+  ResetPassword,
+} from './auth';
 export { Beranda } from './beranda';
 export {
   HomeMainPage,
@@ -17,6 +22,7 @@ export {
   ProfileMaba,
   Linimasa,
   StateInfo,
+  SurveiFrame,
 } from './state';
 export {
   AdminDashboard,
@@ -32,6 +38,7 @@ export {
   StateDetail,
   PICOrganisator,
   AkunOrganisatorLists,
+  TambahPIC,
 } from './dashboards/admin';
 export {
   AcaraDashboard,
@@ -52,6 +59,6 @@ export {
   Unauthorized401,
   Forbidden403,
 } from './others';
-export { Shortener } from './shortener';
+export { Shortener, CustomShortener } from './shortener';
 export { default as SurveiState } from './testing/SurveiState';
 export { default as SurveiManual } from './testing/SurveiManual';

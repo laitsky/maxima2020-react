@@ -22,6 +22,7 @@ import {
   Unauthorized401,
   Forbidden403,
   Shortener,
+  CustomShortener,
   SurveiState,
   SurveiManual,
 } from './views';
@@ -41,11 +42,9 @@ const AppRouter = () => {
   const history = useHistory();
   const token = window.sessionStorage.getItem('token');
   useEffect(() => {
-    console.log('location changed!', location);
     if (token) {
       const { exp } = jwtDecode(token);
       const expirationTime = exp * 1000 - 60000;
-      console.log(Date.now() >= expirationTime);
       if (Date.now() >= expirationTime) {
         window.sessionStorage.clear();
         history.push({
@@ -65,6 +64,11 @@ const AppRouter = () => {
       <Route path="/403" exact component={Forbidden403} />
       <Route path="/404" exact component={NotFound} />
       <Route path="/shortener" exact component={Shortener} />
+      <Route
+        path="/custom-shortener"
+        exact
+        component={CustomShortener}
+      />
       <Route path="/admin/:path1?/:path2?/:path3?" exact>
         <Switch>
           <AdminRouter Sidebar={AdminSidebar} />

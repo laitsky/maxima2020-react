@@ -16,6 +16,7 @@ import {
   StateDetail,
   PICOrganisator,
   AkunOrganisatorLists,
+  TambahPIC,
 } from '../views';
 
 const AdminRouter = ({ Sidebar }) => {
@@ -78,6 +79,11 @@ const AdminRouter = ({ Sidebar }) => {
             path="/admin/shorteners"
             exact
             component={ShortenerLists}
+          />
+          <Route
+            path="/admin/tambah-pic"
+            exact
+            component={TambahPIC}
           />
           <Route
             path="/admin/edit-state/:stateId"

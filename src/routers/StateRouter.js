@@ -9,6 +9,7 @@ import {
   ProfileMaba,
   Linimasa,
   StateInfo,
+  SurveiFrame,
 } from '../views';
 
 const StateRouter = () => (
@@ -18,7 +19,6 @@ const StateRouter = () => (
     {/* membuat 4 route /state/daftar/day(N), N = [1, 4] */}
     {[...Array(4)].map((e, i) => (
       <Route
-        key={i}
         path={`/state/daftar/day${i + 1}`}
         exact
         render={(props) => <DaftarState {...props} day={i + 1} />}
@@ -28,12 +28,20 @@ const StateRouter = () => (
     {/* membuat 4 route /state/detail-registrasi/day(N), N = [1, 4] */}
     {[...Array(4)].map((e, i) => (
       <Route
-        key={i}
         path={`/state/detail-registrasi/day${i + 1}`}
         exact
         render={(props) => (
           <RegisteredStateDetail {...props} day={i + 1} />
         )}
+      />
+    ))}
+
+    {/* membuat 4 route /state/survei/day(N), N = [1, 4] */}
+    {[...Array(4)].map((e, i) => (
+      <Route
+        path={`/state/survei/day${i + 1}`}
+        exact
+        render={(props) => <SurveiFrame {...props} day={i + 1} />}
       />
     ))}
 

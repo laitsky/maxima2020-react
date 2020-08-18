@@ -62,6 +62,10 @@ const Admin = ({ toggled, handleToggleSidebar }) => {
                 <Link to="/admin/akun-organisator-lists" />
               </MenuItem>
               <MenuItem>
+                Tambah PIC Organisator
+                <Link to="/admin/tambah-pic" />
+              </MenuItem>
+              <MenuItem>
                 Daftar PIC Organisator
                 <Link to="/admin/pic-organisator" />
               </MenuItem>

@@ -35,7 +35,7 @@ const tableColumns = [
       customBodyRender: (_value, tableMeta) => (
         <>
           <Link
-            to={`/admin/edit-home/${tableMeta.rowData[0]}`}
+            to={`/acara/edit-home/${tableMeta.rowData[0]}`}
             style={{ textDecoration: 'none' }}
           >
             <Button variant="contained" color="primary">

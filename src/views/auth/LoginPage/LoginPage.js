@@ -76,7 +76,7 @@ const LoginPage = () => {
         stiffness: 50,
         damping: 20,
       }}
-      style={{ minHeight: '100vh'}}
+      style={{ minHeight: '100vh' }}
     >
       <Container maxWidth="sm">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -138,6 +138,20 @@ const LoginPage = () => {
               <MxmLoading />
             )}
             <Box mt={4}>
+              <Link
+                to="/reset-password"
+                exact
+                style={{ textDecoration: 'none' }}
+              >
+                {' '}
+                <h4
+                  className="mxm-pink"
+                  style={{ textAlign: 'center' }}
+                >
+                  {' '}
+                  Lupa Password?{' '}
+                </h4>
+              </Link>
               <Link
                 to="/daftar"
                 exact

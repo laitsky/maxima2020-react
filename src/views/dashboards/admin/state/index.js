@@ -4,3 +4,4 @@ export { EditState } from './EditState';
 export { StateDetail } from './StateDetail';
 export { PICOrganisator } from './PICOrganisator';
 export { AkunOrganisatorLists } from './AkunOrganisatorLists';
+export { TambahPIC } from './TambahPIC';
