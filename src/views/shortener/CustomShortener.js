@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Shortener = () => {
+const CustomShortener = () => {
   const classes = useStyles();
   const [data, setData] = useState({});
   const [open, setOpen] = useState(false);
@@ -43,7 +43,9 @@ const Shortener = () => {
     // eslint-disable-next-line no-param-reassign
     formData.url = withHttp(formData.url);
     try {
-      const returnedData = await shortenerService.create(formData);
+      const returnedData = await shortenerService.createCustom(
+        formData,
+      );
       setData(returnedData);
     } catch (err) {
       console.log(err.response.data);
@@ -105,6 +107,20 @@ const Shortener = () => {
                 ref={register({ required: 'Isi URL kamu!' })}
               />
               {errors.url && <Error>{errors.url.message}</Error>}
+              <MxmInput
+                placeholder="Masukkan custom short URL"
+                name="shortUrl"
+                ref={register({
+                  required: 'Isi Custom Short URL kamu!',
+                  pattern: {
+                    value: /^\S*$/,
+                    message: 'Pemakaian spasi tidak diperbolehkan',
+                  },
+                })}
+              />
+              {errors.shortUrl && (
+                <Error>{errors.shortUrl.message}</Error>
+              )}
               <br />
               {loading ? (
                 <MxmLoading />
@@ -171,4 +187,4 @@ const Shortener = () => {
   );
 };
 
-export default Shortener;
+export default CustomShortener;

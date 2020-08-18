@@ -93,7 +93,12 @@ export default () => {
     >
       <header className="Header">
         <Box className="Navbar-logo">
-          <NavLink to="/" exact tabIndex="-1" style={{ outline: 'none' }}>
+          <NavLink
+            to="/"
+            exact
+            tabIndex="-1"
+            style={{ outline: 'none' }}
+          >
             <img
               src={logo}
               alt="Malam Ekspresi Mahasiswa 2020"

@@ -93,6 +93,20 @@ const getHomeById = async (homeId) => {
   );
   return request.data;
 };
+
+const getAllPICs = async () => {
+  const request = await axios.get(
+    `${baseUrl}/state/pic/all_pic`,
+    config,
+  );
+  return request.data;
+};
+
+const getAllMaba = async () => {
+  const request = await axios.get(`${baseUrl}/user/all_maba`, config);
+  return request.data;
+};
+
 const getAllOrganisators = async () => {
   const request = await axios.get(
     `${baseUrl}/user/all_pic_ukm`,
@@ -113,4 +127,6 @@ export default {
   editHome,
   getHomeById,
   getAllOrganisators,
+  getAllPICs,
+  getAllMaba,
 };

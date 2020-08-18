@@ -55,16 +55,16 @@ const JingleMaxima = () => {
             Lagu untukmu <br />
             Untuk langkahmu <br />
             Ayo resapi sepenuh hati <br />
-            Jalanmu mulai disini <br />
+            Jalanmu mulai di sini <br />
             <br />
             Tak perlu ragu dengan pilihan <br />
             Kuatkan hatimu hadapi tantangan <br />
-            Bagun jalan baru dengan tujuan <br />
+            Bangun jalan baru dengan tujuan <br />
             Saatnya kau ambil peran <br />
             <br />
             Teguhkan diri <br />
             Satukan hati <br />
-            Langkahmu mulai disini <br />
+            Langkahmu mulai di sini <br />
             <br />
             REFF : <br />
             Oooo Eeee bersama{' '}
@@ -83,7 +83,7 @@ const JingleMaxima = () => {
             Buka buka kita bukan jalan baru <br />
             Maju maju ayo kita melangkah maju
             <br />
-            Teguhkan hatimu , raih impianmu <br />
+            Teguhkan hatimu, raih impianmu <br />
             <br />
             Buka buka kita buka jalan baru <br />
             Maju maju ayo kita melangkah maju <br />

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -9,10 +10,7 @@ import {
   MxmButton,
   MxmCancelButton,
 } from '../../../components/reusable/button';
-import {
-  InstagramLogo,
-  LINELogo,
-} from '../../../assets';
+import { InstagramLogo, LINELogo } from '../../../assets';
 import './HomeDetail.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -63,6 +61,7 @@ const HomeDetail = () => {
           (d) => d.name.toLowerCase() === organisator,
         );
         setData(returnedData);
+        console.log(returnedData);
       } catch (error) {
         Swal.fire({
           title: 'Perhatian!',
@@ -84,7 +83,7 @@ const HomeDetail = () => {
         );
         setPhotos(returnedData[0].home_media);
       } catch (error) {
-        console.log(error.response.status);
+        console.log(error.response);
       }
     };
     fetchData();
@@ -99,10 +98,10 @@ const HomeDetail = () => {
       >
         <h1 id="homedetail-nama">{data.name}</h1>
         <a
-          href="https://lin.ee/fV5PZKk"
+          href={`https://line.me/R/ti/p/%40${data.line}`}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ width: '50px', height: '50px'}}
+          style={{ width: '50px', height: '50px' }}
         >
           <img
             src={LINELogo}
@@ -115,7 +114,7 @@ const HomeDetail = () => {
           />
         </a>
         <a
-          href="https://www.instagram.com/maximaumn/"
+          href={`https://www.instagram.com/${data.instagram}`}
           target="_blank"
           rel="noopener noreferrer"
         >

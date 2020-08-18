@@ -19,7 +19,12 @@ const useStyles = makeStyles({
 const HomePuzzle = () => {
   const classes = useStyles();
   return (
-    <Box bgcolor="#1F2C4C" minHeight="100vh" paddingLeft="20px" paddingRight="20px">
+    <Box
+      bgcolor="#1F2C4C"
+      minHeight="100vh"
+      paddingLeft="20px"
+      paddingRight="20px"
+    >
       <h1
         className="mxm-yellow"
         style={{

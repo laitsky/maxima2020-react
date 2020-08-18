@@ -26,4 +26,23 @@ const updatePassword = async (data) => {
   );
   return request.data;
 };
-export default { getCredential, updatePassword };
+
+const createOTP = async (nim) => {
+  const request = await axios.post(
+    `${baseUrl}/create_otp_reset_pass`,
+    nim,
+  );
+  return request.data;
+};
+
+const resetPassword = async (data) => {
+  const request = await axios.post(`${baseUrl}/resetPassword`, data);
+  return request.data;
+};
+
+export default {
+  getCredential,
+  updatePassword,
+  createOTP,
+  resetPassword,
+};

@@ -71,7 +71,7 @@ const DaftarMaba = () => {
         stiffness: 50,
         damping: 20,
       }}
-      style={{ minHeight: '100vh'}}
+      style={{ minHeight: '100vh' }}
     >
       <Container maxWidth="sm">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -130,6 +130,20 @@ const DaftarMaba = () => {
               <span>@student.umn.ac.id</span>
             </MxmAppendInput>
             {errors.email && <Error>{errors.email.message}</Error>}
+            <MxmPrependInput>
+              <span>@</span>
+              <input
+                type="text"
+                name="instagram"
+                placeholder="ID Instagram"
+                ref={register({
+                  required: 'Sertai akun Instagram kamu!',
+                })}
+              />
+            </MxmPrependInput>
+            {errors.instagram && (
+              <Error>{errors.instagram.message}</Error>
+            )}
             <MxmInput
               type="password"
               name="password"
