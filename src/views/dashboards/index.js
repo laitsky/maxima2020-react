@@ -11,6 +11,7 @@ export {
   AcaraAddHomeMedia,
   AcaraAkunOrganisatorLists,
   AcaraTambahPIC,
+  AcaraMabaLists,
 } from './acara';
 export {
   AdminDashboard,
@@ -27,4 +28,5 @@ export {
   PICOrganisator,
   AkunOrganisatorLists,
   TambahPIC,
+  AdminMabaLists,
 } from './admin';

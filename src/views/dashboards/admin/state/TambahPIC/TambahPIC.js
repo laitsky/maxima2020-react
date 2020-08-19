@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import {
   Button,
   Container,
@@ -8,19 +9,21 @@ import {
   Divider,
   Box,
 } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import adminService from '../../../../../services/admin';
 
 const TambahPIC = () => {
+  const history = useHistory();
   const { register, handleSubmit, reset, errors } = useForm();
   const [organisatorAccounts, setOrganisatorAccounts] = useState([]);
   const [stateList, setStateList] = useState([]);
   useEffect(() => {
     document.title = 'Tambah PIC Organisator STATE MAXIMA 2020';
-    const fetchorganisatorAccounts = async () => {
+    const fetchOrganisatorAccounts = async () => {
       try {
-        const returnedorganisatorAccounts = await adminService.getAllOrganisators();
-        setOrganisatorAccounts(returnedorganisatorAccounts);
+        const returnedOrganisatorAccounts = await adminService.getAllOrganisators();
+        setOrganisatorAccounts(returnedOrganisatorAccounts);
       } catch (err) {
         console.log(err.response.data);
       }
@@ -33,7 +36,7 @@ const TambahPIC = () => {
         console.log(err.response.data);
       }
     };
-    fetchorganisatorAccounts();
+    fetchOrganisatorAccounts();
     fetchStateList();
   }, []);
 
@@ -46,6 +49,16 @@ const TambahPIC = () => {
       state_id: stateList.find((d) => d.name === data.state).state_id,
     };
     console.log(newData);
+    try {
+      await adminService.addPIC(newData);
+      history.push({
+        pathname: '/admin/pic-organisator',
+        message:
+          'Kamu berhasil mengaitkan akun organisator dengan kegiatan STATE!',
+      });
+    } catch (err) {
+      console.log(err.response.data);
+    }
   };
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>

@@ -13,3 +13,4 @@ export {
   HomeLists as AcaraHomeLists,
   AddHomeMedia as AcaraAddHomeMedia,
 } from './home';
+export { AcaraMabaLists } from './DaftarMaba';

@@ -16,3 +16,4 @@ export {
   AkunOrganisatorLists,
   TambahPIC,
 } from './state';
+export { AdminMabaLists } from './DaftarMaba';

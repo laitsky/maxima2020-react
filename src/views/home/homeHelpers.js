@@ -74,10 +74,6 @@ const homeMatchParams = [
 
 const homePantun = [
   {
-    baris1: 'Dua tiga sikat gigi',
-    baris2: 'Udah lo sana pergi',
-  },
-  {
     baris1: 'Dua tiga kapur barus',
     baris2: 'Masa mau disini terus',
   },

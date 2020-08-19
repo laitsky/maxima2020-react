@@ -114,6 +114,15 @@ const getAllOrganisators = async () => {
   );
   return request.data;
 };
+
+const addPIC = async (data) => {
+  const request = await axios.post(
+    `${baseUrl}/state/pic/add_pic`,
+    data,
+    config,
+  );
+  return request.data;
+};
 export default {
   getAllState,
   getStateById,
@@ -128,4 +137,5 @@ export default {
   getAllPICs,
   getAllMaba,
   getAllOrganisators,
+  addPIC,
 };

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Container, Box } from '@material-ui/core';
+import { AlignMiddle } from '../../../components';
 
 const surveiUrl = [
   {
@@ -20,11 +22,28 @@ const surveiUrl = [
 ];
 
 const SurveiFrame = ({ day }) => {
-  console.log(surveiUrl.find((d) => d.day === Number(day)).url);
   return (
-    <div>
-      <h1>Ini adalah halaman SurveiFrame</h1>
-    </div>
+    <Container maxWidth="md">
+      <h1
+        className="mxm-navy"
+        style={{ fontFamily: 'canaro-bold', textAlign: 'center' }}
+      >
+        Survei STATE DAY {day}
+      </h1>
+      <AlignMiddle>
+        <iframe
+          title="Survei STATE"
+          src={surveiUrl.find((d) => d.day === Number(day)).url}
+          width="640"
+          height="1598"
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0"
+        >
+          Loading…
+        </iframe>
+      </AlignMiddle>
+    </Container>
   );
 };
 
