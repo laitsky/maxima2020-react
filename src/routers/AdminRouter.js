@@ -17,6 +17,7 @@ import {
   PICOrganisator,
   AkunOrganisatorLists,
   TambahPIC,
+  AdminMabaLists,
 } from '../views';
 
 const AdminRouter = ({ Sidebar }) => {
@@ -44,6 +45,11 @@ const AdminRouter = ({ Sidebar }) => {
           <Route path="/admin" exact>
             <Redirect to="/admin/dashboard" />
           </Route>
+          <Route
+            path="/admin/maba-lists"
+            exact
+            component={AdminMabaLists}
+          />
           <Route
             path="/admin/dashboard"
             exact

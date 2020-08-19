@@ -15,6 +15,7 @@ import LanguageIcon from '@material-ui/icons/Language';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddIcon from '@material-ui/icons/Add';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
+import GroupIcon from '@material-ui/icons/Group';
 
 const Admin = ({ toggled, handleToggleSidebar }) => {
   const [collapsed] = useState(false);
@@ -43,6 +44,10 @@ const Admin = ({ toggled, handleToggleSidebar }) => {
             <MenuItem icon={<DashboardIcon />}>
               Dashboard
               <Link to="/admin" />
+            </MenuItem>
+            <MenuItem icon={<GroupIcon />}>
+              Daftar Mahasiswa Baru
+              <Link to="/admin/maba-lists" />
             </MenuItem>
             <MenuItem icon={<AddIcon />}>
               Tambah Akun

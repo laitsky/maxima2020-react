@@ -13,6 +13,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
+import GroupIcon from '@material-ui/icons/Group';
 
 const Acara = ({ toggled, handleToggleSidebar }) => {
   const [collapsed] = useState(false);
@@ -41,6 +42,10 @@ const Acara = ({ toggled, handleToggleSidebar }) => {
               <MenuItem icon={<DashboardIcon />}>
                 Dashboard
                 <Link to="/acara" />
+              </MenuItem>
+              <MenuItem icon={<GroupIcon />}>
+                Daftar Mahasiswa Baru
+                <Link to="/acara/maba-lists" />
               </MenuItem>
               <SubMenu title="STATE" icon={<DirectionsWalkIcon />}>
                 <MenuItem>

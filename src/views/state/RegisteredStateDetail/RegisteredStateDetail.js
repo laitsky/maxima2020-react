@@ -25,6 +25,7 @@ const useStyles = makeStyles({
   },
   statecard: {
     margin: '0 0 1em 0',
+    fontSize: '1.1em',
     boxShadow: '0 1px 5px #ababab',
     width: '100%',
     '@media (max-width: 766px)': {
@@ -68,6 +69,25 @@ const useStyles = makeStyles({
     },
   },
 });
+
+const surveiUrl = [
+  {
+    day: 1,
+    url: 'https://forms.gle/6wfJmYJjXCqbQ8fW8',
+  },
+  {
+    day: 2,
+    url: 'https://forms.gle/A7Z77vwGUprb2ybe8',
+  },
+  {
+    day: 3,
+    url: 'https://forms.gle/8Q6e7X7adejtExVD7',
+  },
+  {
+    day: 4,
+    url: 'https://forms.gle/KdZXVBF5ahDXPX4x7',
+  },
+];
 
 const RegisteredStateDetail = ({ day }) => {
   const classes = useStyles();
@@ -191,8 +211,39 @@ const RegisteredStateDetail = ({ day }) => {
     history.goBack();
   };
 
+  // handle survei redirect
+  const handleSurveiClick = () => {
+    window.open(
+      surveiUrl.find((d) => d.day === Number(day)).url,
+      '_blank',
+    );
+  };
+
+  // eslint-disable-next-line consistent-return
+  const printDate = (stateDay) => {
+    switch (stateDay) {
+      case 1:
+        return 'Senin, 7 September 2020';
+      case 2:
+        return 'Selasa, 8 September 2020';
+      case 3:
+        return 'Rabu, 9 September 2020';
+      case 4:
+        return 'Kamis, 10 September 2020';
+      default:
+        break;
+    }
+  };
   return (
     <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
+      {data.state_activity.name && (
+        <h1
+          className="mxm-navy"
+          style={{ textAlign: 'center', fontFamily: 'canaro-bold' }}
+        >
+          {data.state_activity.name}
+        </h1>
+      )}
       <MxmStateLogoFrame>
         {data.state_activity.link_logo && (
           <MxmLogoContainer
@@ -209,11 +260,11 @@ const RegisteredStateDetail = ({ day }) => {
       >
         <h3 className={classes.statetext}>Tanggal</h3>
         <MxmLongCard className={classes.statecard}>
-          tanggal disini
+          {printDate(data.state_activity.day)}
         </MxmLongCard>
         <h3 className={classes.statetext}>Link Zoom</h3>
         <MxmLongCard className={classes.statecard}>
-          Link Zoom disini
+          {data.state_activity.room}
         </MxmLongCard>
         <Box
           marginTop="1em"
@@ -241,6 +292,7 @@ const RegisteredStateDetail = ({ day }) => {
         {data.attendance ? (
           <MxmCancelButton
             variant="contained"
+            onClick={handleSurveiClick}
             className={classes.statesurvei}
           >
             Survei STATE 2020

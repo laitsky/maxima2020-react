@@ -39,6 +39,7 @@ export {
   PICOrganisator,
   AkunOrganisatorLists,
   TambahPIC,
+  AdminMabaLists,
 } from './dashboards/admin';
 export {
   AcaraDashboard,
@@ -51,6 +52,7 @@ export {
   AcaraHomeLists,
   AcaraAddHomeMedia,
   AcaraAkunOrganisatorLists,
+  AcaraMabaLists,
 } from './dashboards/acara';
 export { OrganisatorDashboard } from './dashboards/organisator';
 export {

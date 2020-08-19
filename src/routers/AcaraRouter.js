@@ -13,6 +13,7 @@ import {
   AcaraHomeLists,
   AcaraAddHomeMedia,
   AcaraAkunOrganisatorLists,
+  AcaraMabaLists,
 } from '../views';
 
 const AcaraRouter = ({ Sidebar }) => {
@@ -40,6 +41,11 @@ const AcaraRouter = ({ Sidebar }) => {
           <Route path="/acara" exact>
             <Redirect to="acara/dashboard" />
           </Route>
+          <Route
+            path="/acara/maba-lists"
+            exact
+            component={AcaraMabaLists}
+          />
           <Route
             path="/acara/dashboard"
             exact

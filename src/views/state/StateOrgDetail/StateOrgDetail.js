@@ -21,6 +21,7 @@ const useStyles = makeStyles({
   },
   statecard: {
     margin: '0 0 1em 0',
+    fontSize: '1.1em',
     boxShadow: '0 1px 5px #ababab',
     width: '100%',
     '@media (max-width: 766px)': {
@@ -96,6 +97,21 @@ const StateOrgDetail = () => {
       });
     }
   };
+  // eslint-disable-next-line consistent-return
+  const printDate = (stateDay) => {
+    switch (stateDay) {
+      case 1:
+        return 'Senin, 7 September 2020';
+      case 2:
+        return 'Selasa, 8 September 2020';
+      case 3:
+        return 'Rabu, 9 September 2020';
+      case 4:
+        return 'Kamis, 10 September 2020';
+      default:
+        break;
+    }
+  };
   return (
     <>
       <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
@@ -113,10 +129,14 @@ const StateOrgDetail = () => {
               />
             )}
           </MxmStateLogoFrame>
+          <h3 className={classes.statetext}>Nama Kegiatan</h3>
+          <MxmLongCard className={classes.statecard}>
+            {data.name}
+          </MxmLongCard>
           <h3 className={classes.statetext}>Tanggal</h3>
-          <MxmLongCard className={classes.statecard}>AAA</MxmLongCard>
-          <h3 className={classes.statetext}>Ruangan</h3>
-          <MxmLongCard className={classes.statecard}>BBB</MxmLongCard>
+          <MxmLongCard className={classes.statecard}>
+            {printDate(data.day)}
+          </MxmLongCard>
           <Box style={{ marginTop: '1em', marginBottom: '1em' }}>
             <MxmButton onClick={handleClick}>
               Simpan (Hari {data.day})
