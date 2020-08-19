@@ -97,7 +97,7 @@ export const MxmHomeCard = styled.div`
 
   & h3 {
     font-family: canaro-bold;
-    margin: 20px 0 13px 0;
+    margin: 13px 0 13px 0;
   }
 
   & a {
