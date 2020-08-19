@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 
     '& a': {
       textDecoration: 'none',
-      color: '#F2D008',
+      color: 'white',
     },
 
     '&:hover a': {
@@ -33,6 +33,10 @@ const useStyles = makeStyles({
 
     '&:hover': {
       backgroundColor: 'white',
+    },
+
+    '&:active a':{
+      color: '#F2D008',
     },
   },
   Whitebutton: {

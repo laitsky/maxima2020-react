@@ -78,11 +78,6 @@
     padding: 0;
 }
 
-.mxm-footer-copyright h6{
-    padding: 0;
-    margin: 2px 0 0 5px;
-}
-
 .mxm-foo-subcontent-divider{
     margin: 0 7px 0 7px;
 }
@@ -93,7 +88,7 @@
         padding-left: 5vw;
     }
     .custom-shape-divider-top-1597567856 svg{
-        height: 110px;
+        height: 90px;
     }
 
     .custom-shape-divider-top-1597567856 .shape-fill3{
@@ -108,6 +103,10 @@
 
     .mxm-footer{
         flex-direction: column-reverse;
+    }
+
+    .mxm-footer-content{
+        width: 100%;
     }
 
     .mxm-footer-copyright{

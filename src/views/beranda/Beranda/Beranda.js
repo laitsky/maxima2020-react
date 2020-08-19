@@ -13,11 +13,11 @@ const Beranda = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ rotate: 360, opacity: 1 }}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
       transition={{
         type: 'spring',
-        stiffness: 50,
+        stiffness: 100,
         damping: 20,
       }}
     >
