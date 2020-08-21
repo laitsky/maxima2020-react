@@ -53,12 +53,12 @@ const StateBottomNav = () => {
           label="Newsfeed"
           icon={<InfoIcon />}
         />
-        <BottomNavigationAction
+        {/* <BottomNavigationAction
           component={Link}
           to="/state/profil"
           label="Profil"
           icon={<AccountCircleIcon />}
-        />
+        /> */}
       </BottomNavigation>
     </div>
   );

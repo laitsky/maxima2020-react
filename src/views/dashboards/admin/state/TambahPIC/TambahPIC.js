@@ -9,7 +9,7 @@ import {
   Divider,
   Box,
 } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import Swal from 'sweetalert2';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import adminService from '../../../../../services/admin';
 
@@ -24,16 +24,26 @@ const TambahPIC = () => {
       try {
         const returnedOrganisatorAccounts = await adminService.getAllOrganisators();
         setOrganisatorAccounts(returnedOrganisatorAccounts);
-      } catch (err) {
-        console.log(err.response.data);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     const fetchStateList = async () => {
       try {
         const returnedStateList = await adminService.getAllState();
         setStateList(returnedStateList);
-      } catch (err) {
-        console.log(err.response.data);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchOrganisatorAccounts();
@@ -56,8 +66,13 @@ const TambahPIC = () => {
         message:
           'Kamu berhasil mengaitkan akun organisator dengan kegiatan STATE!',
       });
-    } catch (err) {
-      console.log(err.response.data);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
   return (

@@ -200,8 +200,8 @@ const RegisteredStateDetail = ({ day }) => {
           message: `Absensi STATE ${data.state_activity.name} berhasil! `,
         },
       });
-    } catch (err) {
-      setErrorMessage(err.response.data.message);
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
     }
     setAbsenLoading(false);
   };
@@ -217,6 +217,11 @@ const RegisteredStateDetail = ({ day }) => {
       surveiUrl.find((d) => d.day === Number(day)).url,
       '_blank',
     );
+  };
+
+  // handle link zoom click
+  const handleLinkClick = () => {
+    window.open(`https://${data.state_activity.room}`, '_blank');
   };
 
   // eslint-disable-next-line consistent-return
@@ -263,7 +268,10 @@ const RegisteredStateDetail = ({ day }) => {
           {printDate(data.state_activity.day)}
         </MxmLongCard>
         <h3 className={classes.statetext}>Link Zoom</h3>
-        <MxmLongCard className={classes.statecard}>
+        <MxmLongCard
+          className={classes.statecard}
+          onClick={handleLinkClick}
+        >
           {data.state_activity.room}
         </MxmLongCard>
         <Box

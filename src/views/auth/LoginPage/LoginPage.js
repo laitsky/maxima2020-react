@@ -49,6 +49,9 @@ const LoginPage = () => {
         case 4:
           window.location = '/acara';
           break;
+        case 5:
+          window.location = '/panitia';
+          break;
         case 6:
           window.location = '/admin';
           break;

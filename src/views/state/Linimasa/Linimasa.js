@@ -10,6 +10,7 @@ import {
   TimelineOppositeContent,
 } from '@material-ui/lab';
 import Typography from '@material-ui/core/Typography';
+import Swal from 'sweetalert2';
 import studentService from '../../../services/student';
 
 const Linimasa = () => {
@@ -31,7 +32,12 @@ const Linimasa = () => {
         );
         setData(returnedData);
       } catch (error) {
-        console.log(error.response);
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

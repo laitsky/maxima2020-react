@@ -23,8 +23,6 @@ import {
   Forbidden403,
   Shortener,
   CustomShortener,
-  SurveiState,
-  SurveiManual,
 } from './views';
 import {
   AcaraRouter,
@@ -33,6 +31,7 @@ import {
   HomeRouter,
   StateRouter,
   OrganisatorRouter,
+  PanitiaRouter,
 } from './routers';
 // eslint-disable-next-line no-unused-vars
 import axiosMiddleware from './utils/middleware';
@@ -92,7 +91,12 @@ const AppRouter = () => {
         </Switch>
         <StateBottomNav />
       </Route>
-      <Route path="/organisator/:path?" exact>
+      <Route path="/panitia/:path1?/:path2?" exact>
+        <Switch>
+          <PanitiaRouter />
+        </Switch>
+      </Route>
+      <Route path="/organisator/:path1?/:path2?" exact>
         <Switch>
           <OrganisatorRouter Sidebar={OrganisatorSidebar} />
         </Switch>
@@ -105,8 +109,6 @@ const AppRouter = () => {
             exact
             component={JingleMaxima}
           />
-          <Route path="/survei" exact component={SurveiState} />
-          <Route path="/survei2" exact component={SurveiManual} />
           <Route path="/tour" exact component={MaxiTour} />
           <Route path="/" exact component={Beranda} />
           <AuthRouter />

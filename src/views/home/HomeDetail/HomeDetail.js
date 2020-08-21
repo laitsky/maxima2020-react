@@ -61,7 +61,6 @@ const HomeDetail = () => {
           (d) => d.name.toLowerCase() === organisator,
         );
         setData(returnedData);
-        console.log(returnedData);
       } catch (error) {
         Swal.fire({
           title: 'Perhatian!',
@@ -83,7 +82,13 @@ const HomeDetail = () => {
         );
         setPhotos(returnedData[0].home_media);
       } catch (error) {
-        console.log(error.response);
+        console.log(error.response.data.message);
+        // Swal.fire({
+        //   title: 'Perhatian!',
+        //   text: error.response.data.message,
+        //   icon: 'error',
+        //   confirmButtonText: 'Coba lagi',
+        // });
       }
     };
     fetchData();
@@ -128,11 +133,13 @@ const HomeDetail = () => {
             alt="Instagram"
           />
         </a>
-        <iframe
-          className="homedetail-iframe"
-          src={data.link_video}
-          title={data.name}
-        />
+        {data.link_video && (
+          <iframe
+            className="homedetail-iframe"
+            src={data.link_video}
+            title={data.name}
+          />
+        )}
         <Box className={classes.container}>
           <p>{data.narasi_panjang}</p>
         </Box>

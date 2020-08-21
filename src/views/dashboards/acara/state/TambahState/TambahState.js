@@ -9,6 +9,7 @@ import {
   Button,
   Radio,
 } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import acaraService from '../../../../../services/acara';
 
 const TambahState = () => {
@@ -27,8 +28,13 @@ const TambahState = () => {
           message: `Kamu berhasil menambahkan data kegiatan STATE ${data.name}`,
         });
       }
-    } catch (err) {
-      console.log(err.response.data);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
 

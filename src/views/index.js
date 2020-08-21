@@ -22,7 +22,6 @@ export {
   ProfileMaba,
   Linimasa,
   StateInfo,
-  SurveiFrame,
 } from './state';
 export {
   AdminDashboard,
@@ -53,8 +52,17 @@ export {
   AcaraAddHomeMedia,
   AcaraAkunOrganisatorLists,
   AcaraMabaLists,
+  AcaraTambahPIC,
+  AcaraPICOrganisator,
 } from './dashboards/acara';
-export { OrganisatorDashboard } from './dashboards/organisator';
+export {
+  OrganisatorDashboard,
+  LihatPeserta,
+} from './dashboards/organisator';
+export {
+  PanitiaDashboard,
+  PanitiaLihatPeserta,
+} from './dashboards/panitia';
 export {
   NotFound,
   JingleMaxima,
@@ -62,5 +70,3 @@ export {
   Forbidden403,
 } from './others';
 export { Shortener, CustomShortener } from './shortener';
-export { default as SurveiState } from './testing/SurveiState';
-export { default as SurveiManual } from './testing/SurveiManual';

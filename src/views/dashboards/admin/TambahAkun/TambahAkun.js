@@ -11,6 +11,7 @@ import {
   InputLabel,
   MenuItem,
 } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import authService from '../../../../services/auth';
 
 const TambahAkun = () => {
@@ -24,10 +25,14 @@ const TambahAkun = () => {
       roles,
     };
     try {
-      const returnedData = await authService.daftar(newData);
-      console.log(returnedData);
-    } catch (err) {
-      console.log(err.response.data);
+      await authService.daftar(newData);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
   const handleRoleChange = (e) => {
@@ -102,7 +107,7 @@ const TambahAkun = () => {
               onChange={handleRoleChange}
               inputRef={register}
             >
-              <MenuItem value="bph">Badan Pengurus Harian</MenuItem>
+              <MenuItem value="bph">Panitia</MenuItem>
               <MenuItem value="admin">Admin</MenuItem>
               <MenuItem value="acara">Acara</MenuItem>
               <MenuItem value="maba">Mahasiswa Baru</MenuItem>

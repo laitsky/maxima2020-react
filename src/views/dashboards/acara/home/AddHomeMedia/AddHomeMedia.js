@@ -8,6 +8,7 @@ import {
   Button,
 } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Swal from 'sweetalert2';
 import acaraService from '../../../../../services/acara';
 
 const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
@@ -26,8 +27,13 @@ const AddHomeMedia = () => {
     try {
       const returnedData = await acaraService.addHomeMedia(newData);
       console.log(returnedData);
-    } catch (err) {
-      console.log(err.response);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
 
@@ -37,8 +43,13 @@ const AddHomeMedia = () => {
       try {
         const returnedData = await acaraService.getAllHome();
         setData(returnedData.data);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();
