@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Box, Button, Container, Divider } from '@material-ui/core';
 import MUIDataTable from 'mui-datatables';
 import Alert from '@material-ui/lab/Alert';
+import Swal from 'sweetalert2';
 import adminService from '../../../../../services/admin';
 
 const tableColumns = [
@@ -72,8 +73,13 @@ const StateLists = () => {
       try {
         const returnedData = await adminService.getAllState();
         setData(returnedData);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

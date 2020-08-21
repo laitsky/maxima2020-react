@@ -6,6 +6,7 @@ export {
   StateDetail as AcaraStateDetail,
   AkunOrganisatorLists as AcaraAkunOrganisatorLists,
   TambahPIC as AcaraTambahPIC,
+  PICOrganisator as AcaraPICOrganisator,
 } from './state';
 export {
   AddHome as AcaraAddHome,

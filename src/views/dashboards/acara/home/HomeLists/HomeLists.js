@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Box, Button, Container, Divider } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import MUIDataTable from 'mui-datatables';
+import Swal from 'sweetalert2';
 import acaraService from '../../../../../services/acara';
 
 const tableColumns = [
@@ -58,8 +59,13 @@ const HomeLists = () => {
       try {
         const returnedData = await acaraService.getAllHome();
         setData(returnedData.data);
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

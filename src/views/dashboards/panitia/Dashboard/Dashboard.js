@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
 import { Box, Button, Container, Divider } from '@material-ui/core';
-import Swal from 'sweetalert2';
 import MUIDataTable from 'mui-datatables';
-import organisatorService from '../../../../services/organisator';
+import Swal from 'sweetalert2';
+import panitiaService from '../../../../services/panitia';
 
 const tableColumns = [
   {
@@ -35,7 +34,7 @@ const tableColumns = [
       sort: true,
       customBodyRender: (_value, tableMeta) => (
         <>
-          {_value} Hari {tableMeta.rowData[1]}
+          {_value} (Hari {tableMeta.rowData[1]})
         </>
       ),
     },
@@ -60,7 +59,7 @@ const tableColumns = [
       print: false,
       customBodyRender: (_value, tableMeta) => (
         <Link
-          to={`/organisator/lihat-peserta/${tableMeta.rowData[0]}`}
+          to={`/panitia/lihat-peserta/${tableMeta.rowData[0]}`}
           style={{ textDecoration: 'none' }}
         >
           <Button variant="contained" color="primary">
@@ -73,12 +72,10 @@ const tableColumns = [
 ];
 const Dashboard = () => {
   const [data, setData] = useState([]);
-  const decoded = jwtDecode(window.sessionStorage.getItem('token'));
-  const { nim } = decoded;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const returnedData = await organisatorService.viewState(nim);
+        const returnedData = await panitiaService.getAllState();
         setData(returnedData);
       } catch (error) {
         Swal.fire({
@@ -92,11 +89,12 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <Container style={{ paddingTop: '2em' }}>
-      <h1 style={{ marginTop: '1.5em' }}>
-        Kegiatan STATE yang bisa kamu lihat:
-      </h1>
+      <h1 style={{ marginTop: '1.5em' }}>Daftar Kegiatan STATE</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <Box style={{ marginTop: '1em' }}>
         <MUIDataTable data={data} columns={tableColumns} />

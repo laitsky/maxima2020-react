@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Box, Container, Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
+import Swal from 'sweetalert2';
 import {
   MxmLogoContainer,
   MxmInput,
@@ -47,8 +48,13 @@ const CustomShortener = () => {
         formData,
       );
       setData(returnedData);
-    } catch (err) {
-      console.log(err.response.data);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     } finally {
       setLoading(false);
     }

@@ -8,6 +8,7 @@ import {
   TextField,
   Divider,
 } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import acaraService from '../../../../../services/acara';
 
 const originUrl = 'https://mxm20.s3-ap-southeast-1.amazonaws.com';
@@ -43,8 +44,13 @@ const EditHome = () => {
           message: `Kamu berhasil menyunting data organisator HoME ${data.name}`,
         });
       }
-    } catch (err) {
-      console.log(err.response.data);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
 
@@ -57,8 +63,13 @@ const EditHome = () => {
           (d) => d.home_id === Number(homeId),
         );
         setData(returnedData);
-      } catch (err) {
-        console.log(err.response.data);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

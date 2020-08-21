@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import MUIDataTable from 'mui-datatables';
 import { Paper, Tab, Tabs } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import acaraService from '../../../../../services/acara';
 import TabPanel from './components/TabPanel';
 
@@ -72,8 +73,13 @@ const StateDetail = () => {
             name: d.user.name,
           })),
         );
-      } catch (err) {
-        console.log(err.response);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

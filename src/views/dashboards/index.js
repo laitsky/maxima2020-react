@@ -1,4 +1,4 @@
-export { OrganisatorDashboard } from './organisator';
+export { OrganisatorDashboard, LihatPeserta } from './organisator';
 export {
   AcaraDashboard,
   AcaraEditState,
@@ -12,6 +12,7 @@ export {
   AcaraAkunOrganisatorLists,
   AcaraTambahPIC,
   AcaraMabaLists,
+  AcaraPICOrganisator,
 } from './acara';
 export {
   AdminDashboard,
@@ -30,3 +31,4 @@ export {
   TambahPIC,
   AdminMabaLists,
 } from './admin';
+export { PanitiaDashboard, PanitiaLihatPeserta } from './panitia';

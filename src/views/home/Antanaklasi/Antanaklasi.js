@@ -15,6 +15,7 @@ const Antanaklasi = () => {
   const [voiceNote, setVoiceNote] = useState('');
   const [kinitro, setKinitro] = useState('');
   useEffect(() => {
+    document.title = 'Antanaklasi - HoME MAXIMA 2020';
     const fetchData = async () => {
       try {
         let returnedData = await publicService.getAllHome();
@@ -66,7 +67,7 @@ const Antanaklasi = () => {
           <h3 style={{ margin: 0 }}>
             Gunakan earphone biar
             <br />
-            cumin kamu yang tahu :) hehe
+            cuman kamu yang tahu :) hehe
           </h3>
           <AudioPlayer
             style={{ marginTop: '1em', backgroundColor: '#F4224B' }}

@@ -5,3 +5,5 @@ export { default as HomeRouter } from './HomeRouter';
 export { default as MainRouter } from './MainRouter';
 export { default as OrganisatorRouter } from './OrganisatorRouter';
 export { default as StateRouter } from './StateRouter';
+export { default as PanitiaRouter } from './PanitiaRouter';
+

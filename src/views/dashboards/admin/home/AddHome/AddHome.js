@@ -12,6 +12,7 @@ import {
   InputLabel,
   MenuItem,
 } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import adminService from '../../../../../services/admin';
 import categories from './categories';
 
@@ -44,8 +45,13 @@ const AddHome = () => {
           message: `Kamu berhasil menambahkan data organisator HoME ${data.name}`,
         });
       }
-    } catch (err) {
-      console.log(err.response.data);
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
   };
 

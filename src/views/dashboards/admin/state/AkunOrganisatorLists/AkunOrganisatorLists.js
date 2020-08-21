@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
 import MUIDataTable from 'mui-datatables';
+import Swal from 'sweetalert2';
 import adminService from '../../../../../services/admin';
 
 const tableColumns = [
@@ -28,8 +29,13 @@ export default () => {
       try {
         const returnedData = await adminService.getAllOrganisators();
         setData(returnedData);
-      } catch (err) {
-        console.log(err.response.data);
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
       }
     };
     fetchData();

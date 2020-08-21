@@ -60,9 +60,7 @@ const DaftarState = ({ day }) => {
       )
     : organisators;
   return (
-    <Box
-      style={{ position: 'relative', top: '-70px', height: '100vh' }}
-    >
+    <Box style={{ position: 'relative', height: '100vh' }}>
       <Header logo={logo} day={day} />
       <Box
         display="flex"

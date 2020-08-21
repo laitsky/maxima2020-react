@@ -61,6 +61,10 @@ const Acara = ({ toggled, handleToggleSidebar }) => {
                   <Link to="/acara/akun-organisator-lists" />
                 </MenuItem>
                 <MenuItem>
+                  Tambah PIC Organisator
+                  <Link to="/acara/tambah-pic" />
+                </MenuItem>
+                <MenuItem>
                   Daftar PIC Organisator
                   <Link to="/acara/pic-organisator" />
                 </MenuItem>

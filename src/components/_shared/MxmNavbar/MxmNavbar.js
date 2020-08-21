@@ -35,7 +35,7 @@ const useStyles = makeStyles({
       backgroundColor: 'white',
     },
 
-    '&:active a':{
+    '&:active a': {
       color: '#F2D008',
     },
   },
