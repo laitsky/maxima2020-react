@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import jwtDecode from 'jwt-decode';
 import { makeStyles } from '@material-ui/core/styles';
+import { motion } from 'framer-motion';
 import { Container, Box } from '@material-ui/core';
 import {
   MxmButton,
@@ -113,7 +114,15 @@ const StateOrgDetail = () => {
     }
   };
   return (
-    <>
+    <motion.div
+      initial={{ x: -999, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 50,
+        damping: 20,
+      }}
+    >
       <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
         <Box
           display="flex"
@@ -130,13 +139,35 @@ const StateOrgDetail = () => {
             )}
           </MxmStateLogoFrame>
           <h3 className={classes.statetext}>Nama Kegiatan</h3>
-          <MxmLongCard className={classes.statecard}>
-            {data.name}
-          </MxmLongCard>
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 0.7
+            }}
+          >
+            <MxmLongCard className={classes.statecard}>
+              {data.name}
+            </MxmLongCard>
+          </motion.div>
           <h3 className={classes.statetext}>Tanggal</h3>
-          <MxmLongCard className={classes.statecard}>
-            {printDate(data.day)}
-          </MxmLongCard>
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 1
+            }}
+          >
+            <MxmLongCard className={classes.statecard}>
+              {printDate(data.day)}
+            </MxmLongCard>
+          </motion.div>
           <Box style={{ marginTop: '1em', marginBottom: '1em' }}>
             <MxmButton onClick={handleClick}>
               Simpan (Hari {data.day})
@@ -144,7 +175,7 @@ const StateOrgDetail = () => {
           </Box>
         </Box>
       </Container>
-    </>
+    </motion.div>
   );
 };
 

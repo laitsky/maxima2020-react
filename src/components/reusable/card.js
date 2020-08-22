@@ -56,7 +56,7 @@ export const MxmHomeCardDeck = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
   background-color: #1f2c4c;
-  padding: 5em 25em 5em 25em;
+  padding: 2em 25em 5em 25em;
   justify-content: center;
   align-items: center;
 
@@ -97,7 +97,7 @@ export const MxmHomeCard = styled.div`
 
   & h3 {
     font-family: canaro-bold;
-    margin: 13px 0 13px 0;
+    margin: 5px 0 13px 0;
   }
 
   & a {

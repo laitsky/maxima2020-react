@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Swal from 'sweetalert2';
 import jwtDecode from 'jwt-decode';
 import { Container, Box } from '@material-ui/core';
@@ -240,99 +241,142 @@ const RegisteredStateDetail = ({ day }) => {
     }
   };
   return (
-    <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
-      {data.state_activity.name && (
-        <h1
-          className="mxm-navy"
-          style={{ textAlign: 'center', fontFamily: 'canaro-bold' }}
-        >
-          {data.state_activity.name}
-        </h1>
-      )}
-      <MxmStateLogoFrame>
-        {data.state_activity.link_logo && (
-          <MxmLogoContainer
-            className={classes.statelogo}
-            src={data.state_activity.link_logo}
-          />
+    <motion.div
+      initial={{ y: -999, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 100,
+        damping: 20,
+      }}
+    >
+      <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
+        {data.state_activity.name && (
+          <h1
+            className="mxm-navy"
+            style={{ textAlign: 'center', fontFamily: 'canaro-bold' }}
+          >
+            {data.state_activity.name}
+          </h1>
         )}
-      </MxmStateLogoFrame>
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <h3 className={classes.statetext}>Tanggal</h3>
-        <MxmLongCard className={classes.statecard}>
-          {printDate(data.state_activity.day)}
-        </MxmLongCard>
-        <h3 className={classes.statetext}>Link Zoom</h3>
-        <MxmLongCard
-          className={classes.statecard}
-          onClick={handleLinkClick}
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 50,
+            damping: 20,
+            delay: 0.7
+          }}
         >
-          {data.state_activity.room}
-        </MxmLongCard>
+          <MxmStateLogoFrame>
+            {data.state_activity.link_logo && (
+              <MxmLogoContainer
+                className={classes.statelogo}
+                src={data.state_activity.link_logo}
+              />
+            )}
+          </MxmStateLogoFrame>
+        </motion.div>
         <Box
-          marginTop="1em"
-          marginBottom="1em"
           display="flex"
           justifyContent="center"
           alignItems="center"
-          style={{ width: '100%' }}
+          flexDirection="column"
         >
-          <MxmCancelButton
-            variant="outlined"
-            color="secondary"
-            onClick={handleBackClick}
-            className={classes.stateback}
+          <h3 className={classes.statetext}>Tanggal</h3>
+          <motion.div
+            initial={{ y: -15, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 1.2
+            }}
           >
-            Kembali
-          </MxmCancelButton>
-          <MxmButton
-            onClick={handleAbsenOpen}
-            className={classes.stateabsen}
+            <MxmLongCard className={classes.statecard}>
+              {printDate(data.state_activity.day)}
+            </MxmLongCard>
+          </motion.div>
+          <h3 className={classes.statetext}>Link Zoom</h3>
+          <motion.div
+            initial={{ y: -15, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 1.4
+            }}
           >
-            Absen
-          </MxmButton>
+            <MxmLongCard
+              className={classes.statecard}
+              onClick={handleLinkClick}
+            >
+              {data.state_activity.room}
+            </MxmLongCard>
+          </motion.div>
+          <Box
+            marginTop="1em"
+            marginBottom="1em"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            style={{ width: '100%' }}
+          >
+            <MxmCancelButton
+              variant="outlined"
+              color="secondary"
+              onClick={handleBackClick}
+              className={classes.stateback}
+            >
+              Kembali
+            </MxmCancelButton>
+            <MxmButton
+              onClick={handleAbsenOpen}
+              className={classes.stateabsen}
+            >
+              Absen
+            </MxmButton>
+          </Box>
+          {data.attendance ? (
+            <MxmCancelButton
+              variant="contained"
+              onClick={handleSurveiClick}
+              className={classes.statesurvei}
+            >
+              Survei STATE 2020
+            </MxmCancelButton>
+          ) : (
+            <MxmCancelButton
+              variant="contained"
+              onClick={handleCancelOpen}
+              className={classes.statebatal}
+            >
+              Batalkan STATE ini
+            </MxmCancelButton>
+          )}
+          <CancelStateDialog
+            openCancelDialog={openCancelDialog}
+            handleCancelClose={handleCancelClose}
+            handleStateCancellation={handleStateCancellation}
+            name={data.state_activity.name}
+          />
+          <AbsenStateDialog
+            openAbsenDialog={openAbsenDialog}
+            handleAbsenClose={handleAbsenClose}
+            handleAbsenState={handleAbsenState}
+            name={data.state_activity.name}
+            day={day}
+            kodePresensi={kodePresensi}
+            setKodePresensi={setKodePresensi}
+            loading={absenLoading}
+            error={errorMessage}
+          />
         </Box>
-        {data.attendance ? (
-          <MxmCancelButton
-            variant="contained"
-            onClick={handleSurveiClick}
-            className={classes.statesurvei}
-          >
-            Survei STATE 2020
-          </MxmCancelButton>
-        ) : (
-          <MxmCancelButton
-            variant="contained"
-            onClick={handleCancelOpen}
-            className={classes.statebatal}
-          >
-            Batalkan STATE ini
-          </MxmCancelButton>
-        )}
-        <CancelStateDialog
-          openCancelDialog={openCancelDialog}
-          handleCancelClose={handleCancelClose}
-          handleStateCancellation={handleStateCancellation}
-          name={data.state_activity.name}
-        />
-        <AbsenStateDialog
-          openAbsenDialog={openAbsenDialog}
-          handleAbsenClose={handleAbsenClose}
-          handleAbsenState={handleAbsenState}
-          name={data.state_activity.name}
-          day={day}
-          kodePresensi={kodePresensi}
-          setKodePresensi={setKodePresensi}
-          loading={absenLoading}
-          error={errorMessage}
-        />
-      </Box>
-    </Container>
+      </Container>
+    </motion.div>
   );
 };
 

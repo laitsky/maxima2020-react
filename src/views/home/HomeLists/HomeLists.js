@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Box } from '@material-ui/core';
 import Swal from 'sweetalert2';
 import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import { MxmCancelButton } from '../../../components/reusable/button';
 import homeHelpers from '../homeHelpers';
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
 });
 
 const HomeLists = () => {
+
   const classes = useStyles();
   const { kategori } = useParams();
   const [data, setData] = useState([]);
@@ -60,10 +62,18 @@ const HomeLists = () => {
   }, []);
 
   return (
-    <>
-      <Container
-        maxWidth="md"
-        style={{ padding: '18px 10px 18px 10px' }}
+    <Container
+      maxWidth="md"
+      style={{ padding: '18px 10px 18px 10px' }}
+    >
+      <motion.div
+        initial={{ x: 999, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+        }}
       >
         <h1 className="homelist-architou">
           Archi Tou
@@ -71,9 +81,20 @@ const HomeLists = () => {
           <span className={classes.istilah}>{match.istilah}</span>
         </h1>
         <h2 className="homelist-architoudesc">{match.kategori}</h2>
+      </motion.div>
 
-        {data.map((d) => (
-          <div key={d.home_id}>
+      {data.map((d, i) => (
+        <div key={d.home_id}>
+          <motion.div
+            initial={{ y: 999, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 100,
+              damping: 20,
+              delay: 0.2 + (0.2 * i),
+            }}
+          >
             <Box className="homelist-middle">
               <Box className="homelist-image">
                 <Link
@@ -104,8 +125,19 @@ const HomeLists = () => {
                 </Link>
               </Box>
             </Box>
-          </div>
-        ))}
+          </motion.div>
+        </div>
+      ))}
+      <motion.div
+        initial={{ y: 999, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+          delay: 1.5,
+        }}
+      >
         <Box className="homelist-middle">
           <Link to="/home/puzzle">
             <MxmCancelButton
@@ -116,8 +148,8 @@ const HomeLists = () => {
             </MxmCancelButton>
           </Link>
         </Box>
-      </Container>
-    </>
+      </motion.div>
+    </Container>
   );
 };
 

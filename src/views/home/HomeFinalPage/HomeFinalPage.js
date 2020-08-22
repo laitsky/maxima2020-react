@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
+import { motion } from 'framer-motion';
 import publicService from '../../../services/public';
 import homeHelpers from '../homeHelpers';
 import { MxmButton } from '../../../components/reusable/button';
@@ -83,10 +84,18 @@ const HomeFinalPage = () => {
     );
   };
   return (
-    <>
-      <Container
-        maxWidth="sm"
-        style={{ padding: '18px 10px 18px 10px' }}
+    <Container
+      maxWidth="sm"
+      style={{ padding: '18px 10px 18px 10px', minHeight: '100vh' }}
+    >
+      <motion.div
+        initial={{ y: -999, opacity: 0}}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 50,
+          damping: 20,
+        }}
       >
         <Box
           display="flex"
@@ -131,8 +140,19 @@ const HomeFinalPage = () => {
             />
           )}
         </Box>
-        <Box style={{ textAlign: 'left', color: '#1F2C4C' }}>
-          <ol>
+      </motion.div>
+      <Box style={{ textAlign: 'left', color: '#1F2C4C' }}>
+        <ol>
+          <motion.div
+            initial={{ x: -999, opacity: 0}}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 0.5,
+            }}
+          >
             <li>
               Maximers wajib meng-upload di akun instagram pribadi dan
               <span
@@ -144,7 +164,18 @@ const HomeFinalPage = () => {
                 akun tidak di Private.
               </span>
             </li>
-            <br />
+          </motion.div>
+          <br />
+          <motion.div
+            initial={{ x: 999, opacity: 0}}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 0.7,
+            }}
+          >
             <li>
               Maximers meng-upload foto tersebut ke Instagram dengan
               men-tag akun Instagram
@@ -166,13 +197,35 @@ const HomeFinalPage = () => {
                 #HoME2020 #PaveYourOwnJourney
               </span>
             </li>
-            <br />
+          </motion.div>
+          <br />
+          <motion.div
+            initial={{ x: -999, opacity: 0}}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 0.9,
+            }}
+          >
             <li>
               Maximers memberikan caption yang menarik tentang
               “Sebutkan 3 pengalaman yang paling mengesankan selama
               masa karantina"
             </li>
-            <br />
+          </motion.div>
+          <br />
+          <motion.div
+            initial={{ x: 999, opacity: 0}}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 1.1,
+            }}
+          >
             <li>
               Awali caption kamu dengan kalimat seperti ini, ya! :
               <br />
@@ -192,7 +245,18 @@ const HomeFinalPage = () => {
                   .join('')}
               </span>
             </li>
-            <br />
+          </motion.div>
+          <br />
+          <motion.div
+            initial={{ x: -999, opacity: 0}}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 50,
+              damping: 20,
+              delay: 1.3,
+            }}
+          >
             <li>
               Twibbon tersebut digunakan sebagai satu
               <span
@@ -204,11 +268,33 @@ const HomeFinalPage = () => {
                 persyaratan dalam mengikuti STATE.
               </span>
             </li>
-          </ol>
+          </motion.div>
+        </ol>
+        <motion.div
+          initial={{ y: 999, opacity: 0}}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 50,
+            damping: 20,
+            delay: 1.5,
+          }}
+        >  
           <span style={{ textTransform: 'uppercase' }}>
             {randomPantun()}
           </span>
-        </Box>
+        </motion.div>
+      </Box>
+      <motion.div
+        initial={{ y: 999, opacity: 0}}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 50,
+          damping: 20,
+          delay: 1.5,
+        }}
+      >  
         <Box
           display="flex"
           justifyContent="center"
@@ -219,8 +305,8 @@ const HomeFinalPage = () => {
             <MxmButton type="button">Kembali ke HoME</MxmButton>
           </Link>
         </Box>
-      </Container>
-    </>
+      </motion.div>
+    </Container>
   );
 };
 
