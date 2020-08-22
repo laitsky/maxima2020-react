@@ -20,6 +20,7 @@ const StateInfo = () => {
             letterSpacing: 1.5,
             color: '#F4224B',
             paddingTop: '2.5em',
+            marginTop: 0,
           }}
         >
           Ahoi, Wanderers.

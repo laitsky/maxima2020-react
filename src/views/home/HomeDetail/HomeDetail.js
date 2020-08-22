@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { Container, Box } from '@material-ui/core';
 import { Carousel } from 'react-responsive-carousel';
 import { makeStyles } from '@material-ui/core/styles';
+import { motion } from 'framer-motion';
 import publicService from '../../../services/public';
 import {
   MxmButton,
@@ -96,10 +97,18 @@ const HomeDetail = () => {
   }, [data]);
 
   return (
-    <>
-      <Container
-        maxWidth="sm"
-        style={{ padding: '18px 10px 18px 10px' }}
+    <Container
+      maxWidth="sm"
+      style={{ padding: '18px 10px 18px 10px' }}
+    >
+      <motion.div
+        initial={{ x: -999, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+        }}
       >
         <h1 id="homedetail-nama">{data.name}</h1>
         <a
@@ -133,16 +142,49 @@ const HomeDetail = () => {
             alt="Instagram"
           />
         </a>
-        {data.link_video && (
+      </motion.div>
+      {data.link_video && (
+        <motion.div
+          initial={{ x: 999, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 100,
+            damping: 20,
+            delay: 0.5,
+          }}
+        >
           <iframe
             className="homedetail-iframe"
             src={data.link_video}
             title={data.name}
           />
-        )}
+        </motion.div>
+      )}
+      <motion.div
+        initial={{ x: -999, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+          delay: 1,
+        }}
+      >
         <Box className={classes.container}>
           <p>{data.narasi_panjang}</p>
         </Box>
+      </motion.div>
+      <motion.div
+        initial={{ y: 999, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+          delay: 1.5,
+        }}
+      >
         <Carousel autoPlay>
           {photos.map((photo) => (
             <div key={photo.link_media}>
@@ -180,8 +222,8 @@ const HomeDetail = () => {
             </MxmButton>
           </Link>
         </Box>
-      </Container>
-    </>
+      </motion.div>
+    </Container>
   );
 };
 
