@@ -24,18 +24,6 @@ const tableColumns = [
       ),
     },
   },
-  {
-    name: 'kehadiran',
-    label: 'Kehadiran',
-    options: {
-      filter: true,
-      sort: true,
-      customBodyRender: (value) => {
-        if (value) return '-';
-        return 'Ya';
-      },
-    },
-  },
 ];
 
 const LihatPeserta = () => {
