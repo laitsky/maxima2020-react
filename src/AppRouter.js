@@ -38,8 +38,10 @@ import axiosMiddleware from './utils/middleware';
 
 const AppRouter = () => {
   const location = useLocation();
+  const { pathname } = useLocation();
   const history = useHistory();
   const token = window.sessionStorage.getItem('token');
+
   useEffect(() => {
     if (token) {
       const { exp } = jwtDecode(token);
@@ -56,6 +58,10 @@ const AppRouter = () => {
       }
     }
   }, [location]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <Switch>
