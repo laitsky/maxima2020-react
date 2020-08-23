@@ -45,7 +45,7 @@ html, body {
         margin: 0;
         padding: 0;
         font-family: "canaro-medium";
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
 }
 p {
   white-space: pre-wrap;
