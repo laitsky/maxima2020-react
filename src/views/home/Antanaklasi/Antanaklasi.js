@@ -20,9 +20,9 @@ const useStyles = makeStyles({
     borderBottomLeftRadius: '25px',
     backgroundColor: '#F2D008',
   },
-  antanaklasi:{
-    margin: '1em 0 1em 0', 
-    width: '100%', 
+  antanaklasi: {
+    margin: '1em 0 1em 0',
+    width: '100%',
     fontSize: '40px',
     fontFamily: 'canaro-bold',
   },
@@ -82,7 +82,10 @@ const Antanaklasi = () => {
           textAlign: 'center',
         }}
       >
-        <Container maxWidth="sm" style={{ padding: '1em 10px 1em 10px' }}>
+        <Container
+          maxWidth="sm"
+          style={{ padding: '1em 10px 1em 10px' }}
+        >
           <Box
             display="flex"
             flexDirection="column"
@@ -94,12 +97,15 @@ const Antanaklasi = () => {
             }}
           >
             <Box className={classes.antanaklasi}>
-              <h2 style={{ margin: '0' }}>ANTANA<br/></h2>
-              <Box
-                display="flex"
-                justifyContent="center"
-              >
-                <span className={classes.leftline} style={{ transform: 'rotate(90deg)'}}></span>
+              <h2 style={{ margin: '0' }}>
+                ANTANA
+                <br />
+              </h2>
+              <Box display="flex" justifyContent="center">
+                <span
+                  className={classes.leftline}
+                  style={{ transform: 'rotate(90deg)' }}
+                />
                 <h2 style={{ margin: '0 0 0 25px' }}>KLASI</h2>
               </Box>
             </Box>

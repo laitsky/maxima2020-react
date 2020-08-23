@@ -9,7 +9,7 @@ import { MxmButton } from '../../../components/reusable/button';
 import './Beranda.scss';
 
 const useStyles = makeStyles({
-  maxilandbtn:{
+  maxilandbtn: {
     padding: '10px 1em 10px 1em',
   },
 });
@@ -33,7 +33,12 @@ const Beranda = () => {
       <Box className="new-beranda">
         <Box className="new-beranda-container">
           <div>
-            <h1 class="maxiland-text">EMBARK ON A LAND<br/>OF FUN WITH <span style={{ color: '#F2D008' }}>MAXITOUR</span></h1>
+            <h1 className="maxiland-text">
+              EMBARK ON A LAND
+              <br />
+              OF FUN WITH{' '}
+              <span style={{ color: '#F2D008' }}>MAXITOUR</span>
+            </h1>
             <Box
               display="flex"
               justifyContent="center"
@@ -41,30 +46,120 @@ const Beranda = () => {
               width="100%"
             >
               <motion.div
-                animate={{ 
-                  y: [5, 4, 3 ,2 , 1, 0, -1, -2 ,-3 ,-4 , -5, -4, -3, -2 , -1, 0, 1, 2, 3, 4]
+                animate={{
+                  y: [
+                    5,
+                    4,
+                    3,
+                    2,
+                    1,
+                    0,
+                    -1,
+                    -2,
+                    -3,
+                    -4,
+                    -5,
+                    -4,
+                    -3,
+                    -2,
+                    -1,
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                  ],
                 }}
                 transition={{
                   duration: 2,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                   loop: Infinity,
                 }}
               >
-                <a href="https://mxm.one/maxitour"><MxmButton className={classes.maxilandbtn}><h2 className="maxiland-text2">KLIK DISINI!</h2></MxmButton></a>
+                <a
+                  href="https://mxm.one/maxitour"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <MxmButton className={classes.maxilandbtn}>
+                    <h2 className="maxiland-text2">KLIK DISINI!</h2>
+                  </MxmButton>
+                </a>
               </motion.div>
             </Box>
           </div>
           <motion.div
-            animate={{ 
-              y: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3 ,2 , 1, 0, -1, -2 ,-3 ,-4 ,-5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -14, -13, -12, -11 , -10, -9, -8, -7, -6, -5, -4, -3, -2 , -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+            animate={{
+              y: [
+                15,
+                14,
+                13,
+                12,
+                11,
+                10,
+                9,
+                8,
+                7,
+                6,
+                5,
+                4,
+                3,
+                2,
+                1,
+                0,
+                -1,
+                -2,
+                -3,
+                -4,
+                -5,
+                -6,
+                -7,
+                -8,
+                -9,
+                -10,
+                -11,
+                -12,
+                -13,
+                -14,
+                -15,
+                -14,
+                -13,
+                -12,
+                -11,
+                -10,
+                -9,
+                -8,
+                -7,
+                -6,
+                -5,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+              ],
             }}
             transition={{
               duration: 4.5,
-              ease: "easeInOut",
+              ease: 'easeInOut',
               loop: Infinity,
             }}
           >
-            <img src={MaxiLand} className="maxiland"/>
+            <img src={MaxiLand} className="maxiland" />
           </motion.div>
         </Box>
       </Box>

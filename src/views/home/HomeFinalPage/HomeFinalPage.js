@@ -309,7 +309,10 @@ const HomeFinalPage = () => {
             </MxmButton>
           </a>
           <a href={generator} target="_blank" rel="noreferrer">
-            <MxmButton type="button" style={{ width: '100%', marginTop: '1.5em' }}>
+            <MxmButton
+              type="button"
+              style={{ width: '100%', marginTop: '1.5em' }}
+            >
               Pasang Twibbon Otomatis
             </MxmButton>
           </a>
