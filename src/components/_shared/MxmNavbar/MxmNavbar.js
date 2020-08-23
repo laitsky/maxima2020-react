@@ -13,13 +13,14 @@ const isLoggedIn = !!window.sessionStorage.getItem('token');
 
 const useStyles = makeStyles({
   Redbutton: {
+    display: 'none',//diubah lagi pas state
     backgroundColor: '#F4224B',
     padding: '1px 5px 1px 5px',
     transitionDuration: '0.2s',
     marginLeft: '2px',
     marginRight: '2px',
     fontFamily: "'Baloo Tamma 2', sans-serif",
-    fontSize: 'large',
+    fontSize: '1.1vw',
     transform: 'scale(0.85)',
 
     '& a': {
@@ -38,14 +39,19 @@ const useStyles = makeStyles({
     '&:active a': {
       color: '#F2D008',
     },
+
+    '@media(max-width: 768px)':{
+      fontSize: 'large',
+    },
   },
   Whitebutton: {
+    display: 'none',//diubah lagi pas state
     padding: '1px 5px 1px 5px',
     transitionDuration: '0.2s',
     marginLeft: '2px',
     marginRight: '2px',
     fontFamily: "'Baloo Tamma 2', sans-serif",
-    fontSize: 'large',
+    fontSize: '1.1vw',
     transform: 'scale(0.85)',
 
     '& a': {
@@ -55,6 +61,10 @@ const useStyles = makeStyles({
 
     '&:hover a': {
       color: '#F2D008',
+    },
+
+    '@media(max-width: 768px)':{
+      fontSize: 'large',
     },
   },
 });
@@ -72,7 +82,7 @@ export default () => {
   };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window.matchMedia('(max-width: 1024px)');
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
 
@@ -145,6 +155,33 @@ export default () => {
                 style={{ margin: '0 15px 0 15px' }}
               >
                 Jingle MAXIMA
+              </NavLink>
+
+              <NavLink
+                to="/"
+                onClick={toggleNav}
+                exact
+                style={{ margin: '0 15px 0 15px' }}
+              >
+                MAXITOUR
+              </NavLink>
+
+              <NavLink
+                to="/"
+                onClick={toggleNav}
+                exact
+                style={{ margin: '0 15px 0 15px' }}
+              >
+                FAQ
+              </NavLink>
+
+              <NavLink
+                to="/"
+                onClick={toggleNav}
+                exact
+                style={{ margin: '0 15px 0 15px' }}
+              >
+                About US
               </NavLink>
             </div>
 

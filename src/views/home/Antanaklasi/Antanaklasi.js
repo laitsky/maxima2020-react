@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import AudioPlayer from 'react-h5-audio-player';
+import { makeStyles } from '@material-ui/core/styles';
 import { motion } from 'framer-motion';
 import { Container, Box } from '@material-ui/core';
 import { MxmWhite } from '../../../assets';
@@ -10,7 +11,25 @@ import 'react-h5-audio-player/src/styles.scss';
 import publicService from '../../../services/public';
 import { MxmButton } from '../../../components/reusable/button';
 
+const useStyles = makeStyles({
+  leftline: {
+    border: '4px solid #F2D008',
+    width: '15px',
+    margin: '0 15px 0 15px',
+    borderTopRightRadius: '25px',
+    borderBottomLeftRadius: '25px',
+    backgroundColor: '#F2D008',
+  },
+  antanaklasi:{
+    margin: '1em 0 1em 0', 
+    width: '100%', 
+    fontSize: '40px',
+    fontFamily: 'canaro-bold',
+  },
+});
+
 const Antanaklasi = () => {
+  const classes = useStyles();
   const { organisator } = useParams();
   const [data, setData] = useState({});
   const [voiceNote, setVoiceNote] = useState('');
@@ -63,7 +82,7 @@ const Antanaklasi = () => {
           textAlign: 'center',
         }}
       >
-        <Container maxWidth="sm" style={{ padding: '1em 0 1em 0' }}>
+        <Container maxWidth="sm" style={{ padding: '1em 10px 1em 10px' }}>
           <Box
             display="flex"
             flexDirection="column"
@@ -74,11 +93,16 @@ const Antanaklasi = () => {
               textAlign: 'center',
             }}
           >
-            <img
-              style={{ width: '200px', height: 'auto' }}
-              src={MxmWhite}
-              alt="Logo putih MAXIMA 2020"
-            />
+            <Box className={classes.antanaklasi}>
+              <h2 style={{ margin: '0' }}>ANTANA<br/></h2>
+              <Box
+                display="flex"
+                justifyContent="center"
+              >
+                <span className={classes.leftline} style={{ transform: 'rotate(90deg)'}}></span>
+                <h2 style={{ margin: '0 0 0 25px' }}>KLASI</h2>
+              </Box>
+            </Box>
             <h2 style={{ margin: 0 }}>
               Gunakan earphone biar
               <br />

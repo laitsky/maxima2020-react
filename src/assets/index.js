@@ -6,3 +6,5 @@ export { default as InstagramLogo } from './instagram.png';
 export { default as LINELogo } from './network.png';
 export { default as HomeIllus } from './home_illus.png';
 export { default as WhiteMxmBg } from './bg-web-flat.png';
+export { default as MxmFrame} from './Frame-07.png';
+export { default as MaxiLand} from './Maxiland-07.png';
