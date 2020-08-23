@@ -114,6 +114,7 @@ const MxmFooter = () => {
               display="flex"
               justifyContent="center"
               alignItems="center"
+              style={{ display: 'none' }}//diubah lagi pas state
             >
               {isLoggedIn ? (
                 <NavLink to="/logout" exact className={classes.link}>

@@ -298,18 +298,18 @@ const HomeFinalPage = () => {
       >
         <Box
           display="flex"
-          flexDirection="row"
+          flexDirection="column"
           justifyContent="center"
           alignItems="center"
           style={{ width: '100%', marginTop: '1.5em' }}
         >
           <a href={twibbon} download="TemplateTwibbon.png">
-            <MxmButton type="button" style={{ marginRight: '0.5em' }}>
+            <MxmButton type="button" style={{ width: '100%' }}>
               Unduh Template Twibbon
             </MxmButton>
           </a>
           <a href={generator} target="_blank" rel="noreferrer">
-            <MxmButton type="button">
+            <MxmButton type="button" style={{ width: '100%', marginTop: '1.5em' }}>
               Pasang Twibbon Otomatis
             </MxmButton>
           </a>
