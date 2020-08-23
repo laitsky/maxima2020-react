@@ -23,6 +23,8 @@ import {
   Forbidden403,
   Shortener,
   CustomShortener,
+  AboutUs,
+  FAQ,
 } from './views';
 import {
   AcaraRouter,
@@ -116,6 +118,8 @@ const AppRouter = () => {
             component={JingleMaxima}
           />
           <Route path="/tour" exact component={MaxiTour} />
+          <Route path="/about-us" exact component={AboutUs} />
+          <Route path="/faq" exact component={FAQ} />
           <Route path="/" exact component={Beranda} />
           <AuthRouter />
         </Switch>

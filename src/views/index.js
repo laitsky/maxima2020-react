@@ -4,7 +4,7 @@ export {
   DaftarOrganisator,
   ResetPassword,
 } from './auth';
-export { Beranda } from './beranda';
+export { Beranda, AboutUs, FAQ } from './beranda';
 export {
   HomeMainPage,
   HomePuzzle,
