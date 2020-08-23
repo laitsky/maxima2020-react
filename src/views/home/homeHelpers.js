@@ -4,6 +4,9 @@ const antanaklasiBaseUrl = (kategori) =>
 const twibbonBaseUrl = (nama) =>
   `https://d1z9g6p5mcoq6s.cloudfront.net/assets/twibbon/${nama}.png`;
 
+const twibbonGeneratorUrl = (nama) =>
+  `https://mxm.one/twibbon-${nama}`;
+
 const homeMatchParams = [
   {
     params: 'ukm-sains-dan-sosial',
@@ -12,6 +15,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('sains-dan-sosial'),
     twibbon: twibbonBaseUrl('koinonikes-eptimonikes'),
     kinitro: 'Temukan potensi, jadi diri sendiri!',
+    generator: twibbonGeneratorUrl('koinonikes'),
   },
   {
     params: 'ukm-seni-dan-budaya',
@@ -21,6 +25,7 @@ const homeMatchParams = [
     twibbon: twibbonBaseUrl('techni'),
     kinitro:
       'Lakukan seakan ini hari terakhir, bermimpi seakan hidup abadi!',
+    generator: twibbonGeneratorUrl('techni'),
   },
   {
     params: 'ukm-olahraga',
@@ -29,6 +34,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('olahraga'),
     twibbon: twibbonBaseUrl('athlima'),
     kinitro: 'Aku lebih dari impianku!',
+    generator: twibbonGeneratorUrl('athlima'),
   },
   {
     params: 'kegiatan-kemahasiswaan-dan-lembaga-semi-otonom',
@@ -37,6 +43,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('mahasiswa-dan-lso'),
     twibbon: twibbonBaseUrl('drastiriotites'),
     kinitro: 'Beri tahu dunia kamu luar biasa!',
+    generator: twibbonGeneratorUrl('drastiriotites'),
   },
   {
     params: 'media-kampus',
@@ -45,6 +52,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('media-kampus'),
     twibbon: twibbonBaseUrl('mesou'),
     kinitro: '1000 langkah besar dimulai dari 1 langkah kecil',
+    generator: twibbonGeneratorUrl('mesou'),
   },
   {
     params: 'komunitas',
@@ -53,6 +61,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('komunitas'),
     twibbon: twibbonBaseUrl('koinotita'),
     kinitro: 'Aku lebih dari sekedar kata mereka!',
+    generator: twibbonGeneratorUrl('koinotita'),
   },
   {
     params: 'lembaga-kampus',
@@ -61,6 +70,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('lembaga-kampus'),
     twibbon: twibbonBaseUrl('lydryma'),
     kinitro: 'Alasan untuk berhenti adalah sudah sampai di tujuan.',
+    generator: twibbonGeneratorUrl('lydryma'),
   },
   {
     params: 'organisasi-dan-himpunan-mahasiswa',
@@ -69,6 +79,7 @@ const homeMatchParams = [
     voicenote: antanaklasiBaseUrl('organisasi-dan-himpunan'),
     twibbon: twibbonBaseUrl('organosi'),
     kinitro: 'Satu tujuan, berjuta jalan!',
+    generator: twibbonGeneratorUrl('organosi'),
   },
 ];
 

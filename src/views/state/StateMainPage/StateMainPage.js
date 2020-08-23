@@ -88,14 +88,18 @@ const StateMainPage = () => {
                 type: 'spring',
                 stiffness: 100,
                 damping: 20,
-                delay: 0.2
+                delay: 0.2,
               }}
             >
               <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
             </motion.div>
             <h1
               className="mxm-navy"
-              style={{ textAlign: 'center', fontFamily: 'canaro-bold', marginTop: 0 }}
+              style={{
+                textAlign: 'center',
+                fontFamily: 'canaro-bold',
+                marginTop: 0,
+              }}
             >
               SELAMAT DATANG!
             </h1>
@@ -106,7 +110,7 @@ const StateMainPage = () => {
                 type: 'spring',
                 stiffness: 100,
                 damping: 20,
-                delay: 0.7
+                delay: 0.7,
               }}
             >
               <StateTokenContainer mt="0.25em" mb="1em">
@@ -119,7 +123,6 @@ const StateMainPage = () => {
                 </Alert>
               )}
             </motion.div>
-          
           </AlignMiddle>
           {days.map((day, i) => {
             if (hasDay.includes(day)) {
@@ -135,7 +138,7 @@ const StateMainPage = () => {
                     type: 'spring',
                     stiffness: 100,
                     damping: 20,
-                    delay: 1 + 0.3*i,
+                    delay: 1 + 0.3 * i,
                   }}
                 >
                   <Link
@@ -144,7 +147,9 @@ const StateMainPage = () => {
                     exact
                     style={{ textDecoration: 'none' }}
                   >
-                    <MxmLongCard key={`key${day}`}>{name}</MxmLongCard>
+                    <MxmLongCard key={`key${day}`}>
+                      {name}
+                    </MxmLongCard>
                   </Link>
                 </motion.div>
               );
@@ -157,16 +162,18 @@ const StateMainPage = () => {
                   type: 'spring',
                   stiffness: 100,
                   damping: 20,
-                  delay: 1 + 0.3*i,
+                  delay: 1 + 0.3 * i,
                 }}
-              >  
+              >
                 <Link
                   key={`key${day}`}
                   to={`/state/daftar/day${day}`}
                   exact
                   style={{ textDecoration: 'none' }}
                 >
-                  <MxmLongCard key={`key${day}`}>DAY 0{day}</MxmLongCard>
+                  <MxmLongCard key={`key${day}`}>
+                    DAY 0{day}
+                  </MxmLongCard>
                 </Link>
               </motion.div>
             );

@@ -146,7 +146,7 @@ const StateOrgDetail = () => {
               type: 'spring',
               stiffness: 50,
               damping: 20,
-              delay: 0.7
+              delay: 0.7,
             }}
           >
             <MxmLongCard className={classes.statecard}>
@@ -161,7 +161,7 @@ const StateOrgDetail = () => {
               type: 'spring',
               stiffness: 50,
               damping: 20,
-              delay: 1
+              delay: 1,
             }}
           >
             <MxmLongCard className={classes.statecard}>

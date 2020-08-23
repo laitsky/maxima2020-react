@@ -198,7 +198,6 @@ const HomePuzzle = () => {
               delay: 1.2,
             }}
           >
-
             <MxmHomeDeckItem>
               <Link
                 to="/home/organisator/komunitas"
@@ -225,7 +224,6 @@ const HomePuzzle = () => {
               delay: 1.4,
             }}
           >
-
             <MxmHomeDeckItem>
               <Link
                 to="/home/organisator/lembaga-kampus"
@@ -251,7 +249,7 @@ const HomePuzzle = () => {
               damping: 20,
               delay: 1.6,
             }}
-          >  
+          >
             <MxmHomeDeckItem>
               <Link
                 to="/home/organisator/organisasi-dan-himpunan-mahasiswa"

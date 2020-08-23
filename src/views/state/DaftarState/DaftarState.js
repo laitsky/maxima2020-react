@@ -88,7 +88,7 @@ const DaftarState = ({ day }) => {
               type: 'spring',
               stiffness: 50,
               damping: 20,
-              delay: 0.5
+              delay: 0.5,
             }}
           >
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -102,14 +102,18 @@ const DaftarState = ({ day }) => {
               />
               <StateSelectOverflow>
                 {organisatorsToShow.map((data) => (
-                  <RadioContainer key={data.nama} className="state-radio">
+                  <RadioContainer
+                    key={data.nama}
+                    className="state-radio"
+                  >
                     <input
                       type="radio"
                       name="organisator"
                       id={data.name}
                       value={data.name}
                       ref={register({
-                        required: 'Kamu harus memilih salah satu opsi!',
+                        required:
+                          'Kamu harus memilih salah satu opsi!',
                       })}
                       disabled={!data.slot}
                     />
@@ -128,7 +132,7 @@ const DaftarState = ({ day }) => {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="center"
-                style={{ paddingTop: '1em'}}
+                style={{ paddingTop: '1em' }}
               >
                 <MxmButton type="submit">Pilih</MxmButton>
               </Box>

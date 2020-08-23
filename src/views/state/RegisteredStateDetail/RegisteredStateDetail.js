@@ -266,7 +266,7 @@ const RegisteredStateDetail = ({ day }) => {
             type: 'spring',
             stiffness: 50,
             damping: 20,
-            delay: 0.7
+            delay: 0.7,
           }}
         >
           <MxmStateLogoFrame>
@@ -292,7 +292,7 @@ const RegisteredStateDetail = ({ day }) => {
               type: 'spring',
               stiffness: 50,
               damping: 20,
-              delay: 1.2
+              delay: 1.2,
             }}
           >
             <MxmLongCard className={classes.statecard}>
@@ -307,7 +307,7 @@ const RegisteredStateDetail = ({ day }) => {
               type: 'spring',
               stiffness: 50,
               damping: 20,
-              delay: 1.4
+              delay: 1.4,
             }}
           >
             <MxmLongCard

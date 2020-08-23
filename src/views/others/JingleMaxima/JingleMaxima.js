@@ -57,7 +57,7 @@ const JingleMaxima = () => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 20,
-                delay: 0.5
+                delay: 0.5,
               }}
             >
               <h1 className="jingle-bersama">BERSAMA</h1>
@@ -69,7 +69,7 @@ const JingleMaxima = () => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 20,
-                delay: 0.5
+                delay: 0.5,
               }}
             >
               <h1 className="jingle-maxima">MAXIMA</h1>
@@ -86,9 +86,9 @@ const JingleMaxima = () => {
               type: 'spring',
               stiffness: 50,
               damping: 20,
-              delay: 0.5
+              delay: 0.5,
             }}
-          >  
+          >
             <Box className={classes.lyrics}>
               <span className={classes.text}>
                 Halo semua
@@ -110,7 +110,9 @@ const JingleMaxima = () => {
                 <br />
                 REFF : <br />
                 Oooo Eeee bersama{' '}
-                <span className="jingle-maxima-highlight">MAXIMA</span>
+                <span className="jingle-maxima-highlight">
+                  MAXIMA
+                </span>
                 <br />
                 Oooo Eeeee ekspresikan dirimu
                 <br />
@@ -130,7 +132,9 @@ const JingleMaxima = () => {
                 Buka buka kita buka jalan baru <br />
                 Maju maju ayo kita melangkah maju <br />
                 Satukan hatimu, langkah maju, bersama{' '}
-                <span className="jingle-maxima-highlight">MAXIMA</span>
+                <span className="jingle-maxima-highlight">
+                  MAXIMA
+                </span>
                 <br />
                 <br />
                 REFF

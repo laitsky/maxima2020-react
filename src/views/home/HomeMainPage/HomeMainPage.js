@@ -108,10 +108,10 @@ const HomeMainPage = () => {
                     style={{ textAlign: 'center' }}
                   >
                     <p>
-                      Hall of Maxima Exhibition (HoME) merupakan pameran
-                      dari setiap kegiatan kemahasiswaan yang ada di UMN.
-                      HoME 2020 adalah tempat para mahasiswa baru datang
-                      dan mencari tahu{' '}
+                      Hall of Maxima Exhibition (HoME) merupakan
+                      pameran dari setiap kegiatan kemahasiswaan yang
+                      ada di UMN. HoME 2020 adalah tempat para
+                      mahasiswa baru datang dan mencari tahu{' '}
                       <span
                         style={{
                           backgroundColor: '#41CEBA',
@@ -122,7 +122,8 @@ const HomeMainPage = () => {
                         informasi tentang organisasi
                       </span>{' '}
                       yang akan mereka ikuti selama berkuliah di
-                      Universitas Multimedia Nusantara (UMN). HoME menjadi{' '}
+                      Universitas Multimedia Nusantara (UMN). HoME
+                      menjadi{' '}
                       <span
                         style={{
                           backgroundColor: '#F4224B',
@@ -132,10 +133,10 @@ const HomeMainPage = () => {
                       >
                         “Starting Point”
                       </span>{' '}
-                      bagi para mahasiswa baru untuk mengeksplorasi dan
-                      menggali informasi sebanyak mungkin mengenai
-                      Organisasi yang ada di UMN. HoME merupakan tempat
-                      mahasiswa{' '}
+                      bagi para mahasiswa baru untuk mengeksplorasi
+                      dan menggali informasi sebanyak mungkin mengenai
+                      Organisasi yang ada di UMN. HoME merupakan
+                      tempat mahasiswa{' '}
                       <span
                         style={{
                           backgroundColor: '#FFD008',

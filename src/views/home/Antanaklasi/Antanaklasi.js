@@ -56,8 +56,14 @@ const Antanaklasi = () => {
         damping: 20,
       }}
     >
-      <Box style={{ minHeight: '100vh', backgroundColor: '#F4224B', textAlign: 'center' }}>
-        <Container maxWidth="sm" style={{ padding: '1em 0 1em 0'}}>
+      <Box
+        style={{
+          minHeight: '100vh',
+          backgroundColor: '#F4224B',
+          textAlign: 'center',
+        }}
+      >
+        <Container maxWidth="sm" style={{ padding: '1em 0 1em 0' }}>
           <Box
             display="flex"
             flexDirection="column"

@@ -7,7 +7,10 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import { motion } from 'framer-motion';
 import publicService from '../../../services/public';
 import homeHelpers from '../homeHelpers';
-import { MxmButton } from '../../../components/reusable/button';
+import {
+  MxmButton,
+  MxmCancelButton,
+} from '../../../components/reusable/button';
 import { MxmLogo } from '../../../assets';
 
 const useStyles = makeStyles({
@@ -43,6 +46,7 @@ const HomeFinalPage = () => {
   const { organisator } = useParams();
   const [data, setData] = useState({});
   const [twibbon, setTwibbon] = useState('');
+  const [generator, setGenerator] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +72,9 @@ const HomeFinalPage = () => {
   useEffect(() => {
     const { kategori } = data;
     homeHelpers.homeMatchParams.find((d) =>
-      d.kategori === kategori ? setTwibbon(d.twibbon) : null,
+      d.kategori === kategori
+        ? (setTwibbon(d.twibbon), setGenerator(d.generator))
+        : null,
     );
   }, [data]);
 
@@ -89,7 +95,7 @@ const HomeFinalPage = () => {
       style={{ padding: '18px 10px 18px 10px', minHeight: '100vh' }}
     >
       <motion.div
-        initial={{ y: -999, opacity: 0}}
+        initial={{ y: -999, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
           type: 'spring',
@@ -119,18 +125,13 @@ const HomeFinalPage = () => {
             Ayo ceritakan dan tunjukkan pengalaman serumu dengan
             memakai Twibbon ini!
           </span>
-          <span className={classes.download}>
-            (klik di gambar untuk mengunduh)
-          </span>
           {twibbon ? (
-            <a href={twibbon} download="Twibbon HoME 2020">
-              <img
-                src={twibbon}
-                alt="Twibbon"
-                title="Twibbon"
-                className={classes.image}
-              />
-            </a>
+            <img
+              src={twibbon}
+              alt="Twibbon"
+              title="Twibbon"
+              className={classes.image}
+            />
           ) : (
             <Skeleton
               variant="rect"
@@ -144,7 +145,7 @@ const HomeFinalPage = () => {
       <Box style={{ textAlign: 'left', color: '#1F2C4C' }}>
         <ol>
           <motion.div
-            initial={{ x: -999, opacity: 0}}
+            initial={{ x: -999, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
               type: 'spring',
@@ -167,7 +168,7 @@ const HomeFinalPage = () => {
           </motion.div>
           <br />
           <motion.div
-            initial={{ x: 999, opacity: 0}}
+            initial={{ x: 999, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
               type: 'spring',
@@ -200,7 +201,7 @@ const HomeFinalPage = () => {
           </motion.div>
           <br />
           <motion.div
-            initial={{ x: -999, opacity: 0}}
+            initial={{ x: -999, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
               type: 'spring',
@@ -217,7 +218,7 @@ const HomeFinalPage = () => {
           </motion.div>
           <br />
           <motion.div
-            initial={{ x: 999, opacity: 0}}
+            initial={{ x: 999, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
               type: 'spring',
@@ -248,7 +249,7 @@ const HomeFinalPage = () => {
           </motion.div>
           <br />
           <motion.div
-            initial={{ x: -999, opacity: 0}}
+            initial={{ x: -999, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
               type: 'spring',
@@ -271,7 +272,7 @@ const HomeFinalPage = () => {
           </motion.div>
         </ol>
         <motion.div
-          initial={{ y: 999, opacity: 0}}
+          initial={{ y: 999, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
             type: 'spring',
@@ -279,14 +280,14 @@ const HomeFinalPage = () => {
             damping: 20,
             delay: 1.5,
           }}
-        >  
+        >
           <span style={{ textTransform: 'uppercase' }}>
             {randomPantun()}
           </span>
         </motion.div>
       </Box>
       <motion.div
-        initial={{ y: 999, opacity: 0}}
+        initial={{ y: 999, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
           type: 'spring',
@@ -294,7 +295,25 @@ const HomeFinalPage = () => {
           damping: 20,
           delay: 1.5,
         }}
-      >  
+      >
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent="center"
+          alignItems="center"
+          style={{ width: '100%', marginTop: '1.5em' }}
+        >
+          <a href={twibbon} download="TemplateTwibbon.png">
+            <MxmButton type="button" style={{ marginRight: '0.5em' }}>
+              Unduh Template Twibbon
+            </MxmButton>
+          </a>
+          <a href={generator} target="_blank" rel="noreferrer">
+            <MxmButton type="button">
+              Pasang Twibbon Otomatis
+            </MxmButton>
+          </a>
+        </Box>
         <Box
           display="flex"
           justifyContent="center"
@@ -302,7 +321,9 @@ const HomeFinalPage = () => {
           style={{ width: '100%', marginTop: '1.5em' }}
         >
           <Link to="/home">
-            <MxmButton type="button">Kembali ke HoME</MxmButton>
+            <MxmCancelButton type="button">
+              Kembali ke HoME
+            </MxmCancelButton>
           </Link>
         </Box>
       </motion.div>

@@ -28,7 +28,6 @@ const useStyles = makeStyles({
 });
 
 const HomeLists = () => {
-
   const classes = useStyles();
   const { kategori } = useParams();
   const [data, setData] = useState([]);
@@ -92,7 +91,7 @@ const HomeLists = () => {
               type: 'spring',
               stiffness: 100,
               damping: 20,
-              delay: 0.2 + (0.2 * i),
+              delay: 0.2 + 0.2 * i,
             }}
           >
             <Box className="homelist-middle">
