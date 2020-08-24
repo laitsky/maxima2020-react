@@ -157,17 +157,17 @@ export default () => {
                 Jingle MAXIMA
               </NavLink>
 
-              <NavLink
-                to="/"
-                onClick={toggleNav}
-                exact
+              <a
+                href="https://mxm.one/maxitour"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ margin: '0 15px 0 15px' }}
               >
                 MAXITOUR
-              </NavLink>
+              </a>
 
               <NavLink
-                to="/"
+                to="/faq"
                 onClick={toggleNav}
                 exact
                 style={{ margin: '0 15px 0 15px' }}
@@ -176,12 +176,12 @@ export default () => {
               </NavLink>
 
               <NavLink
-                to="/"
+                to="/about-us"
                 onClick={toggleNav}
                 exact
                 style={{ margin: '0 15px 0 15px' }}
               >
-                About US
+                About Us
               </NavLink>
             </div>
 

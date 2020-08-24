@@ -17,7 +17,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const useStyles = makeStyles({
   container: {
-    textAlign: 'left',
+    textAlign: 'justify',
     border: 'solid #41CEBA',
     borderRadius: '15px',
     padding: '5px 20px 5px 20px',

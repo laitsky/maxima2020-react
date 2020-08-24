@@ -141,16 +141,16 @@ const MxmFooter = () => {
             </Box>
 
             <Box>
-              <NavLink to="/" exact className={classes.link}>
-                LINK
+              <NavLink to="/home" exact className={classes.link}>
+                HoME
               </NavLink>
               <span className="mxm-foo-subcontent-divider"> | </span>
-              <NavLink to="/" exact className={classes.link}>
-                LINK
+              <NavLink to="/faq" exact className={classes.link}>
+                FAQ
               </NavLink>
               <span className="mxm-foo-subcontent-divider"> | </span>
-              <NavLink to="/" exact className={classes.link}>
-                LINK
+              <NavLink to="/about-us" exact className={classes.link}>
+                About Us
               </NavLink>
             </Box>
           </Box>

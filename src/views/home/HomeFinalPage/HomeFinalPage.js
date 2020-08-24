@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   ayotwibbon: {
     fontSize: '20px',
     margin: '10px 0 0 0',
-
+    marginBottom: '1em',
     '@media (max-width: 766px)': {
       fontSize: '15px',
     },
