@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
 import { AlignMiddle } from '../../../components';
-import { YellowLogo, MaxiLand, MxmFrame } from '../../../assets';
+import { YellowLogo, MaxiLand, MxmFrame, FrameAtas, FrameBawah, KapalMxm, MxmLogoText } from '../../../assets';
 import { MxmButton } from '../../../components/reusable/button';
 import './Beranda.scss';
 
@@ -32,6 +32,102 @@ const Beranda = () => {
       }}
     >
       <Box className="new-beranda">
+        <img src={FrameAtas} className="maxiland-alt-frame"/>
+        <Box className="new-beranda-container" id="kapal-maxima">
+          <motion.div
+            animate={{
+              y: [
+                7,
+                6,
+                5,
+                4,
+                3,
+                2,
+                1,
+                0,
+                -1,
+                -2,
+                -3,
+                -4,
+                -5,
+                -6,
+                -7,
+                -6,
+                -5,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+              ],
+            }}
+            transition={{
+              duration: 3.5,
+              ease: 'easeInOut',
+              loop: Infinity,
+            }}
+          >
+            <img src={KapalMxm} alt="Maxiland" className="maxiland" />
+          </motion.div>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <img src={MxmLogoText} className="kapal-maxima-logo"/>
+            <h1 className="maxiland-text" style={{ marginTop: '0', marginBottom: '10px' }}>AHOY WANDERERS!</h1>
+            <span className="your-journey">
+              Your odyssey starts here
+            </span>
+            <motion.div
+              animate={{
+                y: [
+                  5,
+                  4,
+                  3,
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -2,
+                  -3,
+                  -4,
+                  -5,
+                  -4,
+                  -3,
+                  -2,
+                  -1,
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                ],
+              }}
+              transition={{
+                duration: 2,
+                ease: 'easeInOut',
+                loop: Infinity,
+              }}
+            >
+              <a
+                href="/home"
+                rel="noreferrer"
+              >
+                <MxmButton className={classes.maxilandbtn}>
+                  <h4 className="maxiland-text-here">Visit HoME 2020</h4>
+                </MxmButton>
+              </a>
+            </motion.div>
+          </Box>
+        </Box>
         <Box className="new-beranda-container">
           <div>
             <h1 className="maxiland-text">
@@ -46,46 +142,6 @@ const Beranda = () => {
               alignItems="center"
               width="100%"
             >
-              <motion.div
-                animate={{
-                  y: [
-                    5,
-                    4,
-                    3,
-                    2,
-                    1,
-                    0,
-                    -1,
-                    -2,
-                    -3,
-                    -4,
-                    -5,
-                    -4,
-                    -3,
-                    -2,
-                    -1,
-                    0,
-                    1,
-                    2,
-                    3,
-                    4,
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  ease: 'easeInOut',
-                  loop: Infinity,
-                }}
-              >
-                <Link to="/home">
-                  <MxmButton
-                    className={classes.maxilandbtn}
-                    style={{ marginRight: '1.2em' }}
-                  >
-                    <h6 className="maxiland-text2">HoME 2020</h6>
-                  </MxmButton>
-                </Link>
-              </motion.div>
               <motion.div
                 animate={{
                   y: [
@@ -203,6 +259,7 @@ const Beranda = () => {
             <img src={MaxiLand} alt="Maxiland" className="maxiland" />
           </motion.div>
         </Box>
+        <img src={FrameBawah} className="maxiland-alt-frame"/>
       </Box>
     </motion.div>
   );

@@ -63,17 +63,39 @@ const DaftarOrganisator = () => {
       <Container maxWidth="sm">
         <form onSubmit={handleSubmit(onSubmit)}>
           <AlignMiddle>
-            <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
-            <h1
-              className="mxm-navy"
-              style={{
-                textAlign: 'center',
-                fontSize: 'x-large',
-                fontFamily: 'canaro-bold',
+            <motion.div
+              initial={{ y: -999, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 0.5
               }}
             >
-              PENDAFTARAN AKUN ORGANISATOR MAXIMA 2020
-            </h1>
+              <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
+            </motion.div>
+            <motion.div
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 1.2
+              }}
+            >
+              <h1
+                className="mxm-navy"
+                style={{
+                  textAlign: 'center',
+                  fontSize: 'x-large',
+                  fontFamily: 'canaro-bold',
+                }}
+              >
+                PENDAFTARAN AKUN ORGANISATOR MAXIMA 2020
+              </h1>
+            </motion.div>
             <MxmInput
               type="text"
               name="name"

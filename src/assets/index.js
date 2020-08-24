@@ -8,3 +8,6 @@ export { default as HomeIllus } from './home_illus.png';
 export { default as WhiteMxmBg } from './bg-web-flat.png';
 export { default as MxmFrame} from './Frame-07.png';
 export { default as MaxiLand} from './Maxiland-07.png';
+export { default as KapalMxm} from './Kapal-01.png';
+export { default as FrameAtas } from './Frame-Atas.png';
+export { default as FrameBawah } from './Frame-Bawah.png';

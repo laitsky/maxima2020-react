@@ -84,19 +84,41 @@ const LoginPage = () => {
       <Container maxWidth="sm">
         <form onSubmit={handleSubmit(onSubmit)}>
           <AlignMiddle>
-            <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
-            <h1
-              className="mxm-navy"
-              style={{
-                margin: 0,
-                marginBottom: '0.5em',
-                fontSize: 'x-large',
-                textAlign: 'center',
-                fontFamily: 'canaro-bold',
+            <motion.div
+              initial={{ y: -500, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 0.5
               }}
             >
-              SELAMAT DATANG!
-            </h1>
+              <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
+            </motion.div>
+            <motion.div
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 1.2
+              }}
+            >
+              <h1
+                className="mxm-navy"
+                style={{
+                  margin: 0,
+                  marginBottom: '0.5em',
+                  fontSize: 'x-large',
+                  textAlign: 'center',
+                  fontFamily: 'canaro-bold',
+                }}
+              >
+                SELAMAT DATANG!
+              </h1>
+            </motion.div>
             {location.data && (
               <Alert severity={location.data.severity}>
                 {location.data.message}
@@ -140,62 +162,73 @@ const LoginPage = () => {
             ) : (
               <MxmLoading />
             )}
-            <Box mt={4}>
-              <Link
-                to="/reset-password"
-                exact
-                style={{ textDecoration: 'none' }}
-              >
-                {' '}
-                <h4
-                  className="mxm-pink"
-                  style={{ textAlign: 'center' }}
+            <motion.div
+              initial={{ y: 999, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 0.5
+              }}
+            >
+              <Box mt={4}>
+                <Link
+                  to="/reset-password"
+                  exact
+                  style={{ textDecoration: 'none' }}
                 >
                   {' '}
-                  Lupa Password?{' '}
-                </h4>
-              </Link>
-              <Link
-                to="/daftar"
-                exact
-                style={{ textDecoration: 'none' }}
-              >
-                <h4
-                  className="mxm-cyan"
-                  style={{ textAlign: 'center' }}
-                >
-                  Belum memiliki akun?
-                  <span
-                    style={{
-                      fontFamily: 'canaro-bold',
-                      marginLeft: 5,
-                    }}
+                  <h4
+                    className="mxm-pink"
+                    style={{ textAlign: 'center' }}
                   >
-                    Daftar akun mahasiswa baru.
-                  </span>
-                </h4>
-              </Link>
-              <Link
-                to="/daftar-organisator"
-                exact
-                style={{ textDecoration: 'none' }}
-              >
-                <h4
-                  className="mxm-cyan"
-                  style={{ textAlign: 'center' }}
+                    {' '}
+                    Lupa Password?{' '}
+                  </h4>
+                </Link>
+                <Link
+                  to="/daftar"
+                  exact
+                  style={{ textDecoration: 'none' }}
                 >
-                  Daftar akun organisator
-                  <span
-                    style={{
-                      fontFamily: 'canaro-bold',
-                      marginLeft: 5,
-                    }}
+                  <h4
+                    className="mxm-cyan"
+                    style={{ textAlign: 'center' }}
                   >
-                    disini.
-                  </span>
-                </h4>
-              </Link>
-            </Box>
+                    Belum memiliki akun?
+                    <span
+                      style={{
+                        fontFamily: 'canaro-bold',
+                        marginLeft: 5,
+                      }}
+                    >
+                      Daftar akun mahasiswa baru.
+                    </span>
+                  </h4>
+                </Link>
+                <Link
+                  to="/daftar-organisator"
+                  exact
+                  style={{ textDecoration: 'none' }}
+                >
+                  <h4
+                    className="mxm-cyan"
+                    style={{ textAlign: 'center' }}
+                  >
+                    Daftar akun organisator
+                    <span
+                      style={{
+                        fontFamily: 'canaro-bold',
+                        marginLeft: 5,
+                      }}
+                    >
+                      disini.
+                    </span>
+                  </h4>
+                </Link>
+              </Box>
+            </motion.div>
           </AlignMiddle>
         </form>
       </Container>
