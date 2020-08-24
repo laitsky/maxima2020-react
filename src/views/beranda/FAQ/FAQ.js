@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { motion } from 'framer-motion';
 import { AlignMiddle, MxmLogoContainer } from '../../../components';
 import { MxmLogoText } from '../../../assets';
 import { contents } from './contents';
@@ -16,15 +17,36 @@ const FAQ = () => {
     <div style={{ backgroundColor: '#fafafa', minHeight: '100vh' }}>
       <Container maxWidth="md">
         <AlignMiddle style={{ paddingTop: '2em' }}>
-          <MxmLogoContainer src={MxmLogoText} alt="Logo MAXIMA" />
-          <h1
-            className="mxm-navy"
-            style={{ fontFamily: 'canaro-bold' }}
-          >
-            FREQUENTLY ASKED QUESTIONS
-          </h1>
+          <motion.div
+            initial={{ y: -999, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 100,
+              damping: 20,
+            }}
+          >          
+            <MxmLogoContainer src={MxmLogoText} alt="Logo MAXIMA" />
+          </motion.div>
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              type: 'spring',
+              stiffness: 100,
+              damping: 20,
+              delay: 0.6
+            }}
+          >  
+            <h1
+              className="mxm-navy"
+              style={{ fontFamily: 'canaro-bold' }}
+            >
+              FREQUENTLY ASKED QUESTIONS
+            </h1>
+          </motion.div>
         </AlignMiddle>
-        {contents.map((c, i) => (
+        {contents.map((c, i, d) => (
           <Accordion key={c.title}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}

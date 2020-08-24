@@ -8,7 +8,7 @@
 
   display: grid;
   grid-template-areas: 'logo nav';
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 23% 75%;
 
   /* Cosmetics */
   background-color: white;
@@ -43,7 +43,6 @@
 .Nav {
   display: grid;
   grid-area: nav;
-  grid-template-areas: '. . .';
   grid-template-columns: auto auto;
   align-items: center;
   justify-items: center;
