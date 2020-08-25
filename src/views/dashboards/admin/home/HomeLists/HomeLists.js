@@ -72,9 +72,6 @@ const HomeLists = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log('data: ', data);
-  }, [data]);
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>
       <h1>Daftar Organisator HOME 2020</h1>

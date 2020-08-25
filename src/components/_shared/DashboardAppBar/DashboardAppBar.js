@@ -23,35 +23,56 @@ const DashboardAppBar = ({
   handleToggleSidebar,
   title,
   logout,
-  back,
+  minimal,
 }) => {
   const history = useHistory();
   const classes = useStyles();
+  const appBar = () => {
+    if (minimal === 'panitiaRegis') {
+      return (
+        <IconButton
+          type="button"
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="back"
+          onClick={() => history.push('/panitia')}
+        >
+          <HomeIcon />
+        </IconButton>
+      );
+    }
+    if (minimal === 'organisator') {
+      return (
+        <IconButton
+          type="button"
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="back"
+          onClick={() => history.push('/organisator')}
+        >
+          <HomeIcon />
+        </IconButton>
+      );
+    }
+
+    return (
+      <IconButton
+        edge="start"
+        className={classes.menuButton}
+        color="inherit"
+        aria-label="menu"
+        onClick={handleToggleSidebar}
+      >
+        <MenuIcon />
+      </IconButton>
+    );
+  };
   return (
     <AppBar>
       <Toolbar>
-        {back ? (
-          <IconButton
-            type="button"
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="back"
-            onClick={() => history.push('/panitia')}
-          >
-            <HomeIcon />
-          </IconButton>
-        ) : (
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={handleToggleSidebar}
-          >
-            <MenuIcon />
-          </IconButton>
-        )}
+        {appBar()}
         <Typography variant="h6" className={classes.title}>
           {title}
         </Typography>

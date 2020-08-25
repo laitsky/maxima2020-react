@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import {
   Timeline,
@@ -14,6 +15,7 @@ import Swal from 'sweetalert2';
 import studentService from '../../../services/student';
 
 const Linimasa = () => {
+  const history = useHistory();
   const [data, setData] = useState([]);
   const [hasDay, setDays] = useState([]);
   const days = [...Array(4).keys()].map((i) => i + 1);
@@ -23,7 +25,7 @@ const Linimasa = () => {
     try {
       decoded = jwtDecode(window.sessionStorage.getItem('token'));
     } catch (InvalidTokenError) {
-      console.log(InvalidTokenError);
+      history.push('/404');
     }
     const fetchData = async () => {
       try {
@@ -44,13 +46,8 @@ const Linimasa = () => {
   }, []);
 
   useEffect(() => {
-    console.log('data', data);
     setDays(data.map((d) => d.state_activity.day));
   }, [data]);
-
-  useEffect(() => {
-    console.log('hasDay', hasDay);
-  }, [hasDay]);
 
   return (
     <>

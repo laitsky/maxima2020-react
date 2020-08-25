@@ -25,7 +25,7 @@ const FAQ = () => {
               stiffness: 100,
               damping: 20,
             }}
-          >          
+          >
             <MxmLogoContainer src={MxmLogoText} alt="Logo MAXIMA" />
           </motion.div>
           <motion.div
@@ -35,9 +35,9 @@ const FAQ = () => {
               type: 'spring',
               stiffness: 100,
               damping: 20,
-              delay: 0.6
+              delay: 0.6,
             }}
-          >  
+          >
             <h1
               className="mxm-navy"
               style={{ fontFamily: 'canaro-bold' }}
@@ -46,7 +46,7 @@ const FAQ = () => {
             </h1>
           </motion.div>
         </AlignMiddle>
-        {contents.map((c, i, d) => (
+        {contents.map((c, i) => (
           <Accordion key={c.title}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}

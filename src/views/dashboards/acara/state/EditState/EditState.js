@@ -27,7 +27,6 @@ const EditState = () => {
       originUrl,
       cdnUrl,
     );
-    console.log(formData);
 
     try {
       const returnedStatus = await acaraService.editState(

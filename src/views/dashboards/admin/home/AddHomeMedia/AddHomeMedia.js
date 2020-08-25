@@ -26,8 +26,7 @@ const AddHomeMedia = () => {
       link_media: formData.link_media.replace(originUrl, cdnUrl),
     };
     try {
-      const returnedData = await adminService.addHomeMedia(newData);
-      console.log(returnedData);
+      await adminService.addHomeMedia(newData);
     } catch (error) {
       Swal.fire({
         title: 'Perhatian!',
@@ -55,10 +54,6 @@ const AddHomeMedia = () => {
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
 
   return (
     <Container maxWidth="md" style={{ paddingTop: '2em' }}>

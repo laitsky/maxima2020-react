@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { Link, useHistory } from 'react-router-dom';
 import { Container, Box } from '@material-ui/core';
 import logo from '../../../assets/mxm20_logo.png';
 import {
@@ -18,6 +19,7 @@ import {
 import authService from '../../../services/auth';
 
 const DaftarOrganisator = () => {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, errors, watch } = useForm({
     mode: 'onChange',
@@ -39,13 +41,23 @@ const DaftarOrganisator = () => {
       email: `${data.email}@student.umn.ac.id`,
       roles: 'ukm',
     };
-    console.log(dataOrganisator);
 
     try {
-      const returnedData = await authService.daftar(dataOrganisator);
-      console.log(returnedData);
-    } catch (ex) {
-      console.log(ex.response.data);
+      await authService.daftar(dataOrganisator);
+      history.push({
+        pathname: '/login',
+        data: {
+          severity: 'info',
+          message: `Kamu berhasil mendaftarkan akun MAXIMA 2020. Silakan masuk.`,
+        },
+      });
+    } catch (error) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
     }
     setLoading(false);
   };
@@ -70,7 +82,7 @@ const DaftarOrganisator = () => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 20,
-                delay: 0.5
+                delay: 0.5,
               }}
             >
               <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
@@ -82,7 +94,7 @@ const DaftarOrganisator = () => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 20,
-                delay: 1.2
+                delay: 1.2,
               }}
             >
               <h1

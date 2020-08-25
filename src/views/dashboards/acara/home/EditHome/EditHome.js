@@ -31,7 +31,6 @@ const EditHome = () => {
       link_logo: formData.link_logo.replace(originUrl, cdnUrl),
       link_video: formData.link_video.replace(ytUrl, embedYtUrl),
     };
-    console.log(newData);
 
     try {
       const retunedStatus = await acaraService.editHome(

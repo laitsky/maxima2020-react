@@ -5,7 +5,6 @@ import AudioPlayer from 'react-h5-audio-player';
 import { makeStyles } from '@material-ui/core/styles';
 import { motion } from 'framer-motion';
 import { Container, Box } from '@material-ui/core';
-import { MxmWhite } from '../../../assets';
 import homeHelpers from '../homeHelpers';
 import 'react-h5-audio-player/src/styles.scss';
 import publicService from '../../../services/public';

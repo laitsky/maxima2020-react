@@ -35,7 +35,7 @@ const tableColumns = [
       sort: true,
       customBodyRender: (_value, tableMeta) => (
         <>
-          {_value} Hari {tableMeta.rowData[1]}
+          {_value} (Hari {tableMeta.rowData[1]})
         </>
       ),
     },
@@ -94,9 +94,7 @@ const Dashboard = () => {
 
   return (
     <Container style={{ paddingTop: '2em' }}>
-      <h1 style={{ marginTop: '1.5em' }}>
-        Kegiatan STATE yang bisa kamu lihat:
-      </h1>
+      <h1 style={{ marginTop: '1.5em' }}>Dashboard Kamu</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <Box style={{ marginTop: '1em' }}>
         <MUIDataTable data={data} columns={tableColumns} />

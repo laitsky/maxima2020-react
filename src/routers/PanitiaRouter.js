@@ -12,7 +12,11 @@ const PanitiaRouter = () => {
       fontFamily="Open Sans"
       style={{ marginTop: '3em' }}
     >
-      <DashboardAppBar title="Laman Panitia" logout back />
+      <DashboardAppBar
+        title="Laman Panitia"
+        logout
+        minimal="panitiaRegis"
+      />
       <Switch>
         <Route path="/panitia" exact component={PanitiaDashboard} />
         <Route

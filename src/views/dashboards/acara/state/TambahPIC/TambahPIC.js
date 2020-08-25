@@ -58,7 +58,6 @@ const TambahPIC = () => {
       ).nim,
       state_id: stateList.find((d) => d.name === data.state).state_id,
     };
-    console.log(newData);
     try {
       await acaraService.addPIC(newData);
       history.push({

@@ -18,10 +18,8 @@ const TambahState = () => {
 
   const onSubmit = async (data) => {
     reset();
-    console.log(data);
     try {
       const returnedStatus = await adminService.addState(data);
-      console.log(returnedStatus);
       if (returnedStatus === 200) {
         history.push({
           pathname: '/admin/state-lists',

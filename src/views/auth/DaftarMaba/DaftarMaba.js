@@ -83,7 +83,7 @@ const DaftarMaba = () => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 20,
-                delay: 0.5
+                delay: 0.5,
               }}
             >
               <MxmLogoContainer src={logo} alt="MAXIMA 2020 Logo" />
@@ -95,7 +95,7 @@ const DaftarMaba = () => {
                 type: 'spring',
                 stiffness: 50,
                 damping: 20,
-                delay: 1.2
+                delay: 1.2,
               }}
             >
               <h1

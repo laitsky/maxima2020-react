@@ -85,14 +85,6 @@ const StateDetail = () => {
     setValue(newValue);
   };
 
-  useEffect(() => {
-    console.log('data', data);
-  }, [data]);
-
-  useEffect(() => {
-    console.log('registered', registered);
-  }, [registered]);
-
   return (
     <>
       <h1>Detail Kegiatan dan Peserta Registrasi STATE</h1>

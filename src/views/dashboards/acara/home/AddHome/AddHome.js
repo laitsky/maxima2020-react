@@ -35,10 +35,8 @@ const AddHome = () => {
       link_video: data.link_video.replace(ytUrl, embedYtUrl),
     };
     setKategori('');
-    console.log(newData);
     try {
       const returnedStatus = await acaraService.addHome(newData);
-      console.log(returnedStatus);
       if (returnedStatus === 200) {
         history.push({
           pathname: '/acara/home-lists',

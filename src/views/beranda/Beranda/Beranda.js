@@ -3,9 +3,14 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Box } from '@material-ui/core';
-import { AlignMiddle } from '../../../components';
-import { YellowLogo, MaxiLand, MxmFrame, FrameAtas, FrameBawah, KapalMxm, MxmLogoText } from '../../../assets';
+import { Box } from '@material-ui/core';
+import {
+  MaxiLand,
+  FrameAtas,
+  FrameBawah,
+  KapalMxm,
+  MxmLogoText,
+} from '../../../assets';
 import { MxmButton } from '../../../components/reusable/button';
 import './Beranda.scss';
 
@@ -32,7 +37,11 @@ const Beranda = () => {
       }}
     >
       <Box className="new-beranda">
-        <img src={FrameAtas} className="maxiland-alt-frame"/>
+        <img
+          src={FrameAtas}
+          alt="Frame atas"
+          className="maxiland-alt-frame"
+        />
         <Box className="new-beranda-container" id="kapal-maxima">
           <motion.div
             animate={{
@@ -81,8 +90,17 @@ const Beranda = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <img src={MxmLogoText} className="kapal-maxima-logo"/>
-            <h1 className="maxiland-text" style={{ marginTop: '0', marginBottom: '10px' }}>AHOY WANDERERS!</h1>
+            <img
+              src={MxmLogoText}
+              alt="kapal maxima"
+              className="kapal-maxima-logo"
+            />
+            <h1
+              className="maxiland-text"
+              style={{ marginTop: '0', marginBottom: '10px' }}
+            >
+              AHOY WANDERERS!
+            </h1>
             <span className="your-journey">
               Your odyssey starts here
             </span>
@@ -117,14 +135,13 @@ const Beranda = () => {
                 loop: Infinity,
               }}
             >
-              <a
-                href="/home"
-                rel="noreferrer"
-              >
+              <Link to="/home">
                 <MxmButton className={classes.maxilandbtn}>
-                  <h4 className="maxiland-text-here">Visit HoME 2020</h4>
+                  <h4 className="maxiland-text-here">
+                    Visit HoME 2020
+                  </h4>
                 </MxmButton>
-              </a>
+              </Link>
             </motion.div>
           </Box>
         </Box>
@@ -176,7 +193,7 @@ const Beranda = () => {
                 <a
                   href="https://mxm.one/maxitour"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                 >
                   <MxmButton className={classes.maxilandbtn}>
                     <h2 className="maxiland-text2">MAXITOUR</h2>
@@ -259,7 +276,11 @@ const Beranda = () => {
             <img src={MaxiLand} alt="Maxiland" className="maxiland" />
           </motion.div>
         </Box>
-        <img src={FrameBawah} className="maxiland-alt-frame"/>
+        <img
+          src={FrameBawah}
+          alt="frame bawah"
+          className="maxiland-alt-frame"
+        />
       </Box>
     </motion.div>
   );
