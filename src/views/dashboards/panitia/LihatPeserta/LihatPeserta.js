@@ -24,6 +24,15 @@ const tableColumns = [
       ),
     },
   },
+  {
+    name: 'kehadiran',
+    label: 'Kehadiran',
+    options: {
+      filter: true,
+      sort: true,
+      customBodyRender: (value) => <>{value ? 'Ya' : 'Tidak'}</>,
+    },
+  },
 ];
 
 const LihatPeserta = () => {
