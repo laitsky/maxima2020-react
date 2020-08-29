@@ -70,7 +70,7 @@ Twibbon digunakan hingga akhir rangkaian MAXIMA 2020 (26 September 2020)
       `,
   },
   {
-    title: 'Timeline rangkaian acara MAXIMA 2020',
+    title: 'Timeline Rangkaian Acara MAXIMA 2020',
     content: `
        - HoME (Hall of Maxima Exhibition): Dibuka 24 Agustus 2020 (Dapat diakses di manapun, kapanpun)
        - Registrasi STATE: 31 Agustus 2020 - 4 September 2020
@@ -88,4 +88,82 @@ Twibbon digunakan hingga akhir rangkaian MAXIMA 2020 (26 September 2020)
     Informasi terkait Open Recruitment organisasi tersebut dapat diperoleh melalui sosial media organisasi dan STATE.    
     `,
   },
+  {
+    title: 'Cara Mendaftar STATE',
+    content: `
+      Pendaftaran STATE akan dibuka pada tanggal 31 Agustus 2020 hingga 4 September 2020 bagi para Mahasiswa Baru UMN 2020. 
+
+	Langkah-langkah untuk mendaftar STATE :
+        -Akses Website maxima.umn.ac.id
+        -Klik ‘Masuk’ untuk mendaftarkan akun baru
+        -Lalu Klik ‘STATE’ untuk memulai pendaftaran kegiatan STATE 
+        -Pilih hari yang dituju dan klik kegiatan yang diinginkan
+        -Ketuk ‘Simpan’ untuk menyelesaikan pendaftaran STATE
+        -Jika ingin membatalkan kegiatan, bisa memilih ‘ Batalkan STATE ini”
+        -Lihat jadwal STATE mu dari tombol navigasi dibawah “Schedule”
+    `,
+  },
+  {
+    title: 'Registrasi Ulang saat STATE',
+    content: `
+    Sebelum mengikuti kegiatan STATE yang berlangsung pada tanggal 7-10 September 2020 (18.15-21.30 WIB), peserta dihimbau untuk menjalankan ISHOMA dan makan malam terlebih dahulu.
+
+  Registrasi ulang akan dimulai pukul 18.15 - 18.30 WIB dengan tata cara berikut:
+      -Para peserta memasuki ruangan Zoom melalui link yang telah di-share melalui web maxima.umn.ac.id setelah mendaftarkan STATE.
+      -Peserta akan dialihkan untuk masuk di Waiting Room terlebih dahulu.
+      -Petugas registrasi akan meminta Peserta untuk mengganti Username peserta menjadi Nama Lengkap | NIM [Contoh:  John Smith | 00000012345]
+      -Petugas Registrasi akan mendata dan memvalidasi peserta yang telah mengikuti Zoom STATE tersebut.
+      -Kemudian, petugas Registrasi akan mengarahkan peserta untuk melakukan Registrasi Ulang di website maxima.umn.ac.id dengan token unik yang akan diberikan petugas registrasi melalui Chat Waiting Room.
+      -Petugas registrasi akan mengizinkan peserta untuk masuk ke dalam STATE Room jika telah melakukan Registrasi Ulang dan pengubahan format nama yang sesuai.
+
+    `,
+  },
+  {
+    title: 'Jangan Lupa Absen Pas STATE!',
+    content: `
+    Tahu gak sih?  Mengikuti STATE dengan baik dan benar akan membuahkan kamu 1 SKKM Ilmiah & Penalaran, loh!
+    Agar kami dapat memastikan kehadiranmu, jangan lupa untuk absensi dengan benar ya Maximers!
+
+    Absensi STATE akan dilakukan 2x, yaitu di awal dan di akhir. 
+      -Sebelum STATE dimulai, kamu akan diberikan Token Unik oleh petugas registrasi melalui Chat Waiting Room dan token tersebut perlu kamu isi pada website Maxima.umn.ac.id
+      -Pada akhir sesi STATE, peserta akan diwajibkan untuk mengisi kuesioner yang akan dijadikan sebagai bukti kehadiran peserta untuk STATE tersebut.
+
+      Oh ya! Penting banget untuk kalian perhatikan bahwa semua STATE yang kalian daftarkan, harus diikuti hingga selesai ya agar kamu valid untuk menerima SKKM tersebut!
+ Misalnya; jika kamu mendaftarkan diri untuk 2 STATE, maka kamu harus mengikuti kedua STATE tersebut hingga akhir.
+
+Mudah diikuti kan, Maximers? Sampai bertemu di STATE! ;)
+
+    `,
+  },
+  {
+    title: 'Semua Seputar TOKEN',
+    content: `
+    “Token buat apa sih, min?” 
+Jadi Maximers, saat kalian akan mendaftar untuk STATE kalian akan mendapatkan 3 Token. 
+Nah, 3 token ini bisa kalian gunakan untuk mendaftar maksimal 3 STATE diantara Day 1 sampai Day 4.
+(1 Token = 1 STATE)
+Penting banget untuk kalian perhatikan bahwa semua STATE yang kalian daftarkan, harus diikuti ya!
+ Misalnya; jika kamu mendaftarkan diri untuk 2 STATE, maka kamu harus mengikuti kedua STATE tersebut hingga akhir.
+
+“Jika tidak, konsekuensinya apa min?”
+Kalau kamu tidak mengikuti semua STATE yang telah kamu daftarkan, kamu akan dianggap tidak valid untuk mendapatkan SKKM Ilmiah & Penalaran ya..
+
+    `,
+  },
+  {
+    title: 'Peraturan STATE (Penting!)',
+    content: `
+    Sebelum mengikuti STATE pada tanggal 7 - 10 September 2020, yuk simak dulu peraturan-peraturan yang berlaku ya!
+
+    1. STATE akan dimulai pada pukul 18.15 WIB - selesai (Paling lambat 21.30 WIB).
+    2. Peserta STATE wajib melakukan registrasi ulang pada pukul 18.15 - 18.30 WIB tanpa ada toleransi keterlambatan (Ruangan ZOOM akan di-lock pada pukul 18.30 WIB)
+    3. Peserta STATE wajib mengubah format username menjadi Nama Lengkap| NIM (e.g., John Smith| 00000012345)
+    4. Peserta STATE wajib menyalakan kamera saat sesi STATE berlangsung.
+    5. Peserta STATE diperkenankan untuk menyalakan microphone saat sesi interaktif.
+    6. Peserta STATE wajib memakai pakaian yang sopan & rapih serta memiliki posisi duduk yang sopan, baik dan benar.
+    7. Peserta STATE tidak diperkenankan untuk makan dan tidur selama sesi kegiatan.
+    8. Jika ingin ke toilet, peserta STATE wajib izin kepada panitia melalui chat dan kamera harus tetap dinyalakan.
+    9. Peserta STATE wajib melakukan absensi di awal sesi dan di akhir sesi STATE.
+    `,
+  }
 ];

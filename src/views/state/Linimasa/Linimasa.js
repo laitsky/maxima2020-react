@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import { Container } from '@material-ui/core';
 import {
   Timeline,
   TimelineItem,
@@ -9,6 +10,8 @@ import {
   TimelineContent,
   TimelineDot,
   TimelineOppositeContent,
+  Alert,
+  AlertTitle,
 } from '@material-ui/lab';
 import Typography from '@material-ui/core/Typography';
 import Swal from 'sweetalert2';
@@ -50,7 +53,15 @@ const Linimasa = () => {
   }, [data]);
 
   return (
-    <>
+    <Container maxWidth="sm">
+      <h1>Linimasa</h1>
+      <Alert severity="info">
+        <AlertTitle>
+          <strong>Ahoy, Wanderers!</strong>
+        </AlertTitle>
+        Kamu dapat mengunduh <em>virtual background</em> kamu{' '}
+        <a href="https://mxm.one/virtual-background-maba">disini</a>
+      </Alert>
       <Timeline align="alternate">
         {days.map((day) => {
           if (hasDay.includes(day)) {
@@ -93,7 +104,7 @@ const Linimasa = () => {
           );
         })}
       </Timeline>
-    </>
+    </Container>
   );
 };
 export default Linimasa;

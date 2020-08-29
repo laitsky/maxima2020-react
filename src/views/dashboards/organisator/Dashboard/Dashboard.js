@@ -4,6 +4,7 @@ import jwtDecode from 'jwt-decode';
 import { Box, Button, Container, Divider } from '@material-ui/core';
 import Swal from 'sweetalert2';
 import MUIDataTable from 'mui-datatables';
+import Alert from '@material-ui/lab/Alert';
 import organisatorService from '../../../../services/organisator';
 
 const tableColumns = [
@@ -94,7 +95,15 @@ const Dashboard = () => {
 
   return (
     <Container style={{ paddingTop: '2em' }}>
-      <h1 style={{ marginTop: '1.5em' }}>Dashboard Kamu</h1>
+      <Alert severity="info">
+        Halo! Penantian kamu sudah berakhir ⁠⁠— unduh latar belakang
+        virtual untuk organisator{' '}
+        <a href="https://mxm.one/virtual-background-organisator">
+          disini
+        </a>
+        .
+      </Alert>
+      <h1>Dashboard Kamu</h1>
       <Divider style={{ marginBottom: '1.5em' }} />
       <Box style={{ marginTop: '1em' }}>
         <MUIDataTable data={data} columns={tableColumns} />
