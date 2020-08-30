@@ -11,3 +11,4 @@ export { default as MaxiLand} from './Maxiland-07.png';
 export { default as KapalMxm} from './Kapal-01.png';
 export { default as FrameAtas } from './Frame-Atas.png';
 export { default as FrameBawah } from './Frame-Bawah.png';
+export { default as ZoomBG } from './Zoom-BG.png';

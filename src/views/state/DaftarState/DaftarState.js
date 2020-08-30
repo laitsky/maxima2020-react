@@ -69,6 +69,7 @@ const DaftarState = ({ day }) => {
         stiffness: 50,
         damping: 20,
       }}
+      className="state-daftar-bg"
     >
       <Box style={{ minHeight: '100vh' }}>
         <Header logo={logo} day={day} />
