@@ -68,5 +68,6 @@ export {
   JingleMaxima,
   Unauthorized401,
   Forbidden403,
+  VirtualBG,
 } from './others';
 export { Shortener, CustomShortener } from './shortener';

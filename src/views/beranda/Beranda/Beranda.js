@@ -43,8 +43,17 @@ const Beranda = () => {
           alt="Frame atas"
           className="maxiland-alt-frame"
         />
-        <Box className="new-beranda-container" style={{marginBottom: '1em'}}>
-          <iframe className="beranda-maxima-video" src="https://www.youtube.com/embed/xzw9Dtjoquk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <Box
+          className="new-beranda-container"
+          style={{ marginBottom: '1em' }}
+        >
+          <iframe
+            className="beranda-maxima-video"
+            src="https://www.youtube.com/embed/xzw9Dtjoquk"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </Box>
         <Box className="new-beranda-container">
           <div>
@@ -91,15 +100,11 @@ const Beranda = () => {
                   loop: Infinity,
                 }}
               >
-                <a
-                  href="https://mxm.one/maxitour"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
+                <Link to="virtual-bg">
                   <MxmButton className={classes.maxilandbtn}>
                     <h2 className="maxiland-text2">UNDUH!</h2>
                   </MxmButton>
-                </a>
+                </Link>
               </motion.div>
             </Box>
           </div>

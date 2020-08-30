@@ -25,6 +25,7 @@ import {
   CustomShortener,
   AboutUs,
   FAQ,
+  VirtualBG,
 } from './views';
 import {
   AcaraRouter,
@@ -117,6 +118,7 @@ const AppRouter = () => {
             exact
             component={JingleMaxima}
           />
+          <Route path="/virtual-bg" exact component={VirtualBG} />
           <Route path="/tour" exact component={MaxiTour} />
           <Route path="/about-us" exact component={AboutUs} />
           <Route path="/faq" exact component={FAQ} />
