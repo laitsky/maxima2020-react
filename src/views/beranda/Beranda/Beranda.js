@@ -50,10 +50,11 @@ const Beranda = () => {
           <iframe
             className="beranda-maxima-video"
             src="https://www.youtube.com/embed/xzw9Dtjoquk"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+            allowFullScreen
+            title="Pengenalan MAXIMA 2020"
+          />
         </Box>
         <Box className="new-beranda-container">
           <div>

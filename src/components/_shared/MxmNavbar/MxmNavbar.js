@@ -13,7 +13,7 @@ const isLoggedIn = !!window.sessionStorage.getItem('token');
 
 const useStyles = makeStyles({
   Redbutton: {
-    //display: 'none', // diubah lagi pas state
+    // display: 'none', // diubah lagi pas state
     backgroundColor: '#F4224B',
     padding: '1px 5px 1px 5px',
     transitionDuration: '0.2s',

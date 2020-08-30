@@ -15,7 +15,6 @@ import studentService from '../../../services/student';
 
 const useStyles = makeStyles({
   stateorgbg: {
-    background:'white',
     background: 'linear-gradient(to bottom, white,white, #ffd6de)',
     minHeight: '100vh',
   },

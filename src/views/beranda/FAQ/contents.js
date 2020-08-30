@@ -165,5 +165,5 @@ Kalau kamu tidak mengikuti semua STATE yang telah kamu daftarkan, kamu akan dian
     8. Jika ingin ke toilet, peserta STATE wajib izin kepada panitia melalui chat dan kamera harus tetap dinyalakan.
     9. Peserta STATE wajib melakukan absensi di awal sesi dan di akhir sesi STATE.
     `,
-  }
+  },
 ];

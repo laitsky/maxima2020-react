@@ -72,7 +72,9 @@ const Linimasa = () => {
               <strong>Ahoy, Wanderers!</strong>
             </AlertTitle>
             Kamu dapat mengunduh <em>virtual background</em> kamu{' '}
-            <a href="https://mxm.one/virtual-background-maba">disini</a>
+            <a href="https://mxm.one/virtual-background-maba">
+              disini
+            </a>
           </Alert>
           <Timeline align="alternate">
             {days.map((day) => {
@@ -89,7 +91,7 @@ const Linimasa = () => {
                       </Typography>
                     </TimelineOppositeContent>
                     <TimelineSeparator>
-                      <TimelineDot color="secondary"/>
+                      <TimelineDot color="secondary" />
                       <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent>
@@ -106,7 +108,7 @@ const Linimasa = () => {
                     </Typography>
                   </TimelineOppositeContent>
                   <TimelineSeparator>
-                    <TimelineDot color="secondary"/>
+                    <TimelineDot color="secondary" />
                     <TimelineConnector />
                   </TimelineSeparator>
                   <TimelineContent>
