@@ -1,0 +1,25 @@
+.linimasa-bg{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(to top,white , #c1e3de);
+}
+#linimasa-text{
+    margin-top: 0; 
+    padding-top: 10px;
+    color: #F4224B;
+    font-family: canaro-bold;
+}
+.MuiTimelineContent-root p{
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 3px#8f8f8f;
+    font-family: 'canaro-medium';
+    color: #41CEBA;
+    padding: 5px 0 5px 0;
+    background-color: #1f2C4C;
+    transform: translateY(-8px);
+}
+
+.MuiTimelineConnector-root{
+    border: 1px solid #F2D008;
+}

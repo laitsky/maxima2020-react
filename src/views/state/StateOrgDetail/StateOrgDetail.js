@@ -14,6 +14,10 @@ import {
 import studentService from '../../../services/student';
 
 const useStyles = makeStyles({
+  stateorgbg: {
+    background:'white',
+    background: 'linear-gradient(to bottom, white,white, #ffd6de)',
+  },
   statetext: {
     color: '#1F2C4C',
     fontFamily: 'canaro-bold',
@@ -114,68 +118,70 @@ const StateOrgDetail = () => {
     }
   };
   return (
-    <motion.div
-      initial={{ x: -999, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{
-        type: 'spring',
-        stiffness: 50,
-        damping: 20,
-      }}
-    >
-      <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <MxmStateLogoFrame>
-            {data.link_logo && (
-              <MxmLogoContainer
-                className={classes.statelogo}
-                src={data.link_logo}
-              />
-            )}
-          </MxmStateLogoFrame>
-          <h3 className={classes.statetext}>Nama Kegiatan</h3>
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              type: 'spring',
-              stiffness: 50,
-              damping: 20,
-              delay: 0.7,
-            }}
+    <Box className={classes.stateorgbg}>
+      <motion.div
+        initial={{ x: -999, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 50,
+          damping: 20,
+        }}
+      >
+        <Container maxWidth="xs" style={{ padding: '0 2em 0 2em' }}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
           >
-            <MxmLongCard className={classes.statecard}>
-              {data.name}
-            </MxmLongCard>
-          </motion.div>
-          <h3 className={classes.statetext}>Tanggal</h3>
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              type: 'spring',
-              stiffness: 50,
-              damping: 20,
-              delay: 1,
-            }}
-          >
-            <MxmLongCard className={classes.statecard}>
-              {printDate(data.day)}
-            </MxmLongCard>
-          </motion.div>
-          <Box style={{ marginTop: '1em', marginBottom: '1em' }}>
-            <MxmButton onClick={handleClick}>
-              Simpan (Hari {data.day})
-            </MxmButton>
+            <MxmStateLogoFrame>
+              {data.link_logo && (
+                <MxmLogoContainer
+                  className={classes.statelogo}
+                  src={data.link_logo}
+                />
+              )}
+            </MxmStateLogoFrame>
+            <h3 className={classes.statetext}>Nama Kegiatan</h3>
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 0.7,
+              }}
+            >
+              <MxmLongCard className={classes.statecard}>
+                {data.name}
+              </MxmLongCard>
+            </motion.div>
+            <h3 className={classes.statetext}>Tanggal</h3>
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 50,
+                damping: 20,
+                delay: 1,
+              }}
+            >
+              <MxmLongCard className={classes.statecard}>
+                {printDate(data.day)}
+              </MxmLongCard>
+            </motion.div>
+            <Box style={{ marginTop: '1em', marginBottom: '1em' }}>
+              <MxmButton onClick={handleClick}>
+                Simpan (Hari {data.day})
+              </MxmButton>
+            </Box>
           </Box>
-        </Box>
-      </Container>
-    </motion.div>
+        </Container>
+      </motion.div>
+    </Box>
   );
 };
 

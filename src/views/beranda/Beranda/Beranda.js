@@ -3,13 +3,14 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
+import { Box, Zoom } from '@material-ui/core';
 import {
   MaxiLand,
   FrameAtas,
   FrameBawah,
   KapalMxm,
   MxmLogoText,
+  ZoomBG,
 } from '../../../assets';
 import { MxmButton } from '../../../components/reusable/button';
 import './Beranda.scss';
@@ -42,6 +43,108 @@ const Beranda = () => {
           alt="Frame atas"
           className="maxiland-alt-frame"
         />
+        <Box className="new-beranda-container" style={{marginBottom: '1em'}}>
+          <iframe className="beranda-maxima-video" src="https://www.youtube.com/embed/xzw9Dtjoquk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </Box>
+        <Box className="new-beranda-container">
+          <div>
+            <h1 className="maxiland-text">
+              Unduh latar belakang
+              <br />
+              ZOOM kamu di sini
+              {/* <span style={{ color: '#F2D008' }}>MAXITOUR</span> */}
+            </h1>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width="100%"
+            >
+              <motion.div
+                animate={{
+                  y: [
+                    5,
+                    4,
+                    3,
+                    2,
+                    1,
+                    0,
+                    -1,
+                    -2,
+                    -3,
+                    -4,
+                    -5,
+                    -4,
+                    -3,
+                    -2,
+                    -1,
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  ease: 'easeInOut',
+                  loop: Infinity,
+                }}
+              >
+                <a
+                  href="https://mxm.one/maxitour"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <MxmButton className={classes.maxilandbtn}>
+                    <h2 className="maxiland-text2">UNDUH!</h2>
+                  </MxmButton>
+                </a>
+              </motion.div>
+            </Box>
+          </div>
+          <motion.div
+            animate={{
+              y: [
+                7,
+                6,
+                5,
+                4,
+                3,
+                2,
+                1,
+                0,
+                -1,
+                -2,
+                -3,
+                -4,
+                -5,
+                -6,
+                -7,
+                -6,
+                -5,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+              ],
+            }}
+            transition={{
+              duration: 3.5,
+              ease: 'easeInOut',
+              loop: Infinity,
+            }}
+          >
+            <img src={ZoomBG} alt="Maxiland" className="maxiland" />
+          </motion.div>
+        </Box>
         <Box className="new-beranda-container" id="kapal-maxima">
           <motion.div
             animate={{

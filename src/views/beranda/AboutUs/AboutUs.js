@@ -111,7 +111,7 @@ const AboutUs = () => {
                 delay: 1.2,
               }}
             >
-              L O
+              L
             </motion.div>
             <motion.div
               initial={{ y: -99, opacity: 0 }}
@@ -123,7 +123,7 @@ const AboutUs = () => {
                 delay: 1.4,
               }}
             >
-              F M
+              S O
             </motion.div>
             <motion.div
               initial={{ y: -99, opacity: 0 }}
@@ -135,7 +135,7 @@ const AboutUs = () => {
                 delay: 1.6,
               }}
             >
-              A
+              F M
             </motion.div>
             <motion.div
               initial={{ y: -99, opacity: 0 }}
@@ -147,7 +147,7 @@ const AboutUs = () => {
                 delay: 1.8,
               }}
             >
-              X
+              A
             </motion.div>
             <motion.div
               initial={{ y: -99, opacity: 0 }}
@@ -159,7 +159,7 @@ const AboutUs = () => {
                 delay: 2,
               }}
             >
-              I
+              X
             </motion.div>
             <motion.div
               initial={{ y: -99, opacity: 0 }}
@@ -171,7 +171,7 @@ const AboutUs = () => {
                 delay: 2.2,
               }}
             >
-              M
+              I
             </motion.div>
             <motion.div
               initial={{ y: -99, opacity: 0 }}
@@ -181,6 +181,18 @@ const AboutUs = () => {
                 stiffness: 100,
                 damping: 20,
                 delay: 2.4,
+              }}
+            >
+              M
+            </motion.div>
+            <motion.div
+              initial={{ y: -99, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 100,
+                damping: 20,
+                delay: 2.6,
               }}
             >
               A
@@ -196,7 +208,7 @@ const AboutUs = () => {
                   type: 'spring',
                   stiffness: 100,
                   damping: 20,
-                  delay: 2,
+                  delay: 2.2,
                 }}
               >
                 <li className="about-us-first-list">
@@ -211,7 +223,7 @@ const AboutUs = () => {
                   type: 'spring',
                   stiffness: 100,
                   damping: 20,
-                  delay: 2.3,
+                  delay: 2.5,
                 }}
               >
                 <li className="about-us-second-list">
@@ -226,7 +238,7 @@ const AboutUs = () => {
                   type: 'spring',
                   stiffness: 100,
                   damping: 20,
-                  delay: 2.7,
+                  delay: 2.8,
                 }}
               >
                 <li className="about-us-third-list">

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
-import { Container } from '@material-ui/core';
+import { motion } from 'framer-motion';
+import { Container, Box } from '@material-ui/core';
 import {
   Timeline,
   TimelineItem,
@@ -16,6 +17,7 @@ import {
 import Typography from '@material-ui/core/Typography';
 import Swal from 'sweetalert2';
 import studentService from '../../../services/student';
+import './Linimasa.scss';
 
 const Linimasa = () => {
   const history = useHistory();
@@ -53,58 +55,70 @@ const Linimasa = () => {
   }, [data]);
 
   return (
-    <Container maxWidth="sm">
-      <h1>Linimasa</h1>
-      <Alert severity="info">
-        <AlertTitle>
-          <strong>Ahoy, Wanderers!</strong>
-        </AlertTitle>
-        Kamu dapat mengunduh <em>virtual background</em> kamu{' '}
-        <a href="https://mxm.one/virtual-background-maba">disini</a>
-      </Alert>
-      <Timeline align="alternate">
-        {days.map((day) => {
-          if (hasDay.includes(day)) {
-            const stateData = data.find(
-              (d) => d.state_activity.day === day,
-            );
-            const { name } = stateData.state_activity;
-            return (
-              <TimelineItem>
-                <TimelineOppositeContent>
-                  <Typography color="textSecondary">
-                    Hari {day}
-                  </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot />
-                  <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>
-                  <Typography>{name}</Typography>
-                </TimelineContent>
-              </TimelineItem>
-            );
-          }
-          return (
-            <TimelineItem>
-              <TimelineOppositeContent>
-                <Typography color="textSecondary">
-                  Hari {day}
-                </Typography>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot />
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Typography>-</Typography>
-              </TimelineContent>
-            </TimelineItem>
-          );
-        })}
-      </Timeline>
-    </Container>
+    <Box className="linimasa-bg">
+      <motion.div
+        initial={{ x: -999, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 50,
+          damping: 20,
+        }}
+      >
+        <Container maxWidth="sm">
+          <h1 id="linimasa-text">LINIMASA</h1>
+          <Alert severity="info">
+            <AlertTitle>
+              <strong>Ahoy, Wanderers!</strong>
+            </AlertTitle>
+            Kamu dapat mengunduh <em>virtual background</em> kamu{' '}
+            <a href="https://mxm.one/virtual-background-maba">disini</a>
+          </Alert>
+          <Timeline align="alternate">
+            {days.map((day) => {
+              if (hasDay.includes(day)) {
+                const stateData = data.find(
+                  (d) => d.state_activity.day === day,
+                );
+                const { name } = stateData.state_activity;
+                return (
+                  <TimelineItem>
+                    <TimelineOppositeContent>
+                      <Typography color="textSecondary">
+                        Hari {day}
+                      </Typography>
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                      <TimelineDot color="secondary"/>
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                      <Typography>{name}</Typography>
+                    </TimelineContent>
+                  </TimelineItem>
+                );
+              }
+              return (
+                <TimelineItem>
+                  <TimelineOppositeContent>
+                    <Typography color="textSecondary">
+                      Hari {day}
+                    </Typography>
+                  </TimelineOppositeContent>
+                  <TimelineSeparator>
+                    <TimelineDot color="secondary"/>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <Typography>-</Typography>
+                  </TimelineContent>
+                </TimelineItem>
+              );
+            })}
+          </Timeline>
+        </Container>
+      </motion.div>
+    </Box>
   );
 };
 export default Linimasa;
