@@ -95,12 +95,12 @@ Twibbon digunakan hingga akhir rangkaian MAXIMA 2020 (26 September 2020)
 
 	Langkah-langkah untuk mendaftar STATE :
         -Akses Website maxima.umn.ac.id
-        -Klik ‘Masuk’ untuk mendaftarkan akun baru
+        -Klik 'DAFTAR' untuk mendaftarkan akun baru
         -Lalu Klik ‘STATE’ untuk memulai pendaftaran kegiatan STATE 
-        -Pilih hari yang dituju dan klik kegiatan yang diinginkan
+        -Pilih hari yang dituju dan klik kegiatan yang diinginkan (1 Hari hanya bisa 1 STATE)
         -Ketuk ‘Simpan’ untuk menyelesaikan pendaftaran STATE
         -Jika ingin membatalkan kegiatan, bisa memilih ‘ Batalkan STATE ini”
-        -Lihat jadwal STATE mu dari tombol navigasi dibawah “Schedule”
+        -Lihat jadwal STATE mu dari tombol navigasi dibawah “Linimasa”
     `,
   },
   {

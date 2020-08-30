@@ -1,6 +1,6 @@
 {
   "name": "maxima2020-react",
-  "version": "3.0.0-RC10.4",
+  "version": "3.0.0-RC10.4.1",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
