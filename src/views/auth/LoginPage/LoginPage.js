@@ -38,6 +38,7 @@ const LoginPage = () => {
         'token',
         returnedData.accessToken,
       );
+      window.sessionStorage.setItem('name', returnedData.name);
       const decoded = jwtDecode(returnedData.accessToken);
       switch (decoded.roles[0]) {
         case 1:

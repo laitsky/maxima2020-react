@@ -222,9 +222,16 @@ const RegisteredStateDetail = ({ day }) => {
 
   // handle link zoom click
   const handleLinkClick = () => {
-    window.open(`https://${data.state_activity.room}`, '_blank');
+    const name = window.sessionStorage.getItem('name');
+    decoded = jwtDecode(window.sessionStorage.getItem('token'));
+    const { nim } = decoded;
+    return data.state_activity.room
+      ? window.open(
+          `${data.state_activity.room}&uname=${name}%20%7C%20000000${nim}`,
+          '_blank',
+        )
+      : null;
   };
-
   // eslint-disable-next-line consistent-return
   const printDate = (stateDay) => {
     switch (stateDay) {
@@ -314,7 +321,9 @@ const RegisteredStateDetail = ({ day }) => {
               className={classes.statecard}
               onClick={handleLinkClick}
             >
-              {data.state_activity.room}
+              {data.state_activity.room
+                ? 'CLICK HERE TO JOIN'
+                : 'COMING SOON'}
             </MxmLongCard>
           </motion.div>
           <Box
