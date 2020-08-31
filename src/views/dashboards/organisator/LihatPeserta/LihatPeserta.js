@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Button, Container, Divider } from '@material-ui/core';
+import { Box, Container, Divider } from '@material-ui/core';
 import Swal from 'sweetalert2';
 import MUIDataTable from 'mui-datatables';
 import organisatorService from '../../../../services/organisator';

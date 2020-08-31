@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Zoom } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import {
   MaxiLand,
   FrameAtas,

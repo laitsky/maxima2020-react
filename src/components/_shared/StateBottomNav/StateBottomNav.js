@@ -7,7 +7,6 @@ import {
 } from '@material-ui/core';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import TimelineIcon from '@material-ui/icons/Timeline';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles({

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Container, Button } from '@material-ui/core';
 import UpdatePasswordDialog from './components/UpdatePasswordDialog';
-import userService from '../../../services/user';
 
 const ProfileMaba = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -20,7 +19,6 @@ const ProfileMaba = () => {
   const onSubmit = async (data) => {
     reset();
     // eslint-disable-next-line no-param-reassign
-    console.log(data);
   };
   return (
     <Container maxWidth="xs">

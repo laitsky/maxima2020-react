@@ -16,7 +16,6 @@ export default ({
   onSubmit,
   register,
   errors,
-  watch,
 }) => (
   <Dialog
     open={open}
