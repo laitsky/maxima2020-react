@@ -30,10 +30,7 @@ const tableColumns = [
     options: {
       filter: true,
       sort: true,
-      customBodyRender: (value) => {
-        if (value) return '-';
-        return 'Ya';
-      },
+      customBodyRender: (value) => <>{value ? 'Ya' : 'Tidak'}</>,
     },
   },
 ];
