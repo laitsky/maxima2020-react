@@ -12,12 +12,16 @@ import {
   MxmLogoText,
   ZoomBG,
 } from '../../../assets';
-import { MxmButton } from '../../../components/reusable/button';
+import { MxmInput, MxmButton, AlignMiddle } from '../../../components/reusable/';
 import './Beranda.scss';
 
 const useStyles = makeStyles({
   maxilandbtn: {
     padding: '10px 1em 10px 1em',
+  },
+  inpcont: {
+    marginTop: "10vh",
+    marginBottom: "40vh",
   },
 });
 
@@ -43,6 +47,12 @@ const Beranda = () => {
           alt="Frame atas"
           className="maxiland-alt-frame"
         />
+        <AlignMiddle className={classes.inpcont}>
+          <h1 className="maxiland-text">LABEL</h1>
+          <MxmInput placeholder="Masukkan email kamu..."></MxmInput>
+          <MxmButton>SUBMIT</MxmButton>
+        </AlignMiddle>
+
         <Box
           className="new-beranda-container"
           style={{ marginBottom: '1em' }}
