@@ -12,3 +12,4 @@ export { default as KapalMxm} from './Kapal-01.png';
 export { default as FrameAtas } from './Frame-Atas.png';
 export { default as FrameBawah } from './Frame-Bawah.png';
 export { default as ZoomBG } from './Zoom-BG.png';
+export { default as MaxiIllus } from './Last_Panel-01.png';

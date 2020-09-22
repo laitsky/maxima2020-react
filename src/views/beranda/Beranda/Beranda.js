@@ -11,14 +11,43 @@ import {
   KapalMxm,
   MxmLogoText,
   ZoomBG,
+  MaxiIllus
 } from '../../../assets';
-import { MxmButton } from '../../../components/reusable/button';
+import { MxmButton, MxmAppendInput } from '../../../components/reusable/';
 import './Beranda.scss';
 
 const useStyles = makeStyles({
   maxilandbtn: {
     padding: '10px 1em 10px 1em',
   },
+  inpcont:{
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '40%',
+    transform: 'translateY(-3em)',
+
+    '@media(max-width:1024px)':{
+      width: '100%',
+      transform: 'none',
+    }
+  },
+  transformUp:{
+    transform: 'translateY(-5.5em)',
+
+    '@media(max-width:1024px)':{
+      transform: 'none'
+    }
+  },
+  malpunbtn:{
+    backgroundColor: 'inherit',
+    boxShadow: 'none',
+    border: 'none',
+    outline: 'none',
+    color: 'white',
+    fontFamily: 'canaro-bold',
+  }
 });
 
 const Beranda = () => {
@@ -29,11 +58,11 @@ const Beranda = () => {
 
   return (
     <motion.div
-      initial={{ y: -999 }}
-      animate={{ y: 0 }}
+      initial={{ y: -999, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{
         type: 'spring',
-        stiffness: 100,
+        stiffness: 25,
         damping: 20,
       }}
     >
@@ -43,6 +72,76 @@ const Beranda = () => {
           alt="Frame atas"
           className="maxiland-alt-frame"
         />
+        <Box
+          display = "flex"
+          flexDirection = "column"
+          justifyContent = "center"
+          alignItems = "center"
+          className={classes.transformUp}
+        >
+          <img
+            src={MxmLogoText}
+            className="malpun-mxm-img"
+          />
+          <span className="malpun-text" style={{ margin: '0.7em 0 0.7em 0' }}>MAU NONTON MALAM PUNCAK ?</span>
+          <Box className="new-beranda-container" id="mxm-malpun">
+            <motion.div
+              animate={{
+                y: [
+                  7,
+                  6,
+                  5,
+                  4,
+                  3,
+                  2,
+                  1,
+                  0,
+                  -1,
+                  -2,
+                  -3,
+                  -4,
+                  -5,
+                  -6,
+                  -7,
+                  -6,
+                  -5,
+                  -4,
+                  -3,
+                  -2,
+                  -1,
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                ],
+              }}
+              transition={{
+                duration: 3.5,
+                ease: 'easeInOut',
+                loop: Infinity,
+              }}
+            >
+              <img
+                src={MaxiIllus}
+                className="maxiland-malpun"
+              />
+            </motion.div>
+            <Box className={classes.inpcont}>
+              <span className="maxiland-isi-email">ISI EMAIL-MU DISINI !</span>
+              <MxmAppendInput className="malpun-inp">
+                <input type="email"/>
+                <span>
+                  <button className={classes.malpunbtn}>SEND!</button>
+                </span>
+              </MxmAppendInput>
+              <span className="malpun-desc">Klik link Youtube Live<br/>yang kami beri, ya!<br/></span>
+              <span className="maxiland-isi-email">ENJOY MAXIMA 2020</span>
+            </Box>
+          </Box>
+        </Box>
         <Box
           className="new-beranda-container"
           style={{ marginBottom: '1em' }}
