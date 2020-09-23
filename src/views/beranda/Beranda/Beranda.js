@@ -130,7 +130,7 @@ const Beranda = () => {
               />
             </motion.div>
             <Box className={classes.inpcont}>
-              <span className="maxiland-isi-email">ISI EMAIL-MU DISINI !</span>
+              <span className="maxiland-isi-email" style={{ color: "#1F2C4C" }}>ISI EMAIL-MU DISINI !</span>
               <MxmAppendInput className="malpun-inp">
                 <input type="email"/>
                 <span>
@@ -138,7 +138,7 @@ const Beranda = () => {
                 </span>
               </MxmAppendInput>
               <span className="malpun-desc">Klik link Youtube Live<br/>yang kami beri, ya!<br/></span>
-              <span className="maxiland-isi-email">ENJOY MAXIMA 2020</span>
+              <span className="maxiland-isi-email">ENJOY MAXIMA 2020!</span>
             </Box>
           </Box>
         </Box>
