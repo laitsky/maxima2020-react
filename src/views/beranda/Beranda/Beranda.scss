@@ -6,7 +6,8 @@
 .beranda-maxima-video{
   width: 60vw;
   height: 32vw;
-  transform: translateY(-3em);
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 .new-beranda-container{
   display: flex;
@@ -27,6 +28,32 @@
 .maxiland{
   width: 40vw;
   height: auto;
+}
+.maxiland-malpun{
+  width: 28vw;
+  height: auto;
+  transform: translateX(4em);
+}
+.maxiland-isi-email{
+  letter-spacing: 1px;
+  font-size: 2vw;
+  font-family: canaro-bold;
+  color: #F4224B;
+  margin: 0 0 0.7em 0;
+  text-align: center;
+}
+.malpun-desc{
+  font-size: 1.6vw;
+  font-family: canaro-light;
+  color: #F4224B;
+  margin: 0.7em 0 0.3em 0;
+  text-align: center;
+}
+.malpun-text{
+  font-size: 3vw;
+  font-family: canaro-bold;
+  color: #F4224B;
+  margin-bottom: 10px;
 }
 .maxiland-text{
   font-size: 3vw;
@@ -52,7 +79,25 @@
   font-family: canaro-bold;
   color: #F4224B;
 }
+.malpun-mxm-img{
+  width: 100px;
+  height: auto;
+  display: none;
+}
+.malpun-inp{
+  width: 100%;
+
+  span:hover{
+    border: 3px solid #F2D008;
+  }
+}
+#mxm-malpun{
+  justify-content: center;
+}
 @media (max-width: 1024px){
+  .malpun-mxm-img{
+    display: block;
+  }
   .kapal-maxima-logo{
     width: 50px;
   }
@@ -65,12 +110,18 @@
   .maxiland-alt-frame{
     display: none;
   }
+  .malpun-inp{
+    width: 100%;
+  }
   .new-beranda{
     background: none;
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 1em;
     min-height: fit-content;
+  }
+  #mxm-malpun{
+    margin-bottom: 3em;
   }
   #kapal-maxima{
     flex-direction: column;
@@ -85,10 +136,23 @@
   .maxiland{
     width: 95vw;
   }
+  .malpun-text{
+    font-size: 5vw;
+    text-align: center;
+    margin-bottom: 20px;
+  }
   .maxiland-text{
     font-size: 6vw;
     text-align: center;
     margin-bottom: 20px;
+  }
+  .maxiland-isi-email{
+    font-size: 5vw;
+  }
+  .maxiland-malpun{
+    width: 95vw;
+    margin: 30px 0 0 0;
+    transform: none;
   }
   .maxiland-text2{
     font-size: 5vw;
