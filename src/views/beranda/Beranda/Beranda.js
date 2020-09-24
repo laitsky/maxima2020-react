@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
+import Swal from 'sweetalert2';
 import {
   MaxiLand,
   FrameAtas,
@@ -11,16 +12,20 @@ import {
   KapalMxm,
   MxmLogoText,
   ZoomBG,
-  MaxiIllus
+  MaxiIllus,
 } from '../../../assets';
-import { MxmButton, MxmAppendInput } from '../../../components/reusable/';
+import {
+  MxmButton,
+  MxmAppendInput,
+} from '../../../components/reusable';
 import './Beranda.scss';
+import malpunService from '../../../services/malpun';
 
 const useStyles = makeStyles({
   maxilandbtn: {
     padding: '10px 1em 10px 1em',
   },
-  inpcont:{
+  inpcont: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -28,33 +33,70 @@ const useStyles = makeStyles({
     width: '40%',
     transform: 'translateY(-3em)',
 
-    '@media(max-width:1024px)':{
+    '@media(max-width:1024px)': {
       width: '100%',
       transform: 'none',
-    }
+    },
   },
-  transformUp:{
+  transformUp: {
     transform: 'translateY(-5.5em)',
 
-    '@media(max-width:1024px)':{
-      transform: 'none'
-    }
+    '@media(max-width:1024px)': {
+      transform: 'none',
+    },
   },
-  malpunbtn:{
+  malpunbtn: {
     backgroundColor: 'inherit',
     boxShadow: 'none',
     border: 'none',
     outline: 'none',
     color: 'white',
     fontFamily: 'canaro-bold',
-  }
+  },
 });
 
 const Beranda = () => {
+  const [email, setEmail] = useState('');
   const classes = useStyles();
   useEffect(() => {
-    document.title = 'MAXIMA 2020';
+    document.title =
+      'MALAM PUNCAK MAXIMA 2020 - MAXIMA Isla: Fiesta Para El Winner';
   }, []);
+
+  const submitEmail = async () => {
+    if (email.length === 0) {
+      Swal.fire({
+        title: 'Perhatian!',
+        text: 'Isi alamat email kamu!',
+        icon: 'error',
+        confirmButtonText: 'Coba lagi',
+      });
+    } else {
+      try {
+        setEmail('');
+        const returnedData = await malpunService.mailService(email);
+        Swal.fire({
+          title: 'Perhatian!',
+          text: returnedData.message,
+          icon: 'success',
+          confirmButtonText: 'Coba lagi',
+        });
+      } catch (error) {
+        Swal.fire({
+          title: 'Perhatian!',
+          text: error.response.data.message,
+          icon: 'error',
+          confirmButtonText: 'Coba lagi',
+        });
+      }
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      submitEmail();
+    }
+  };
 
   return (
     <motion.div
@@ -73,17 +115,23 @@ const Beranda = () => {
           className="maxiland-alt-frame"
         />
         <Box
-          display = "flex"
-          flexDirection = "column"
-          justifyContent = "center"
-          alignItems = "center"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
           className={classes.transformUp}
         >
           <img
             src={MxmLogoText}
+            alt="text logo maxima"
             className="malpun-mxm-img"
           />
-          <span className="malpun-text" style={{ margin: '0.7em 0 0.7em 0' }}>MAU NONTON MALAM PUNCAK ?</span>
+          <span
+            className="malpun-text"
+            style={{ margin: '0.7em 0 0.7em 0' }}
+          >
+            MAU NONTON MALAM PUNCAK?
+          </span>
           <Box className="new-beranda-container" id="mxm-malpun">
             <motion.div
               animate={{
@@ -126,19 +174,44 @@ const Beranda = () => {
             >
               <img
                 src={MaxiIllus}
+                alt="Ilustrasi MAXIMA"
                 className="maxiland-malpun"
               />
             </motion.div>
             <Box className={classes.inpcont}>
-              <span className="maxiland-isi-email" style={{ color: "#1F2C4C" }}>ISI EMAIL-MU DISINI !</span>
+              <span
+                className="maxiland-isi-email"
+                style={{ color: '#1F2C4C' }}
+              >
+                ISI EMAIL-MU DISINI !
+              </span>
               <MxmAppendInput className="malpun-inp">
-                <input type="email"/>
+                <input
+                  type="text"
+                  placeholder="Masukkan email kamu disini..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                />
                 <span>
-                  <button className={classes.malpunbtn}>SEND!</button>
+                  <button
+                    type="button"
+                    className={classes.malpunbtn}
+                    onClick={submitEmail}
+                  >
+                    SEND!
+                  </button>
                 </span>
               </MxmAppendInput>
-              <span className="malpun-desc">Klik link Youtube Live<br/>yang kami beri, ya!<br/></span>
-              <span className="maxiland-isi-email">ENJOY MAXIMA 2020!</span>
+              <span className="malpun-desc">
+                Klik link Youtube Live
+                <br />
+                yang kami beri, ya!
+                <br />
+              </span>
+              <span className="maxiland-isi-email">
+                ENJOY MAXIMA 2020!
+              </span>
             </Box>
           </Box>
         </Box>
