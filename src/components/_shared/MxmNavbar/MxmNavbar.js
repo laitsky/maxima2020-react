@@ -210,7 +210,7 @@ export default () => {
                     </NavLink>
                   </MxmCancelButton>
 
-                  <MxmCancelButton className={classes.Redbutton}>
+                  <MxmCancelButton className={classes.Whitebutton}>
                     <NavLink
                       to="/daftar"
                       onClick={toggleNav}

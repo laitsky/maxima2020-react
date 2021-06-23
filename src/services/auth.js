@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://lumiere.my.id/api/auth';
+const baseUrl = 'http://localhost:3005/api/auth';
 
 const daftar = async (data) => {
   const request = await axios.post(`${baseUrl}/signup`, data);

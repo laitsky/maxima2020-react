@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://lumiere.my.id/api/public';
+const baseUrl = 'http://localhost:3005/api/public';
 
 const getAllHome = async () => {
   const request = await axios.get(`${baseUrl}/home/all_home`);
