@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://lumiere.my.id/api/user';
+const baseUrl = 'http://localhost:3005/api/user';
 
 const token = window.sessionStorage.getItem('token');
 const config = {

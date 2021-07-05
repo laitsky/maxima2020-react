@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://lumiere.my.id/api/malpun';
+const baseUrl = 'http://localhost:3005/api/malpun';
 
 const mailService = async (email) => {
   const request = await axios.post(`${baseUrl}/email`, { email });
