@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // eslint-disable-next-line import/prefer-default-export
 export const MxmButton = styled.button`
   font-family: 'canaro-bold';
-  font-weight: 900;
+  font-weight: 1000;
   font-size: 1em;
   color: #f4224b;
   text-transform: uppercase;
